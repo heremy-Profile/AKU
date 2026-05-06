@@ -178,6 +178,230 @@
     .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
     @media(max-width:1100px){.nav-links{display:none}.menu-btn{display:grid}.hero,.college-card,.ar-master,.why-chair,.news{grid-template-columns:1fr}.hero{min-height:auto}.hero-copy{padding:58px 34px}.hero-visual{min-height:430px;border-radius:0 0 42px 42px}.sculpted-strip{grid-template-columns:repeat(2,1fr);margin-top:24px}.micro-grid{grid-template-columns:repeat(2,1fr)}.ar-master{padding:42px 28px}.ar-device{min-height:420px}.mini-gallery,.news-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:680px){.nav,.hero,.section{width:calc(100% - 28px)}.logo{min-width:auto}.logo img{height:44px}.apply-btn{display:none}.hero h1{font-size:46px}.hero-copy{padding:40px 24px}.sculpted-strip{width:calc(100% - 28px);grid-template-columns:1fr}.program-shell{padding:0 0 40px;margin:0}.slider-arrow{display:none}.program-track{grid-auto-columns:82vw}.ar-master{min-height:700px}.ar-copy h2{font-size:42px}.phone-frame{width:100%;height:210px;right:0}.ar-tag{font-size:11px;padding:10px}.tag1{right:48%;top:155px}.tag2{right:8%;top:112px}.tag3{right:3%;top:246px}.stat-row,.mini-gallery,.news-grid,.footer-inner{grid-template-columns:1fr}.chair{grid-template-columns:1fr}.chair img{height:260px}.footer-inner{width:calc(100% - 40px)}}
+
+/* ═══════════════════════════════════════
+   MEGA MENU — AKU Enhanced Navigation
+═══════════════════════════════════════ */
+
+/* Nav item wrapper */
+.nav-links { position: static; }
+
+.nav-item {
+  position: static;
+}
+
+.nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 0;
+  font-size: 13px;
+  font-weight: 750;
+  color: #241844;
+  opacity: .86;
+  transition: color .2s, opacity .2s, font-size .2s;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-trigger:hover,
+.nav-item.is-open .nav-trigger {
+  opacity: 1;
+  color: #0a2855;
+  font-size: 14.5px;
+}
+
+.nav-chevron {
+  display: inline-block;
+  font-size: 11px;
+  transition: transform .25s ease;
+  color: var(--gold);
+}
+.nav-item.is-open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Mega panel */
+.mega-panel {
+  position: fixed;
+  left: 0; right: 0;
+  top: 0;
+  padding-top: 90px; /* pushed down below nav */
+  background: transparent;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .28s ease, transform .28s ease;
+  z-index: 49;
+}
+
+.nav-item.is-open .mega-panel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mega-inner {
+  background: linear-gradient(135deg, #0a1f44 0%, #0d2857 55%, #112360 100%);
+  border-top: 3px solid var(--gold);
+  display: flex;
+  gap: 0;
+  padding: 0;
+  box-shadow: 0 32px 80px rgba(5,18,55,.55);
+  min-height: 280px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+}
+
+.mega-panel--narrow .mega-inner {
+  max-width: 780px;
+}
+
+/* Columns */
+.mega-col {
+  flex: 1;
+  padding: 32px 28px;
+  border-right: 1px solid rgba(255,255,255,.07);
+  min-width: 200px;
+}
+.mega-col:last-child { border-right: none; }
+
+.mega-col--highlight {
+  background: rgba(255,255,255,.04);
+}
+
+.mega-col--cta {
+  background: linear-gradient(160deg, rgba(199,151,56,.18), rgba(14,36,80,.3));
+  flex: 0 0 260px;
+}
+
+/* Label */
+.mega-label {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(199,151,56,.25);
+}
+
+/* Links */
+.mega-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  transition: background .18s, color .18s, transform .18s;
+  margin-bottom: 4px;
+}
+.mega-link:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  transform: translateX(4px);
+}
+.mega-icon {
+  font-size: 20px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.08);
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: background .18s;
+}
+.mega-link:hover .mega-icon {
+  background: rgba(199,151,56,.25);
+}
+.mega-link b {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+.mega-link small {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,.52);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* CTA box */
+.mega-cta-box {
+  padding: 4px 0;
+}
+.mega-cta-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  font-family: Cinzel, Georgia, serif;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.mega-cta-box p {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+.mega-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #39117f, #7d48e9);
+  color: #fff !important;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 8px 24px rgba(90,40,180,.3);
+  white-space: nowrap;
+}
+.mega-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(90,40,180,.4);
+}
+.mega-btn--gold {
+  background: linear-gradient(135deg, #c79738, #e6c06e);
+  color: #2f2055 !important;
+  box-shadow: 0 8px 24px rgba(199,151,56,.3);
+}
+.mega-link-plain {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color .2s;
+  text-align: center;
+}
+.mega-link-plain:hover { color: var(--gold); }
+
+/* Overlay behind mega */
+.mega-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 14, 40, 0.45);
+  z-index: 48;
+  backdrop-filter: blur(2px);
+}
+.mega-overlay.active { display: block; }
+
+/* Nav grow on hover */
+.nav { transition: height .22s ease; }
   
 
 /* ═══════════════════════════════════════
@@ -944,8 +1168,197 @@ body.page-ready .aku-intro{opacity:0;visibility:hidden;pointer-events:none}
   </a>
   <header class="nav">
     <a class="logo" href="#home"><img src="assets/img/logo-full-new.png" alt="Chairman, Ain Al Khaleej University"></a>
-    <nav class="nav-links">
-      <a href="#programs">Study</a><a href="#college">Faculties</a><a href="#admissions">Admissions</a><a href="#research">Research</a><a href="#campus">Student Life</a><a href="#news">News</a><a href="#footer">About AKU</a>
+    <nav class="nav-links" id="mainNav">
+
+      <!-- Study -->
+      <div class="nav-item has-mega">
+        <a href="#programs" class="nav-trigger">Study <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">Explore Programs</div>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#127891;</span><span><b>All Programs</b><small>Browse our full catalog</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#129690;</span><span><b>Medicine &amp; Surgery</b><small>MBBS &mdash; 6-year pathway</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#129463;</span><span><b>Dentistry</b><small>BDS &mdash; Clinical excellence</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#128138;</span><span><b>Pharmacy</b><small>PharmD &mdash; Research-led</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Allied Health</div>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#127973;</span><span><b>Nursing</b><small>BSN &mdash; Patient-centred care</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#129467;</span><span><b>Radiology</b><small>BSRT &mdash; Advanced imaging</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#129470;</span><span><b>Physiotherapy</b><small>BPT &mdash; Rehabilitation</small></span></a>
+              <a class="mega-link" href="#programs"><span class="mega-icon">&#128300;</span><span><b>Medical Laboratory</b><small>BMLS &mdash; Diagnostics</small></span></a>
+            </div>
+            <div class="mega-col mega-col--cta">
+              <div class="mega-cta-box">
+                <div class="mega-cta-title">Start Your Journey</div>
+                <p>World-class healthcare education with simulation labs, clinical rotations &amp; research facilities.</p>
+                <a href="#admissions" class="mega-btn">Apply Now &rarr;</a>
+                <a href="#programs" class="mega-link-plain">View All Programs</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faculties -->
+      <div class="nav-item has-mega">
+        <a href="#college" class="nav-trigger">Faculties <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">Our Colleges</div>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#127963;</span><span><b>College of Medicine</b><small>Surgery &amp; Clinical Sciences</small></span></a>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#129463;</span><span><b>College of Dentistry</b><small>Oral Health &amp; Maxillofacial</small></span></a>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#128138;</span><span><b>College of Pharmacy</b><small>Pharmaceutical Sciences</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Allied &amp; Applied</div>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#127973;</span><span><b>Nursing Faculty</b><small>Advanced Nursing Practice</small></span></a>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#129467;</span><span><b>Health Sciences</b><small>Radiology &amp; Physiotherapy</small></span></a>
+              <a class="mega-link" href="#college"><span class="mega-icon">&#128300;</span><span><b>Medical Laboratory</b><small>Diagnostic Sciences</small></span></a>
+            </div>
+            <div class="mega-col mega-col--cta">
+              <div class="mega-cta-box">
+                <div class="mega-cta-title">World-Class Faculty</div>
+                <p>Our faculty brings decades of clinical practice and cutting-edge research to every classroom.</p>
+                <a href="#college" class="mega-btn">Meet Our Faculty &rarr;</a>
+                <a href="#research" class="mega-link-plain">Research Centers</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admissions -->
+      <div class="nav-item has-mega">
+        <a href="#admissions" class="nav-trigger">Admissions <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">How to Apply</div>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128203;</span><span><b>Apply Online</b><small>Start your application</small></span></a>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128209;</span><span><b>Requirements</b><small>Entry criteria &amp; documents</small></span></a>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128197;</span><span><b>Key Dates</b><small>Deadlines &amp; interviews</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Support &amp; Finance</div>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128176;</span><span><b>Tuition &amp; Fees</b><small>Transparent fee structure</small></span></a>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#127885;</span><span><b>Scholarships</b><small>Merit &amp; need-based awards</small></span></a>
+              <a class="mega-link" href="#admissions"><span class="mega-icon">&#129309;</span><span><b>Contact Admissions</b><small>Speak to an advisor</small></span></a>
+            </div>
+            <div class="mega-col mega-col--cta">
+              <div class="mega-cta-box">
+                <div class="mega-cta-title">Applications Open</div>
+                <p>Join a community of future healthcare leaders. Seats are limited &mdash; apply early.</p>
+                <a href="#admissions" class="mega-btn mega-btn--gold">Apply Now &rarr;</a>
+                <a href="#admissions" class="mega-link-plain">Download Prospectus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Research -->
+      <div class="nav-item has-mega">
+        <a href="#research" class="nav-trigger">Research <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">Research Areas</div>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#129516;</span><span><b>Biomedical Sciences</b><small>Genetics &amp; cell biology</small></span></a>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#129514;</span><span><b>Clinical Trials</b><small>Phase I&ndash;III studies</small></span></a>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#129302;</span><span><b>AI in Medicine</b><small>Computational diagnostics</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Resources</div>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#128218;</span><span><b>Publications</b><small>Journals &amp; papers</small></span></a>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#127959;</span><span><b>Research Centers</b><small>Labs &amp; facilities</small></span></a>
+              <a class="mega-link" href="#research"><span class="mega-icon">&#127758;</span><span><b>Collaborations</b><small>Global partnerships</small></span></a>
+            </div>
+            <div class="mega-col mega-col--cta">
+              <div class="mega-cta-box">
+                <div class="mega-cta-title">Advancing Healthcare</div>
+                <p>Our research outputs are shaping clinical practice across the GCC and beyond.</p>
+                <a href="#research" class="mega-btn">Explore Research &rarr;</a>
+                <a href="#research" class="mega-link-plain">Submit a Paper</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Life -->
+      <div class="nav-item has-mega">
+        <a href="#campus" class="nav-trigger">Student Life <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">Campus Experience</div>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#127979;</span><span><b>Campus Life</b><small>Facilities &amp; environment</small></span></a>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#127947;</span><span><b>Sports &amp; Wellness</b><small>Gym, courts &amp; clinics</small></span></a>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#127917;</span><span><b>Clubs &amp; Activities</b><small>Societies &amp; events</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Support Services</div>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#127968;</span><span><b>Accommodation</b><small>On-campus housing</small></span></a>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#128218;</span><span><b>Library</b><small>Digital &amp; physical resources</small></span></a>
+              <a class="mega-link" href="#campus"><span class="mega-icon">&#128188;</span><span><b>Career Services</b><small>Placements &amp; internships</small></span></a>
+            </div>
+            <div class="mega-col mega-col--cta">
+              <div class="mega-cta-box">
+                <div class="mega-cta-title">Life at AKU</div>
+                <p>A vibrant, diverse campus designed to inspire collaboration, wellbeing and growth.</p>
+                <a href="#ar-campus" class="mega-btn">Launch AR Tour &rarr;</a>
+                <a href="#campus" class="mega-link-plain">Student Testimonials</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div class="nav-item has-mega">
+        <a href="#news" class="nav-trigger">News <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel mega-panel--narrow">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">Latest</div>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#128240;</span><span><b>News &amp; Updates</b><small>AKU announcements</small></span></a>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#127891;</span><span><b>Events</b><small>Conferences &amp; open days</small></span></a>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#127942;</span><span><b>Achievements</b><small>Awards &amp; recognition</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Media</div>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#128248;</span><span><b>Photo Gallery</b><small>Campus moments</small></span></a>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#127909;</span><span><b>Video Library</b><small>Lectures &amp; tours</small></span></a>
+              <a class="mega-link" href="#news"><span class="mega-icon">&#128251;</span><span><b>Press Room</b><small>Media kit &amp; contacts</small></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About AKU -->
+      <div class="nav-item has-mega">
+        <a href="#footer" class="nav-trigger">About AKU <span class="nav-chevron">&#8964;</span></a>
+        <div class="mega-panel mega-panel--narrow">
+          <div class="mega-inner">
+            <div class="mega-col mega-col--highlight">
+              <div class="mega-label">The University</div>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#127963;</span><span><b>Our Vision</b><small>Mission &amp; values</small></span></a>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#128220;</span><span><b>History</b><small>Founding &amp; milestones</small></span></a>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#128100;</span><span><b>Leadership</b><small>Board &amp; management</small></span></a>
+            </div>
+            <div class="mega-col">
+              <div class="mega-label">Connect</div>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#128205;</span><span><b>Find Us</b><small>Location &amp; directions</small></span></a>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#9993;</span><span><b>Contact</b><small>General enquiries</small></span></a>
+              <a class="mega-link" href="#footer"><span class="mega-icon">&#129309;</span><span><b>Partnerships</b><small>Industry &amp; academic</small></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </nav>
     <div class="nav-actions"><button class="circle-btn smart-search-open" aria-label="Open Smart Search">⌕</button><a class="apply-btn" href="#admissions">Apply Now <span>→</span></a><button class="circle-btn menu-btn" aria-label="Menu">☰</button></div>
   </header>
@@ -1200,5 +1613,58 @@ body.page-ready .aku-intro{opacity:0;visibility:hidden;pointer-events:none}
     }
   });
 </script>
+
+<script>
+(function(){
+  var items = document.querySelectorAll('.nav-item.has-mega');
+  var overlay = document.createElement('div');
+  overlay.className = 'mega-overlay';
+  document.body.appendChild(overlay);
+
+  var current = null;
+
+  function open(item) {
+    if (current && current !== item) close(current);
+    item.classList.add('is-open');
+    overlay.classList.add('active');
+    current = item;
+  }
+
+  function close(item) {
+    item.classList.remove('is-open');
+    overlay.classList.remove('active');
+    current = null;
+  }
+
+  items.forEach(function(item) {
+    var trigger = item.querySelector('.nav-trigger');
+    var panel = item.querySelector('.mega-panel');
+
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (item.classList.contains('is-open')) {
+        close(item);
+      } else {
+        open(item);
+      }
+    });
+
+    item.addEventListener('mouseenter', function() { open(item); });
+    item.addEventListener('mouseleave', function(e) {
+      // only close if mouse not going to panel
+      if (!item.contains(e.relatedTarget)) { close(item); }
+    });
+  });
+
+  overlay.addEventListener('click', function() {
+    if (current) close(current);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && current) close(current);
+  });
+})();
+</script>
+
 </body>
 </html>
