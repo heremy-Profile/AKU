@@ -178,230 +178,6 @@
     .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}.reveal.on{opacity:1;transform:none}
     @media(max-width:1100px){.nav-links{display:none}.menu-btn{display:grid}.hero,.college-card,.ar-master,.why-chair,.news{grid-template-columns:1fr}.hero{min-height:auto}.hero-copy{padding:58px 34px}.hero-visual{min-height:430px;border-radius:0 0 42px 42px}.sculpted-strip{grid-template-columns:repeat(2,1fr);margin-top:24px}.micro-grid{grid-template-columns:repeat(2,1fr)}.ar-master{padding:42px 28px}.ar-device{min-height:420px}.mini-gallery,.news-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:680px){.nav,.hero,.section{width:calc(100% - 28px)}.logo{min-width:auto}.logo img{height:44px}.apply-btn{display:none}.hero h1{font-size:46px}.hero-copy{padding:40px 24px}.sculpted-strip{width:calc(100% - 28px);grid-template-columns:1fr}.program-shell{padding:0 0 40px;margin:0}.slider-arrow{display:none}.program-track{grid-auto-columns:82vw}.ar-master{min-height:700px}.ar-copy h2{font-size:42px}.phone-frame{width:100%;height:210px;right:0}.ar-tag{font-size:11px;padding:10px}.tag1{right:48%;top:155px}.tag2{right:8%;top:112px}.tag3{right:3%;top:246px}.stat-row,.mini-gallery,.news-grid,.footer-inner{grid-template-columns:1fr}.chair{grid-template-columns:1fr}.chair img{height:260px}.footer-inner{width:calc(100% - 40px)}}
-
-/* ═══════════════════════════════════════
-   MEGA MENU — AKU Enhanced Navigation
-═══════════════════════════════════════ */
-
-/* Nav item wrapper */
-.nav-links { position: static; }
-
-.nav-item {
-  position: static;
-}
-
-.nav-trigger {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 0;
-  font-size: 13px;
-  font-weight: 750;
-  color: #241844;
-  opacity: .86;
-  transition: color .2s, opacity .2s, font-size .2s;
-  white-space: nowrap;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-trigger:hover,
-.nav-item.is-open .nav-trigger {
-  opacity: 1;
-  color: #0a2855;
-  font-size: 14.5px;
-}
-
-.nav-chevron {
-  display: inline-block;
-  font-size: 11px;
-  transition: transform .25s ease;
-  color: var(--gold);
-}
-.nav-item.is-open .nav-chevron {
-  transform: rotate(180deg);
-}
-
-/* Mega panel */
-.mega-panel {
-  position: fixed;
-  left: 0; right: 0;
-  top: 0;
-  padding-top: 90px; /* pushed down below nav */
-  background: transparent;
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity .28s ease, transform .28s ease;
-  z-index: 49;
-}
-
-.nav-item.is-open .mega-panel {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.mega-inner {
-  background: linear-gradient(135deg, #0a1f44 0%, #0d2857 55%, #112360 100%);
-  border-top: 3px solid var(--gold);
-  display: flex;
-  gap: 0;
-  padding: 0;
-  box-shadow: 0 32px 80px rgba(5,18,55,.55);
-  min-height: 280px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 0 0 24px 24px;
-  overflow: hidden;
-}
-
-.mega-panel--narrow .mega-inner {
-  max-width: 780px;
-}
-
-/* Columns */
-.mega-col {
-  flex: 1;
-  padding: 32px 28px;
-  border-right: 1px solid rgba(255,255,255,.07);
-  min-width: 200px;
-}
-.mega-col:last-child { border-right: none; }
-
-.mega-col--highlight {
-  background: rgba(255,255,255,.04);
-}
-
-.mega-col--cta {
-  background: linear-gradient(160deg, rgba(199,151,56,.18), rgba(14,36,80,.3));
-  flex: 0 0 260px;
-}
-
-/* Label */
-.mega-label {
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 18px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(199,151,56,.25);
-}
-
-/* Links */
-.mega-link {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  color: rgba(255,255,255,.82);
-  text-decoration: none;
-  transition: background .18s, color .18s, transform .18s;
-  margin-bottom: 4px;
-}
-.mega-link:hover {
-  background: rgba(255,255,255,.1);
-  color: #fff;
-  transform: translateX(4px);
-}
-.mega-icon {
-  font-size: 20px;
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  background: rgba(255,255,255,.08);
-  border-radius: 10px;
-  flex-shrink: 0;
-  transition: background .18s;
-}
-.mega-link:hover .mega-icon {
-  background: rgba(199,151,56,.25);
-}
-.mega-link b {
-  display: block;
-  font-size: 13px;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-}
-.mega-link small {
-  display: block;
-  font-size: 11px;
-  color: rgba(255,255,255,.52);
-  margin-top: 2px;
-  font-weight: 500;
-}
-
-/* CTA box */
-.mega-cta-box {
-  padding: 4px 0;
-}
-.mega-cta-title {
-  font-size: 18px;
-  font-weight: 800;
-  color: #fff;
-  font-family: Cinzel, Georgia, serif;
-  margin-bottom: 10px;
-  line-height: 1.25;
-}
-.mega-cta-box p {
-  font-size: 13px;
-  color: rgba(255,255,255,.6);
-  line-height: 1.65;
-  margin: 0 0 20px;
-}
-.mega-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #39117f, #7d48e9);
-  color: #fff !important;
-  font-weight: 800;
-  font-size: 13px;
-  text-decoration: none;
-  transition: transform .2s, box-shadow .2s;
-  box-shadow: 0 8px 24px rgba(90,40,180,.3);
-  white-space: nowrap;
-}
-.mega-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(90,40,180,.4);
-}
-.mega-btn--gold {
-  background: linear-gradient(135deg, #c79738, #e6c06e);
-  color: #2f2055 !important;
-  box-shadow: 0 8px 24px rgba(199,151,56,.3);
-}
-.mega-link-plain {
-  display: block;
-  margin-top: 14px;
-  font-size: 12px;
-  color: rgba(255,255,255,.55);
-  text-decoration: none;
-  font-weight: 700;
-  transition: color .2s;
-  text-align: center;
-}
-.mega-link-plain:hover { color: var(--gold); }
-
-/* Overlay behind mega */
-.mega-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 14, 40, 0.45);
-  z-index: 48;
-  backdrop-filter: blur(2px);
-}
-.mega-overlay.active { display: block; }
-
-/* Nav grow on hover */
-.nav { transition: height .22s ease; }
   
 
 /* ═══════════════════════════════════════
@@ -1150,6 +926,1084 @@ body.page-ready .aku-intro{opacity:0;visibility:hidden;pointer-events:none}
 @media(max-width:1100px){.ar-device--mockup{min-height:320px;padding-bottom:18px}.ar-device--mockup .ar-device-shot{max-height:360px}}
 @media(max-width:680px){.aku-intro__logo{width:min(420px,84vw)}.ar-device--mockup{min-height:260px}.ar-device--mockup .ar-device-shot{max-height:280px}}
 
+
+/* AKU MEGA NAV */
+.nav-links { overflow: visible !important; display: flex !important; align-items: center !important; gap: 6px !important; }
+
+.nm-t {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 10px; border-radius: 8px; border: none;
+  background: none; cursor: pointer;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: .01em;
+  color: #1a2e48;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+.nm-t svg { width: 10px; height: 6px; color: #c79738; flex-shrink: 0; transition: transform .2s; }
+.nm-t:hover { background: rgba(199,151,56,.1); color: #c79738; }
+.nm-t[aria-expanded="true"] { background: rgba(199,151,56,.12); color: #c79738; }
+.nm-t[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+/* The floating dropdown — lives directly on <body> */
+.nm-drop {
+  position: fixed;
+  z-index: 999999;
+  top: 0; left: 50%;
+  width: min(1060px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  background: #071525;
+  border-top: 3px solid #c79738;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 24px 80px rgba(0,8,24,.75);
+  display: flex; overflow: hidden;
+  opacity: 0; visibility: hidden;
+  transition: opacity .18s ease, visibility 0s .18s;
+  pointer-events: none;
+}
+.nm-drop.is-open {
+  opacity: 1; visibility: visible;
+  transition: opacity .18s ease, visibility 0s 0s;
+  pointer-events: auto;
+}
+
+/* columns */
+.nm-dc { flex: 1; padding: 26px 20px; border-right: 1px solid rgba(255,255,255,.07); }
+.nm-dc:last-child { border-right: none; }
+.nm-dc--a   { background: rgba(255,255,255,.03); }
+.nm-dc--cta {
+  flex: 0 0 240px; padding: 28px 22px;
+  background: linear-gradient(160deg, rgba(199,151,56,.16), rgba(4,14,40,.9));
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* section heading */
+.nm-dh {
+  margin: 0 0 14px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(199,151,56,.2);
+  font-size: 10px; font-weight: 900; letter-spacing: .16em;
+  text-transform: uppercase; color: #c79738;
+}
+
+/* row link */
+.nm-r {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 11px;
+  align-items: center;
+  padding: 9px 10px; border-radius: 10px;
+  color: rgba(255,255,255,.78); text-decoration: none;
+  margin-bottom: 2px;
+  transition: background .12s, transform .12s;
+}
+.nm-r:hover { background: rgba(255,255,255,.09); transform: translateX(4px); }
+.nm-ico {
+  grid-row: 1 / 3;
+  width: 36px; height: 36px; border-radius: 9px;
+  background: rgba(255,255,255,.09);
+  display: grid; place-items: center; font-size: 16px;
+  transition: background .12s;
+}
+.nm-r:hover .nm-ico { background: rgba(199,151,56,.24); }
+.nm-r b  { font-size: 13px; font-weight: 800; color: #fff; line-height: 1.2; align-self: end; }
+.nm-r em { font-style: normal; font-size: 11px; color: rgba(255,255,255,.46); align-self: start; }
+
+/* CTA */
+.nm-ct { font-family: Cinzel, Georgia, serif; font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 10px; line-height: 1.3; }
+.nm-cb { font-size: 12.5px; color: rgba(255,255,255,.56); line-height: 1.72; margin: 0 0 20px; }
+.nm-btn, .nm-btn--g {
+  display: block; padding: 12px 22px; border-radius: 999px; text-align: center;
+  font-weight: 900; font-size: 13px; letter-spacing: .02em;
+  text-decoration: none; transition: transform .15s, box-shadow .15s;
+}
+.nm-btn {
+  background: linear-gradient(135deg, #3b1480, #7d48e9); color: #fff;
+  box-shadow: 0 8px 24px rgba(90,40,180,.38);
+}
+.nm-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(90,40,180,.55); }
+.nm-btn--g {
+  background: linear-gradient(135deg, #c79738, #e8c46e); color: #2a1808;
+  box-shadow: 0 8px 24px rgba(199,151,56,.42);
+}
+.nm-btn--g:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(199,151,56,.58); }
+
+/* dim overlay */
+#nm-dim {
+  position: fixed; inset: 0; z-index: 999998;
+  background: rgba(2,10,28,.5);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .18s ease, visibility 0s .18s;
+}
+#nm-dim.is-on { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .18s ease, visibility 0s 0s; }
+
+@media (max-width: 1100px) { .nm-drop, #nm-dim { display: none !important; } }
+
+
+
+/* =========================================================
+   MONTY PROFESSIONAL BLUE HIGH-TECH MEGA MENU — FINAL FIX
+   Clean hover, natural opening, premium blue glass dropdown
+========================================================= */
+:root{
+  --nav-blue-900:#061833;
+  --nav-blue-800:#08254d;
+  --nav-blue-700:#0b3b74;
+  --nav-blue-600:#1261a6;
+  --nav-blue-500:#1f8fe5;
+  --nav-ice:#f4f9ff;
+  --nav-gold:#c99a3f;
+}
+.nav{
+  overflow:visible !important;
+  background:rgba(255,255,255,.88) !important;
+  border-bottom:1px solid rgba(7,35,75,.12) !important;
+}
+.nav-links{
+  overflow:visible !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  height:100% !important;
+}
+.nm-t{
+  position:relative !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  min-height:42px !important;
+  padding:0 14px !important;
+  border:1px solid transparent !important;
+  border-radius:999px !important;
+  background:transparent !important;
+  color:#113762 !important;
+  font-family:Inter,system-ui,sans-serif !important;
+  font-size:13px !important;
+  font-weight:850 !important;
+  letter-spacing:.012em !important;
+  white-space:nowrap !important;
+  transition:color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease !important;
+}
+.nm-t:before{
+  content:"";
+  position:absolute;
+  left:14px;right:14px;bottom:4px;height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--nav-blue-500),var(--nav-gold),transparent);
+  transform:scaleX(0);
+  opacity:0;
+  transition:.25s ease;
+}
+.nm-t svg{
+  width:10px !important;
+  height:6px !important;
+  color:var(--nav-blue-600) !important;
+  flex-shrink:0 !important;
+  transition:transform .24s ease,color .24s ease !important;
+}
+.nm-t:hover,
+.nm-t[aria-expanded="true"]{
+  color:var(--nav-blue-900) !important;
+  background:linear-gradient(180deg,rgba(243,249,255,.95),rgba(232,243,255,.86)) !important;
+  border-color:rgba(31,143,229,.18) !important;
+  box-shadow:0 10px 28px rgba(8,37,77,.10), inset 0 0 0 1px rgba(255,255,255,.75) !important;
+  transform:translateY(-1px) !important;
+}
+.nm-t:hover:before,
+.nm-t[aria-expanded="true"]:before{transform:scaleX(1);opacity:1}
+.nm-t[aria-expanded="true"] svg{transform:rotate(180deg);color:var(--nav-gold) !important}
+
+.nm-drop{
+  position:fixed !important;
+  z-index:999999 !important;
+  left:50% !important;
+  width:min(1180px,calc(100vw - 46px)) !important;
+  transform:translateX(-50%) translateY(10px) scale(.985) !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr minmax(245px,.72fr) !important;
+  overflow:hidden !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  border-radius:0 0 30px 30px !important;
+  border:1px solid rgba(31,143,229,.18) !important;
+  border-top:0 !important;
+  background:
+    radial-gradient(circle at 7% 0%,rgba(31,143,229,.22),transparent 26%),
+    radial-gradient(circle at 92% 8%,rgba(201,154,63,.13),transparent 24%),
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(244,249,255,.94) 47%,rgba(230,241,255,.95)) !important;
+  backdrop-filter:blur(24px) saturate(155%) !important;
+  box-shadow:0 30px 90px rgba(6,24,51,.22),0 1px 0 rgba(255,255,255,.92) inset !important;
+  transition:opacity .26s ease,visibility 0s .26s,transform .30s cubic-bezier(.2,.8,.2,1) !important;
+}
+.nm-drop:before{
+  content:"";
+  position:absolute;left:22px;right:22px;top:0;height:3px;border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--nav-blue-500),#6dc8ff,var(--nav-gold),transparent);
+  opacity:.95;
+}
+.nm-drop:after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(31,143,229,.035) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(31,143,229,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.75),transparent 78%);
+}
+.nm-drop.is-open{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transform:translateX(-50%) translateY(0) scale(1) !important;
+  transition:opacity .24s ease,visibility 0s 0s,transform .32s cubic-bezier(.2,.8,.2,1) !important;
+}
+.nm-dc{
+  position:relative !important;
+  z-index:2 !important;
+  min-width:0 !important;
+  padding:30px 26px 28px !important;
+  border-right:1px solid rgba(10,59,116,.10) !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.18)) !important;
+}
+.nm-dc:last-child{border-right:0 !important}
+.nm-dc--a{background:linear-gradient(180deg,rgba(244,249,255,.78),rgba(255,255,255,.30)) !important}
+.nm-dc--cta{
+  flex:auto !important;
+  padding:32px 26px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(31,143,229,.25),transparent 34%),
+    linear-gradient(145deg,#061833,#08254d 58%,#0b3b74) !important;
+  color:#fff !important;
+}
+.nm-dh{
+  margin:0 0 16px !important;
+  padding:0 0 11px !important;
+  border-bottom:1px solid rgba(18,97,166,.16) !important;
+  color:#0b5d9b !important;
+  font-size:10px !important;
+  font-weight:950 !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+}
+.nm-r{
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:42px 1fr !important;
+  grid-template-rows:auto auto !important;
+  gap:2px 13px !important;
+  align-items:center !important;
+  padding:12px 12px !important;
+  margin-bottom:5px !important;
+  border-radius:17px !important;
+  color:#17375f !important;
+  text-decoration:none !important;
+  border:1px solid transparent !important;
+  background:transparent !important;
+  transition:background .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease !important;
+}
+.nm-r:hover{
+  background:rgba(255,255,255,.72) !important;
+  border-color:rgba(31,143,229,.16) !important;
+  transform:translateX(6px) !important;
+  box-shadow:0 12px 28px rgba(7,35,75,.08) !important;
+}
+.nm-r:after{
+  content:"→";
+  position:absolute;right:14px;top:50%;transform:translate(-4px,-50%);
+  color:var(--nav-blue-500);font-weight:900;opacity:0;transition:.22s ease;
+}
+.nm-r:hover:after{opacity:1;transform:translate(0,-50%)}
+.nm-ico{
+  grid-row:1/3 !important;
+  width:42px !important;height:42px !important;
+  border-radius:15px !important;
+  display:grid !important;place-items:center !important;
+  font-size:18px !important;
+  background:linear-gradient(180deg,#fff,#eaf5ff) !important;
+  border:1px solid rgba(31,143,229,.13) !important;
+  box-shadow:0 9px 22px rgba(7,35,75,.07), inset 0 0 0 1px rgba(255,255,255,.82) !important;
+}
+.nm-r:hover .nm-ico{
+  background:linear-gradient(135deg,#eaf6ff,#ffffff) !important;
+  border-color:rgba(201,154,63,.34) !important;
+}
+.nm-r b{font-size:13.5px !important;font-weight:900 !important;color:#08254d !important;line-height:1.22 !important;padding-right:22px !important}
+.nm-r em{font-style:normal !important;font-size:11px !important;color:#6f7f95 !important;line-height:1.25 !important;padding-right:18px !important}
+.nm-dc--cta .nm-ct{font-family:Cinzel,Georgia,serif !important;font-size:22px !important;line-height:1.18 !important;color:#fff !important;margin:0 0 12px !important;letter-spacing:-.03em !important}
+.nm-dc--cta .nm-cb{font-size:13px !important;line-height:1.72 !important;color:rgba(255,255,255,.72) !important;margin:0 0 22px !important}
+.nm-btn,.nm-btn--g{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  min-height:44px !important;padding:0 22px !important;border-radius:999px !important;
+  font-size:13px !important;font-weight:950 !important;text-decoration:none !important;letter-spacing:.015em !important;
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease !important;
+}
+.nm-btn{background:linear-gradient(135deg,#eaf6ff,#ffffff) !important;color:#08254d !important;box-shadow:0 12px 28px rgba(0,0,0,.16) !important}
+.nm-btn--g{background:linear-gradient(135deg,#fff6df,#e8c46e,#b77c22) !important;color:#061833 !important;box-shadow:0 14px 32px rgba(201,154,63,.26) !important}
+.nm-btn:hover,.nm-btn--g:hover{transform:translateY(-3px) !important;filter:saturate(1.06)}
+#nm-dim{
+  position:fixed !important;inset:0 !important;z-index:999998 !important;
+  background:linear-gradient(180deg,rgba(6,24,51,.10),rgba(6,24,51,.18)) !important;
+  backdrop-filter:blur(2px) !important;
+  opacity:0 !important;visibility:hidden !important;pointer-events:none !important;
+  transition:opacity .24s ease,visibility 0s .24s !important;
+}
+#nm-dim.is-on{opacity:1 !important;visibility:visible !important;pointer-events:auto !important;transition:opacity .24s ease,visibility 0s 0s !important}
+@media(max-width:1250px){
+  .nm-t{padding:0 10px !important;font-size:12px !important}
+  .nm-drop{width:calc(100vw - 28px) !important}
+  .nm-dc{padding:24px 18px !important}
+}
+@media(max-width:1100px){
+  .nm-drop,#nm-dim{display:none !important}
+  .nav-links{display:none !important}
+}
+
+
+
+/* =========================================================
+   MONTY BLUE UNITY + STABLE MEGA MENU HOVER — V2
+   - no blink / no drop while pointer moves from menu to panel
+   - page-wide blue professional color system
+========================================================= */
+:root{
+  --deep:#061833 !important;
+  --purple:#1261a6 !important;
+  --violet:#1f8fe5 !important;
+  --gold:#1f8fe5 !important;
+  --gold2:#6dc8ff !important;
+  --aku-gold:#1f8fe5 !important;
+  --aku-gold-soft:#bfe8ff !important;
+  --nav-gold:#6dc8ff !important;
+  --monty-blue-950:#031225;
+  --monty-blue-900:#061833;
+  --monty-blue-850:#08254d;
+  --monty-blue-800:#0a2c57;
+  --monty-blue-700:#0b3b74;
+  --monty-blue-600:#1261a6;
+  --monty-blue-500:#1f8fe5;
+  --monty-cyan:#6dc8ff;
+  --monty-ice:#f4f9ff;
+}
+
+body{
+  color:var(--monty-blue-900) !important;
+  background:
+    radial-gradient(circle at 7% 10%,rgba(31,143,229,.10),transparent 28rem),
+    radial-gradient(circle at 92% 16%,rgba(109,200,255,.10),transparent 30rem),
+    linear-gradient(180deg,#ffffff 0%,#f7fbff 52%,#ffffff 100%) !important;
+}
+
+h1,h2,h3,
+.hero h1,
+.title-wrap h2,
+.college-copy h2,
+.panel h2,
+.chairman-word-card h2,
+.program-body h3,
+.news-card h3,
+.event h3{
+  color:var(--monty-blue-900) !important;
+}
+
+.eyebrow,
+.hero h1 .gold,
+.hero h1 em,
+.title-line:after,
+.learn span,
+.micro b,
+.sculpted-strip h3,
+.chairman-word-kicker,
+.chairman-word-closing,
+.chairman-word-role,
+.signature,
+.news-card small,
+.event small{
+  color:var(--monty-blue-600) !important;
+}
+
+.title-line,
+.chairman-word-card:before,
+.hero-copy:before,
+.hero-progress span,
+.dots button.active,
+.hero-dots button.active{
+  background:linear-gradient(90deg,var(--monty-blue-600),var(--monty-cyan),var(--monty-blue-700)) !important;
+}
+
+.nav{z-index:1000002 !important; overflow:visible !important;}
+.nav-links{position:relative !important; z-index:1000004 !important;}
+.nm-t{color:#113762 !important;}
+.nm-t:after{
+  content:"";
+  position:absolute;
+  left:-8px;right:-8px;top:100%;height:42px;
+  pointer-events:auto;
+}
+.nm-t:hover,
+.nm-t[aria-expanded="true"]{
+  background:linear-gradient(180deg,#f5fbff,#e6f4ff) !important;
+  color:var(--monty-blue-900) !important;
+  border-color:rgba(31,143,229,.20) !important;
+  box-shadow:0 12px 28px rgba(7,35,75,.11), inset 0 0 0 1px rgba(255,255,255,.85) !important;
+}
+.nm-t:before,
+.nm-drop:before{
+  background:linear-gradient(90deg,transparent,var(--monty-blue-600),var(--monty-cyan),var(--monty-blue-700),transparent) !important;
+}
+.nm-t svg{color:var(--monty-blue-600) !important;}
+.nm-t[aria-expanded="true"] svg{color:var(--monty-blue-500) !important;}
+
+.nm-drop{
+  z-index:1000001 !important;
+  margin-top:-1px !important;
+  border-color:rgba(31,143,229,.20) !important;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(31,143,229,.22),transparent 26%),
+    radial-gradient(circle at 94% 10%,rgba(109,200,255,.16),transparent 24%),
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(244,249,255,.96) 47%,rgba(230,243,255,.98)) !important;
+  box-shadow:0 34px 95px rgba(6,24,51,.24),0 1px 0 rgba(255,255,255,.92) inset !important;
+}
+.nm-drop:before{
+  height:4px !important;
+  box-shadow:0 0 26px rgba(31,143,229,.36) !important;
+}
+.nm-dh{color:var(--monty-blue-600) !important;border-bottom-color:rgba(31,143,229,.18) !important;}
+.nm-r{color:#17375f !important;}
+.nm-r:hover{border-color:rgba(31,143,229,.20) !important;background:rgba(255,255,255,.78) !important;}
+.nm-r:after{color:var(--monty-blue-500) !important;}
+.nm-r b{color:var(--monty-blue-850) !important;}
+.nm-ico,
+.program-icon,
+.sculpted-strip .icon,
+.smart-result i{
+  color:var(--monty-blue-600) !important;
+  background:linear-gradient(180deg,#ffffff,#eaf6ff) !important;
+  border-color:rgba(31,143,229,.16) !important;
+}
+.nm-r:hover .nm-ico,
+.program-card:hover .program-icon{
+  background:linear-gradient(135deg,#e7f5ff,#ffffff) !important;
+  border-color:rgba(31,143,229,.28) !important;
+}
+.nm-dc--cta{
+  background:
+    radial-gradient(circle at 76% 18%,rgba(31,143,229,.30),transparent 34%),
+    linear-gradient(145deg,var(--monty-blue-950),var(--monty-blue-850) 55%,var(--monty-blue-700)) !important;
+}
+.nm-btn,.nm-btn--g{
+  background:linear-gradient(135deg,#eaf6ff,#ffffff) !important;
+  color:var(--monty-blue-900) !important;
+  box-shadow:0 14px 32px rgba(6,24,51,.17) !important;
+}
+
+#nm-dim{
+  pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(6,24,51,.08),rgba(6,24,51,.14)) !important;
+  backdrop-filter:blur(1.5px) !important;
+}
+#nm-dim.is-on{pointer-events:none !important;}
+
+.apply-btn,
+.primary-btn,
+.gold-btn,
+.floating-apply,
+.hero-cta .primary-btn,
+section#admissions .gold-btn,
+.chat-input button,
+.play,
+.slider-arrow:hover{
+  background:linear-gradient(135deg,var(--monty-blue-900),var(--monty-blue-700) 48%,var(--monty-blue-500)) !important;
+  color:#fff !important;
+  box-shadow:0 20px 42px rgba(7,35,75,.22), inset 0 0 0 1px rgba(255,255,255,.14) !important;
+}
+.ghost-btn,
+.hero-cta .ghost-btn,
+.circle-btn,
+.slider-arrow,
+.quick-chips button,
+.smart-search-close{
+  background:linear-gradient(180deg,#ffffff,#f2f9ff) !important;
+  color:var(--monty-blue-800) !important;
+  border:1px solid rgba(31,143,229,.18) !important;
+  box-shadow:0 12px 30px rgba(7,35,75,.08) !important;
+}
+.apply-btn:hover,
+.primary-btn:hover,
+.gold-btn:hover,
+.floating-apply:hover,
+.chatbot-launch:hover{
+  transform:translateY(-3px) !important;
+  box-shadow:0 26px 58px rgba(7,35,75,.28),0 0 0 7px rgba(31,143,229,.08) !important;
+}
+
+.chatbot-launch{
+  background:linear-gradient(135deg,var(--monty-blue-900),var(--monty-blue-700),var(--monty-blue-500)) !important;
+  color:#fff !important;
+  box-shadow:0 22px 52px rgba(7,35,75,.32) !important;
+}
+.chatbot-launch:after{border-color:rgba(109,200,255,.55) !important;}
+.chatbot-window{
+  border-color:rgba(31,143,229,.18) !important;
+  box-shadow:0 34px 90px rgba(6,24,51,.23) !important;
+}
+.chat-head{
+  background:linear-gradient(135deg,var(--monty-blue-950),var(--monty-blue-700),var(--monty-blue-500)) !important;
+}
+.chat-body{background:linear-gradient(180deg,#f4f9ff,#ffffff) !important;}
+.chat-msg:not(.user) .chat-bubble{
+  background:#eaf6ff !important;
+  color:var(--monty-blue-850) !important;
+}
+.chat-msg.user .chat-bubble{
+  background:linear-gradient(135deg,var(--monty-blue-900),var(--monty-blue-600)) !important;
+  color:#fff !important;
+}
+.quick-chips button:hover{
+  background:#eaf6ff !important;
+  border-color:rgba(31,143,229,.28) !important;
+}
+.chat-input input,
+.smart-search-input,
+.smart-search-input input{
+  border-color:rgba(31,143,229,.20) !important;
+  color:var(--monty-blue-900) !important;
+}
+.smart-search-overlay{background:rgba(6,24,51,.22) !important;}
+.smart-search-box{
+  border-color:rgba(31,143,229,.18) !important;
+  box-shadow:0 34px 90px rgba(6,24,51,.22) !important;
+}
+.smart-search-head{
+  background:linear-gradient(90deg,#fff,#edf7ff) !important;
+}
+.smart-search-head h3,
+.smart-result b{color:var(--monty-blue-900) !important;}
+.smart-search-input span{color:var(--monty-blue-600) !important;}
+.smart-result:hover{
+  background:#f1f9ff !important;
+  border-color:rgba(31,143,229,.16) !important;
+}
+
+footer{
+  background:linear-gradient(135deg,var(--monty-blue-950),var(--monty-blue-850) 58%,var(--monty-blue-700)) !important;
+}
+.footer-inner h3,
+.footer-inner a:hover{color:#dff4ff !important;}
+.social a{background:rgba(109,200,255,.12) !important;}
+
+.ar-tag,
+.date{
+  background:linear-gradient(135deg,var(--monty-blue-900),var(--monty-blue-600)) !important;
+  color:#fff !important;
+}
+.stat i,.stat b,.platforms b{color:var(--monty-blue-600) !important;}
+.chair-copy,
+.chair{background:linear-gradient(120deg,#fff 0%,#fff 36%,var(--monty-blue-700) 100%) !important;}
+
+
+
+/* =========================================================
+   MONTY NEXT LEVEL — BLUE COMMAND EXPERIENCE V3
+   Executive high-tech upgrade: unified blue language, stable menu,
+   premium motion, cinematic polish, proud-level visual identity.
+========================================================= */
+:root{
+  --v3-ink:#03162f;
+  --v3-navy:#061b3d;
+  --v3-deep:#082b5f;
+  --v3-blue:#0e58a8;
+  --v3-cyan:#67cfff;
+  --v3-ice:#eaf7ff;
+  --v3-mist:#f6fbff;
+  --v3-line:rgba(11,75,142,.14);
+  --v3-glow:rgba(103,207,255,.42);
+  --v3-shadow:0 28px 90px rgba(3,22,47,.16);
+  --v3-soft:0 16px 45px rgba(8,43,95,.12);
+}
+html{scroll-padding-top:98px;}
+body{
+  background:
+    radial-gradient(circle at var(--mx,18%) var(--my,12%),rgba(103,207,255,.16),transparent 22rem),
+    radial-gradient(circle at 90% 18%,rgba(14,88,168,.12),transparent 30rem),
+    linear-gradient(180deg,#fff 0%,#f7fbff 42%,#ffffff 100%) !important;
+  color:var(--v3-ink) !important;
+}
+body:after{
+  content:"";
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(8,43,95,.035) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(8,43,95,.028) 1px,transparent 1px);
+  background-size:84px 84px;
+  mask-image:radial-gradient(circle at 50% 18%,#000 0,transparent 72%);
+}
+::selection{background:rgba(103,207,255,.34);color:var(--v3-navy);}
+
+/* premium sticky navigation */
+.nav{
+  height:86px !important;
+  min-height:86px !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(247,252,255,.82)) !important;
+  border-bottom:1px solid rgba(8,43,95,.13) !important;
+  box-shadow:0 18px 55px rgba(3,22,47,.11) !important;
+  backdrop-filter:blur(28px) saturate(175%) !important;
+}
+.nav:before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(103,207,255,.72),rgba(14,88,168,.45),transparent);
+  pointer-events:none;
+}
+.logo img{filter:drop-shadow(0 14px 24px rgba(8,43,95,.13)) !important;}
+.nav-links{gap:clamp(14px,1.55vw,28px) !important;}
+.nm-t,.nav-links a{
+  color:#092f63 !important;
+  font-weight:900 !important;
+  letter-spacing:.01em !important;
+}
+.nm-t{
+  position:relative !important;
+  border:0 !important;
+  background:transparent !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  height:44px !important;
+  padding:0 12px !important;
+  border-radius:999px !important;
+  transition:color .22s ease, background .22s ease, box-shadow .22s ease, transform .22s ease !important;
+}
+.nm-t svg{width:10px;height:6px;transition:transform .24s ease;color:#3279bd;}
+.nm-t:hover,.nm-t[aria-expanded="true"]{
+  color:#031b3a !important;
+  background:linear-gradient(180deg,rgba(234,247,255,.94),rgba(255,255,255,.64)) !important;
+  box-shadow:inset 0 0 0 1px rgba(103,207,255,.28),0 12px 32px rgba(8,43,95,.10) !important;
+  transform:translateY(-1px);
+}
+.nm-t[aria-expanded="true"] svg{transform:rotate(180deg);}
+.nm-t:after{
+  content:"";position:absolute;left:18px;right:18px;bottom:2px;height:2px;border-radius:999px;
+  background:linear-gradient(90deg,transparent,var(--v3-cyan),var(--v3-blue),transparent);
+  opacity:0;transform:scaleX(.35);transition:.24s ease;
+}
+.nm-t:hover:after,.nm-t[aria-expanded="true"]:after{opacity:1;transform:scaleX(1);}
+
+/* stable bridge + elite mega menu */
+.nm-drop{
+  --drop-top:86px;
+  position:fixed !important;
+  left:50% !important;
+  transform:translateX(-50%) translateY(-10px) scale(.985) !important;
+  top:var(--drop-top) !important;
+  width:min(1180px,calc(100vw - 44px)) !important;
+  display:grid !important;
+  grid-template-columns:1.08fr 1fr .92fr !important;
+  gap:18px !important;
+  padding:20px !important;
+  border-radius:0 0 34px 34px !important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.97),rgba(239,249,255,.94)),
+    radial-gradient(circle at 78% 8%,rgba(103,207,255,.28),transparent 22rem) !important;
+  border:1px solid rgba(8,43,95,.14) !important;
+  border-top:0 !important;
+  box-shadow:0 34px 100px rgba(3,22,47,.20), inset 0 1px 0 rgba(255,255,255,.78) !important;
+  backdrop-filter:blur(30px) saturate(160%) !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  z-index:199 !important;
+  transition:opacity .22s ease, visibility .22s ease, transform .28s cubic-bezier(.2,.8,.2,1) !important;
+}
+.nm-drop:before{
+  content:"" !important;
+  position:absolute !important;
+  left:0;right:0;top:-34px;height:38px !important;
+  background:transparent !important;
+  pointer-events:auto !important;
+}
+.nm-drop:after{
+  content:"" !important;
+  position:absolute !important;
+  left:24px;right:24px;top:0;height:2px !important;
+  background:linear-gradient(90deg,transparent,rgba(103,207,255,.95),rgba(14,88,168,.62),transparent) !important;
+  border-radius:999px !important;
+}
+.nm-drop.is-open{
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transform:translateX(-50%) translateY(0) scale(1) !important;
+}
+#nm-dim{
+  display:block !important;
+  position:fixed;inset:86px 0 0;z-index:120;
+  background:radial-gradient(circle at 50% 0,rgba(103,207,255,.12),transparent 24rem),rgba(2,18,42,.045) !important;
+  backdrop-filter:blur(2px) !important;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .2s ease, visibility .2s ease;
+}
+#nm-dim.is-on{opacity:1;visibility:visible;}
+.nm-dc{
+  position:relative !important;
+  border-radius:24px !important;
+  padding:18px !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(246,251,255,.78)) !important;
+  border:1px solid rgba(8,43,95,.10) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75) !important;
+  overflow:hidden !important;
+}
+.nm-dc:before{
+  content:"";position:absolute;inset:-1px;pointer-events:none;
+  background:radial-gradient(circle at 20% 0,rgba(103,207,255,.15),transparent 14rem);
+}
+.nm-dh{
+  margin:0 0 13px !important;
+  color:#0b4588 !important;
+  font-size:11px !important;
+  text-transform:uppercase !important;
+  letter-spacing:.17em !important;
+  font-weight:1000 !important;
+}
+.nm-r{
+  position:relative !important;
+  display:grid !important;
+  grid-template-columns:42px 1fr !important;
+  gap:12px !important;
+  align-items:center !important;
+  min-height:66px !important;
+  padding:10px 12px !important;
+  border-radius:18px !important;
+  background:rgba(255,255,255,.42) !important;
+  border:1px solid transparent !important;
+  transition:transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease !important;
+}
+.nm-r:hover{
+  background:linear-gradient(135deg,#ffffff,#edf8ff) !important;
+  border-color:rgba(103,207,255,.36) !important;
+  box-shadow:0 14px 34px rgba(8,43,95,.11) !important;
+  transform:translateX(6px) translateY(-1px) !important;
+}
+.nm-ico{
+  width:42px;height:42px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#eaf7ff,#ffffff) !important;
+  color:#0e58a8 !important;
+  box-shadow:inset 0 0 0 1px rgba(103,207,255,.28),0 10px 22px rgba(8,43,95,.08) !important;
+}
+.nm-r b{display:block;color:#062856 !important;font-size:14px !important;line-height:1.15 !important;}
+.nm-r em{display:block;margin-top:4px;color:#55708e !important;font-size:12px !important;font-style:normal !important;}
+.nm-dc--cta{
+  color:#fff !important;
+  background:
+    radial-gradient(circle at 76% 12%,rgba(103,207,255,.38),transparent 13rem),
+    linear-gradient(135deg,#061b3d,#0b3f80 55%,#0e58a8) !important;
+  border-color:rgba(103,207,255,.25) !important;
+  box-shadow:0 22px 48px rgba(8,43,95,.18) !important;
+}
+.nm-ct{font-family:Cinzel,Georgia,serif !important;color:#fff !important;font-size:28px !important;line-height:1.05 !important;margin:4px 0 12px !important;}
+.nm-cb{color:rgba(238,249,255,.82) !important;line-height:1.62 !important;font-size:14px !important;}
+.nm-btn,.nm-btn--g{
+  display:inline-flex !important;align-items:center;justify-content:center;gap:10px;
+  height:48px !important;padding:0 20px !important;border-radius:999px !important;
+  margin-top:16px !important;font-weight:1000 !important;
+  color:#061b3d !important;background:linear-gradient(135deg,#ffffff,#dff5ff) !important;
+  box-shadow:0 16px 36px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.72) !important;
+}
+.nm-btn:hover,.nm-btn--g:hover{transform:translateY(-2px);box-shadow:0 22px 44px rgba(0,0,0,.22) !important;}
+
+/* Proud hero: stronger but still white/blue */
+.hero{
+  min-height:680px !important;
+  background:
+    radial-gradient(circle at 13% 17%,rgba(103,207,255,.20),transparent 28%),
+    radial-gradient(circle at 38% 78%,rgba(14,88,168,.11),transparent 32%),
+    linear-gradient(112deg,#ffffff 0%,#ffffff 44%,#eef8ff 100%) !important;
+  box-shadow:0 20px 70px rgba(8,43,95,.13) !important;
+}
+.hero-copy:before{
+  content:"" !important;position:absolute;left:clamp(22px,4vw,58px);top:clamp(18px,5vh,55px);
+  width:110px;height:110px;border-radius:50%;
+  background:radial-gradient(circle,rgba(103,207,255,.22),transparent 68%) !important;
+  animation:v3Float 6s ease-in-out infinite !important;
+}
+.hero h1,.title-wrap h2,.college-copy h2,.ar-copy h2,.panel h2,.chairman-word-card h2{color:var(--v3-navy) !important;}
+.hero h1 .gold,.gold,.eyebrow,.title-line:after,.learn span{color:var(--v3-blue) !important;}
+.eyebrow{letter-spacing:.24em !important;color:#0e58a8 !important;}
+.hero p,.title-wrap p,.college-copy p,.ar-copy p{color:#526b86 !important;}
+.hero-image-frame:after{
+  background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.55) 18%,rgba(103,207,255,.08) 45%,rgba(255,255,255,0) 73%) !important;
+}
+.hero-split-orbit{border-right-color:rgba(103,207,255,.86) !important;filter:drop-shadow(0 0 18px rgba(103,207,255,.44)) !important;}
+.hero-split-orbit:before{background:linear-gradient(180deg,transparent,rgba(103,207,255,.35),rgba(14,88,168,.70),transparent) !important;}
+.hero-split-orbit:after{background:linear-gradient(135deg,#fff,var(--v3-cyan)) !important;box-shadow:0 0 0 9px rgba(103,207,255,.16),0 0 32px rgba(103,207,255,.52) !important;}
+.hero-progress span,.hero-dots button.active{background:linear-gradient(90deg,var(--v3-cyan),#fff,var(--v3-blue)) !important;}
+
+/* Global buttons, cards, chatbot, search in one identity */
+.apply-btn,.primary-btn,.gold-btn,.floating-apply,.chat-input button,.play,.slider-arrow{
+  background:linear-gradient(135deg,#061b3d 0%,#0e58a8 58%,#67cfff 100%) !important;
+  color:#fff !important;
+  box-shadow:0 18px 42px rgba(8,43,95,.22),0 0 0 1px rgba(103,207,255,.24) inset !important;
+}
+.ghost-btn,.circle-btn{
+  color:#06356f !important;
+  background:linear-gradient(180deg,#fff,#eef8ff) !important;
+  border:1px solid rgba(14,88,168,.16) !important;
+  box-shadow:0 12px 28px rgba(8,43,95,.08) !important;
+}
+.apply-btn:hover,.primary-btn:hover,.gold-btn:hover,.ghost-btn:hover,.circle-btn:hover,.floating-apply:hover,.slider-arrow:hover,.play:hover{
+  transform:translateY(-3px) !important;
+  box-shadow:0 24px 56px rgba(8,43,95,.24),0 0 0 1px rgba(103,207,255,.38) inset !important;
+}
+.program-card,.college-card,.why,.chair,.panel,.news-card,.event,.micro,.reason,.sculpted-strip,.chairman-word-card{
+  border-color:rgba(8,43,95,.10) !important;
+  box-shadow:var(--v3-soft) !important;
+}
+.program-card:hover,.micro:hover,.reason:hover,.news-card:hover,.event:hover{
+  transform:translateY(-8px) !important;
+  box-shadow:0 28px 65px rgba(8,43,95,.16) !important;
+  border-color:rgba(103,207,255,.34) !important;
+}
+.program-icon,.sculpted-strip .icon,.smart-result i{
+  color:var(--v3-blue) !important;
+  background:linear-gradient(135deg,#eaf7ff,#ffffff) !important;
+  box-shadow:inset 0 0 0 1px rgba(103,207,255,.28),0 12px 24px rgba(8,43,95,.08) !important;
+}
+.program-body h3,.sculpted-strip h3,.micro b,.stat b,.panel h2,.news-card h3,.event h3{color:var(--v3-navy) !important;}
+.learn{color:#08366d !important;}
+.title-line,.chairman-word-card:before{background:linear-gradient(90deg,var(--v3-cyan),var(--v3-blue),transparent) !important;}
+.ar-master{
+  background:
+    radial-gradient(circle at 74% 18%,rgba(103,207,255,.18),transparent 24rem),
+    linear-gradient(110deg,#fff 0%,#fff 45%,#eef8ff 100%) !important;
+}
+.ar-tag,.date,.stat i{background:linear-gradient(135deg,var(--v3-navy),var(--v3-blue)) !important;color:#fff !important;}
+footer{background:linear-gradient(135deg,#04142d,#082b5f 58%,#0e58a8) !important;}
+footer:before{content:"";display:block;height:2px;background:linear-gradient(90deg,transparent,var(--v3-cyan),transparent);opacity:.7;}
+.social a{background:rgba(103,207,255,.13) !important;border:1px solid rgba(103,207,255,.22) !important;}
+
+.smart-search-overlay{background:rgba(3,22,47,.18) !important;backdrop-filter:blur(13px) !important;}
+.smart-search-box{
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(239,249,255,.96)) !important;
+  border-color:rgba(8,43,95,.14) !important;
+  box-shadow:0 34px 90px rgba(3,22,47,.22) !important;
+}
+.smart-search-head{background:linear-gradient(90deg,#fff,#eaf7ff) !important;}
+.smart-search-head h3{color:var(--v3-navy) !important;}
+.smart-search-input{border-color:rgba(14,88,168,.18) !important;}
+.smart-search-input span{color:var(--v3-blue) !important;}
+.smart-result:hover{background:#eef8ff !important;border-color:rgba(103,207,255,.28) !important;}
+
+.chatbot-launch{
+  background:linear-gradient(135deg,#04142d,#0e58a8 58%,#67cfff) !important;
+  border-radius:24px !important;
+  box-shadow:0 22px 58px rgba(8,43,95,.36),0 0 0 1px rgba(103,207,255,.28) inset !important;
+}
+.chatbot-launch:after{border-color:rgba(103,207,255,.52) !important;}
+.chatbot-window{
+  border-color:rgba(8,43,95,.14) !important;
+  box-shadow:0 34px 94px rgba(3,22,47,.24) !important;
+}
+.chat-head{background:linear-gradient(135deg,#04142d,#0b3f80 62%,#0e58a8) !important;}
+.chat-body{background:linear-gradient(180deg,#eef8ff,#fff) !important;}
+.chat-msg:not(.user) .chat-bubble{background:#eaf7ff !important;color:#062856 !important;}
+.chat-msg.user .chat-bubble{background:linear-gradient(135deg,#062856,#0e58a8) !important;}
+.quick-chips button{border-color:rgba(14,88,168,.18) !important;color:#08366d !important;background:#fff !important;}
+.quick-chips button:hover{background:#eaf7ff !important;transform:translateY(-2px);}
+.chat-input input{border-color:rgba(14,88,168,.18) !important;}
+
+/* high-end motion: magnetic only for capable devices */
+@keyframes v3Float{50%{transform:translate(10px,-8px) scale(1.05)}}
+@media (prefers-reduced-motion:no-preference){
+  .program-card,.micro,.reason,.news-card,.event,.nm-r,.apply-btn,.primary-btn,.ghost-btn,.circle-btn,.floating-apply{will-change:transform;}
+  .hero-slide.active{animation:v3Kenburns 8s ease forwards;}
+  @keyframes v3Kenburns{from{transform:scale(1.06)}to{transform:scale(1)}}
+}
+@media(max-width:1100px){
+  .nm-drop,#nm-dim{display:none !important;}
+}
+@media(max-width:760px){
+  .nav{height:auto !important;min-height:72px !important;}
+  .hero{min-height:auto !important;}
+  .hero-copy{min-height:calc(100svh - 72px) !important;}
+}
+
+
+
+/* =========================================================
+   MONTY FINAL FIX — NO BLUR ON MENU HOVER + BIGGER MAIN MENU
+   Added to solve hover blur/flicker feeling and enlarge the navigation.
+========================================================= */
+:root{
+  --monty-menu-height:96px;
+  --monty-menu-blue:#07356d;
+  --monty-menu-blue-2:#0e5faf;
+  --monty-menu-cyan:#67cfff;
+}
+
+/* bigger, clearer top navigation */
+.nav{
+  height:var(--monty-menu-height) !important;
+  min-height:var(--monty-menu-height) !important;
+  padding:0 clamp(24px,4vw,70px) !important;
+  background:rgba(255,255,255,.96) !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  box-shadow:0 18px 48px rgba(3,22,47,.10) !important;
+}
+.logo img{
+  height:68px !important;
+}
+.nav-links{
+  gap:clamp(16px,1.65vw,34px) !important;
+  height:100% !important;
+}
+.nm-t{
+  height:56px !important;
+  min-height:56px !important;
+  padding:0 18px !important;
+  font-size:15.5px !important;
+  font-weight:950 !important;
+  letter-spacing:.015em !important;
+  border-radius:999px !important;
+  color:#082b5f !important;
+}
+.nm-t svg{
+  width:12px !important;
+  height:7px !important;
+}
+.nm-t:hover,
+.nm-t[aria-expanded="true"]{
+  background:linear-gradient(180deg,#f2faff,#ffffff) !important;
+  box-shadow:0 14px 32px rgba(8,43,95,.11), inset 0 0 0 1px rgba(103,207,255,.32) !important;
+  color:#031b3a !important;
+}
+
+/* keep a large invisible hover bridge so the dropdown never blinks */
+.nm-t:after{
+  content:"" !important;
+  position:absolute !important;
+  left:-18px !important;
+  right:-18px !important;
+  top:100% !important;
+  height:64px !important;
+  pointer-events:auto !important;
+  background:transparent !important;
+}
+
+/* bigger, clearer dropdown aligned to the taller menu */
+.nm-drop{
+  --drop-top:var(--monty-menu-height) !important;
+  top:var(--monty-menu-height) !important;
+  width:min(1320px,calc(100vw - 46px)) !important;
+  grid-template-columns:1.08fr 1fr .95fr !important;
+  gap:22px !important;
+  padding:24px !important;
+  border-radius:0 0 38px 38px !important;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(103,207,255,.18),transparent 28%),
+    radial-gradient(circle at 94% 8%,rgba(14,88,168,.12),transparent 26%),
+    linear-gradient(135deg,rgba(255,255,255,.99),rgba(241,249,255,.98) 48%,rgba(230,243,255,.99)) !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  box-shadow:0 34px 86px rgba(3,22,47,.18), inset 0 1px 0 rgba(255,255,255,.88) !important;
+}
+.nm-drop:before{
+  top:-58px !important;
+  height:64px !important;
+  background:transparent !important;
+  pointer-events:auto !important;
+}
+.nm-drop.is-open{
+  transform:translateX(-50%) translateY(0) scale(1) !important;
+}
+.nm-dc{
+  padding:24px !important;
+  border-radius:26px !important;
+}
+.nm-dh{
+  font-size:12px !important;
+  margin-bottom:15px !important;
+}
+.nm-r{
+  min-height:76px !important;
+  grid-template-columns:50px 1fr !important;
+  padding:13px 14px !important;
+  border-radius:20px !important;
+}
+.nm-ico{
+  width:50px !important;
+  height:50px !important;
+  border-radius:18px !important;
+  font-size:20px !important;
+}
+.nm-r b{
+  font-size:15px !important;
+}
+.nm-r em{
+  font-size:12.5px !important;
+}
+.nm-ct{
+  font-size:30px !important;
+}
+.nm-cb{
+  font-size:14.5px !important;
+}
+.nm-btn,.nm-btn--g{
+  height:52px !important;
+  padding:0 24px !important;
+  font-size:14px !important;
+}
+
+/* remove the blur/dim layer completely when hovering menu */
+#nm-dim,
+#nm-dim.is-on{
+  display:none !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  background:transparent !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
+/* prevent page/hero from looking blurred or washed out while menu is open */
+body.menu-open,
+body.menu-open .page,
+body.menu-open .hero,
+body.menu-open .hero-visual,
+body.menu-open .hero-image-frame,
+body.menu-open main,
+body:has(.nm-drop.is-open) .page,
+body:has(.nm-drop.is-open) .hero,
+body:has(.nm-drop.is-open) .hero-visual,
+body:has(.nm-drop.is-open) .hero-image-frame{
+  filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  opacity:1 !important;
+}
+
+/* compensate anchor scroll for bigger nav */
+html{scroll-padding-top:110px !important;}
+
+@media(max-width:1250px){
+  .nm-t{font-size:14px !important;padding:0 13px !important;}
+  .nav-links{gap:8px !important;}
+  .logo img{height:60px !important;}
+}
+@media(max-width:1100px){
+  .nav{height:78px !important;min-height:78px !important;}
+  .logo img{height:54px !important;}
+}
+@media(max-width:760px){
+  .nav{height:auto !important;min-height:72px !important;}
+  .logo img{height:48px !important;}
+}
+
 </style>
 </head>
 <body class="preload-active">
@@ -1168,198 +2022,7 @@ body.page-ready .aku-intro{opacity:0;visibility:hidden;pointer-events:none}
   </a>
   <header class="nav">
     <a class="logo" href="#home"><img src="assets/img/logo-full-new.png" alt="Chairman, Ain Al Khaleej University"></a>
-    <nav class="nav-links" id="mainNav">
-
-      <!-- Study -->
-      <div class="nav-item has-mega">
-        <a href="#programs" class="nav-trigger">Study <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">Explore Programs</div>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#127891;</span><span><b>All Programs</b><small>Browse our full catalog</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#129690;</span><span><b>Medicine &amp; Surgery</b><small>MBBS &mdash; 6-year pathway</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#129463;</span><span><b>Dentistry</b><small>BDS &mdash; Clinical excellence</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#128138;</span><span><b>Pharmacy</b><small>PharmD &mdash; Research-led</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Allied Health</div>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#127973;</span><span><b>Nursing</b><small>BSN &mdash; Patient-centred care</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#129467;</span><span><b>Radiology</b><small>BSRT &mdash; Advanced imaging</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#129470;</span><span><b>Physiotherapy</b><small>BPT &mdash; Rehabilitation</small></span></a>
-              <a class="mega-link" href="#programs"><span class="mega-icon">&#128300;</span><span><b>Medical Laboratory</b><small>BMLS &mdash; Diagnostics</small></span></a>
-            </div>
-            <div class="mega-col mega-col--cta">
-              <div class="mega-cta-box">
-                <div class="mega-cta-title">Start Your Journey</div>
-                <p>World-class healthcare education with simulation labs, clinical rotations &amp; research facilities.</p>
-                <a href="#admissions" class="mega-btn">Apply Now &rarr;</a>
-                <a href="#programs" class="mega-link-plain">View All Programs</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Faculties -->
-      <div class="nav-item has-mega">
-        <a href="#college" class="nav-trigger">Faculties <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">Our Colleges</div>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#127963;</span><span><b>College of Medicine</b><small>Surgery &amp; Clinical Sciences</small></span></a>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#129463;</span><span><b>College of Dentistry</b><small>Oral Health &amp; Maxillofacial</small></span></a>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#128138;</span><span><b>College of Pharmacy</b><small>Pharmaceutical Sciences</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Allied &amp; Applied</div>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#127973;</span><span><b>Nursing Faculty</b><small>Advanced Nursing Practice</small></span></a>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#129467;</span><span><b>Health Sciences</b><small>Radiology &amp; Physiotherapy</small></span></a>
-              <a class="mega-link" href="#college"><span class="mega-icon">&#128300;</span><span><b>Medical Laboratory</b><small>Diagnostic Sciences</small></span></a>
-            </div>
-            <div class="mega-col mega-col--cta">
-              <div class="mega-cta-box">
-                <div class="mega-cta-title">World-Class Faculty</div>
-                <p>Our faculty brings decades of clinical practice and cutting-edge research to every classroom.</p>
-                <a href="#college" class="mega-btn">Meet Our Faculty &rarr;</a>
-                <a href="#research" class="mega-link-plain">Research Centers</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Admissions -->
-      <div class="nav-item has-mega">
-        <a href="#admissions" class="nav-trigger">Admissions <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">How to Apply</div>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128203;</span><span><b>Apply Online</b><small>Start your application</small></span></a>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128209;</span><span><b>Requirements</b><small>Entry criteria &amp; documents</small></span></a>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128197;</span><span><b>Key Dates</b><small>Deadlines &amp; interviews</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Support &amp; Finance</div>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#128176;</span><span><b>Tuition &amp; Fees</b><small>Transparent fee structure</small></span></a>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#127885;</span><span><b>Scholarships</b><small>Merit &amp; need-based awards</small></span></a>
-              <a class="mega-link" href="#admissions"><span class="mega-icon">&#129309;</span><span><b>Contact Admissions</b><small>Speak to an advisor</small></span></a>
-            </div>
-            <div class="mega-col mega-col--cta">
-              <div class="mega-cta-box">
-                <div class="mega-cta-title">Applications Open</div>
-                <p>Join a community of future healthcare leaders. Seats are limited &mdash; apply early.</p>
-                <a href="#admissions" class="mega-btn mega-btn--gold">Apply Now &rarr;</a>
-                <a href="#admissions" class="mega-link-plain">Download Prospectus</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Research -->
-      <div class="nav-item has-mega">
-        <a href="#research" class="nav-trigger">Research <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">Research Areas</div>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#129516;</span><span><b>Biomedical Sciences</b><small>Genetics &amp; cell biology</small></span></a>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#129514;</span><span><b>Clinical Trials</b><small>Phase I&ndash;III studies</small></span></a>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#129302;</span><span><b>AI in Medicine</b><small>Computational diagnostics</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Resources</div>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#128218;</span><span><b>Publications</b><small>Journals &amp; papers</small></span></a>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#127959;</span><span><b>Research Centers</b><small>Labs &amp; facilities</small></span></a>
-              <a class="mega-link" href="#research"><span class="mega-icon">&#127758;</span><span><b>Collaborations</b><small>Global partnerships</small></span></a>
-            </div>
-            <div class="mega-col mega-col--cta">
-              <div class="mega-cta-box">
-                <div class="mega-cta-title">Advancing Healthcare</div>
-                <p>Our research outputs are shaping clinical practice across the GCC and beyond.</p>
-                <a href="#research" class="mega-btn">Explore Research &rarr;</a>
-                <a href="#research" class="mega-link-plain">Submit a Paper</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Student Life -->
-      <div class="nav-item has-mega">
-        <a href="#campus" class="nav-trigger">Student Life <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">Campus Experience</div>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#127979;</span><span><b>Campus Life</b><small>Facilities &amp; environment</small></span></a>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#127947;</span><span><b>Sports &amp; Wellness</b><small>Gym, courts &amp; clinics</small></span></a>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#127917;</span><span><b>Clubs &amp; Activities</b><small>Societies &amp; events</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Support Services</div>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#127968;</span><span><b>Accommodation</b><small>On-campus housing</small></span></a>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#128218;</span><span><b>Library</b><small>Digital &amp; physical resources</small></span></a>
-              <a class="mega-link" href="#campus"><span class="mega-icon">&#128188;</span><span><b>Career Services</b><small>Placements &amp; internships</small></span></a>
-            </div>
-            <div class="mega-col mega-col--cta">
-              <div class="mega-cta-box">
-                <div class="mega-cta-title">Life at AKU</div>
-                <p>A vibrant, diverse campus designed to inspire collaboration, wellbeing and growth.</p>
-                <a href="#ar-campus" class="mega-btn">Launch AR Tour &rarr;</a>
-                <a href="#campus" class="mega-link-plain">Student Testimonials</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- News -->
-      <div class="nav-item has-mega">
-        <a href="#news" class="nav-trigger">News <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel mega-panel--narrow">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">Latest</div>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#128240;</span><span><b>News &amp; Updates</b><small>AKU announcements</small></span></a>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#127891;</span><span><b>Events</b><small>Conferences &amp; open days</small></span></a>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#127942;</span><span><b>Achievements</b><small>Awards &amp; recognition</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Media</div>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#128248;</span><span><b>Photo Gallery</b><small>Campus moments</small></span></a>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#127909;</span><span><b>Video Library</b><small>Lectures &amp; tours</small></span></a>
-              <a class="mega-link" href="#news"><span class="mega-icon">&#128251;</span><span><b>Press Room</b><small>Media kit &amp; contacts</small></span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- About AKU -->
-      <div class="nav-item has-mega">
-        <a href="#footer" class="nav-trigger">About AKU <span class="nav-chevron">&#8964;</span></a>
-        <div class="mega-panel mega-panel--narrow">
-          <div class="mega-inner">
-            <div class="mega-col mega-col--highlight">
-              <div class="mega-label">The University</div>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#127963;</span><span><b>Our Vision</b><small>Mission &amp; values</small></span></a>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#128220;</span><span><b>History</b><small>Founding &amp; milestones</small></span></a>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#128100;</span><span><b>Leadership</b><small>Board &amp; management</small></span></a>
-            </div>
-            <div class="mega-col">
-              <div class="mega-label">Connect</div>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#128205;</span><span><b>Find Us</b><small>Location &amp; directions</small></span></a>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#9993;</span><span><b>Contact</b><small>General enquiries</small></span></a>
-              <a class="mega-link" href="#footer"><span class="mega-icon">&#129309;</span><span><b>Partnerships</b><small>Industry &amp; academic</small></span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </nav>
+    <nav class="nav-links"><button class="nm-t" data-drop="drop-study" aria-expanded="false" aria-haspopup="true">Study<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-faculties" aria-expanded="false" aria-haspopup="true">Faculties<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-admissions" aria-expanded="false" aria-haspopup="true">Admissions<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-research" aria-expanded="false" aria-haspopup="true">Research<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-studentlife" aria-expanded="false" aria-haspopup="true">Student Life<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-about" aria-expanded="false" aria-haspopup="true">About AKU<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></nav>
     <div class="nav-actions"><button class="circle-btn smart-search-open" aria-label="Open Smart Search">⌕</button><a class="apply-btn" href="#admissions">Apply Now <span>→</span></a><button class="circle-btn menu-btn" aria-label="Menu">☰</button></div>
   </header>
 
@@ -1613,55 +2276,205 @@ body.page-ready .aku-intro{opacity:0;visibility:hidden;pointer-events:none}
     }
   });
 </script>
-
+<div id="nm-panels" style="display:none"><div class="nm-drop" id="drop-study" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">Degree Programs</p><a href="#" class="nm-r"><span class="nm-ico">🩺</span><b>Medicine & Surgery</b><em>MBBS — 6-year pathway</em></a><a href="#" class="nm-r"><span class="nm-ico">🦷</span><b>Dentistry</b><em>BDS — Clinical excellence</em></a><a href="#" class="nm-r"><span class="nm-ico">💊</span><b>Pharmacy</b><em>PharmD — Research-led</em></a><a href="#" class="nm-r"><span class="nm-ico">🎓</span><b>All Programs</b><em>Full degree catalog</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Allied Health</p><a href="#" class="nm-r"><span class="nm-ico">🏥</span><b>Nursing</b><em>BSN — Patient-centred</em></a><a href="#" class="nm-r"><span class="nm-ico">🩻</span><b>Radiology</b><em>BSRT — Advanced imaging</em></a><a href="#" class="nm-r"><span class="nm-ico">🦾</span><b>Physiotherapy</b><em>BPT — Rehabilitation</em></a><a href="#" class="nm-r"><span class="nm-ico">🔬</span><b>Medical Laboratory</b><em>BMLS — Diagnostics</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">Start Your Journey</p><p class="nm-cb">World-class healthcare education with state-of-the-art simulation labs and clinical rotations.</p><a href="#programs" class="nm-btn--g">Apply Now &#8594;</a></div>
+    </div><div class="nm-drop" id="drop-faculties" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">Colleges</p><a href="#" class="nm-r"><span class="nm-ico">🏛️</span><b>College of Medicine</b><em>Surgery & Clinical Sciences</em></a><a href="#" class="nm-r"><span class="nm-ico">🦷</span><b>College of Dentistry</b><em>Oral Health & Maxillofacial</em></a><a href="#" class="nm-r"><span class="nm-ico">💊</span><b>College of Pharmacy</b><em>Pharmaceutical Sciences</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Allied & Applied</p><a href="#" class="nm-r"><span class="nm-ico">🏥</span><b>Nursing Faculty</b><em>Advanced Practice</em></a><a href="#" class="nm-r"><span class="nm-ico">🩻</span><b>Health Sciences</b><em>Radiology & Physiotherapy</em></a><a href="#" class="nm-r"><span class="nm-ico">🔬</span><b>Medical Laboratory</b><em>Diagnostic Sciences</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">World-Class Faculty</p><p class="nm-cb">Our professors bring decades of clinical expertise and groundbreaking research into every classroom.</p><a href="#college" class="nm-btn">Meet Faculty &#8594;</a></div>
+    </div><div class="nm-drop" id="drop-admissions" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">How to Apply</p><a href="#" class="nm-r"><span class="nm-ico">📋</span><b>Apply Online</b><em>Start your application</em></a><a href="#" class="nm-r"><span class="nm-ico">📑</span><b>Requirements</b><em>Entry criteria & documents</em></a><a href="#" class="nm-r"><span class="nm-ico">📅</span><b>Key Dates</b><em>Deadlines & interviews</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Support & Finance</p><a href="#" class="nm-r"><span class="nm-ico">💰</span><b>Tuition & Fees</b><em>Transparent fee structure</em></a><a href="#" class="nm-r"><span class="nm-ico">🏅</span><b>Scholarships</b><em>Merit & need-based awards</em></a><a href="#" class="nm-r"><span class="nm-ico">🤝</span><b>Contact Admissions</b><em>Speak with an advisor</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">Applications Open</p><p class="nm-cb">Limited seats available for the upcoming intake. Apply early to secure your place.</p><a href="#admissions" class="nm-btn--g">Apply Now &#8594;</a></div>
+    </div><div class="nm-drop" id="drop-research" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">Research Areas</p><a href="#" class="nm-r"><span class="nm-ico">🧬</span><b>Biomedical Sciences</b><em>Genetics & cell biology</em></a><a href="#" class="nm-r"><span class="nm-ico">🧪</span><b>Clinical Trials</b><em>Phase I–III studies</em></a><a href="#" class="nm-r"><span class="nm-ico">🤖</span><b>AI in Medicine</b><em>Computational diagnostics</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Resources</p><a href="#" class="nm-r"><span class="nm-ico">📚</span><b>Publications</b><em>Journals & papers</em></a><a href="#" class="nm-r"><span class="nm-ico">🏗️</span><b>Research Centers</b><em>Labs & facilities</em></a><a href="#" class="nm-r"><span class="nm-ico">🌍</span><b>Collaborations</b><em>Global partnerships</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">Advancing Healthcare</p><p class="nm-cb">Our research shapes clinical practice across the GCC and builds bridges with global institutions.</p><a href="#research" class="nm-btn">Explore Research &#8594;</a></div>
+    </div><div class="nm-drop" id="drop-studentlife" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">Campus Experience</p><a href="#" class="nm-r"><span class="nm-ico">🏫</span><b>Campus Life</b><em>Facilities & spaces</em></a><a href="#" class="nm-r"><span class="nm-ico">🏋️</span><b>Sports & Wellness</b><em>Gym, courts & clinics</em></a><a href="#" class="nm-r"><span class="nm-ico">🎭</span><b>Clubs & Activities</b><em>Societies & events</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Support Services</p><a href="#" class="nm-r"><span class="nm-ico">🏠</span><b>Accommodation</b><em>On-campus housing</em></a><a href="#" class="nm-r"><span class="nm-ico">📖</span><b>Library</b><em>Digital & physical resources</em></a><a href="#" class="nm-r"><span class="nm-ico">💼</span><b>Career Services</b><em>Placements & internships</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">Life at AKU</p><p class="nm-cb">A vibrant, inclusive campus built to inspire collaboration, creativity, and personal growth.</p><a href="#campus" class="nm-btn">Take AR Tour &#8594;</a></div>
+    </div><div class="nm-drop" id="drop-about" aria-hidden="true">
+      <div class="nm-dc nm-dc--a"><p class="nm-dh">The University</p><a href="#" class="nm-r"><span class="nm-ico">🏛️</span><b>Our Vision</b><em>Mission, values & strategy</em></a><a href="#" class="nm-r"><span class="nm-ico">📜</span><b>History</b><em>Founding & milestones</em></a><a href="#" class="nm-r"><span class="nm-ico">👤</span><b>Leadership</b><em>Board & management</em></a></div>
+      <div class="nm-dc"><p class="nm-dh">Connect</p><a href="#" class="nm-r"><span class="nm-ico">📍</span><b>Find Us</b><em>Location & directions</em></a><a href="#" class="nm-r"><span class="nm-ico">✉️</span><b>Contact</b><em>General enquiries</em></a><a href="#" class="nm-r"><span class="nm-ico">🤝</span><b>Partnerships</b><em>Industry alliances</em></a></div>
+      <div class="nm-dc nm-dc--cta"><p class="nm-ct">About AKU</p><p class="nm-cb">Learn about our founding mission, our leadership, and our commitment to healthcare excellence.</p><a href="#footer" class="nm-btn">Our Story &#8594;</a></div>
+    </div></div>
 <script>
 (function(){
-  var items = document.querySelectorAll('.nav-item.has-mega');
-  var overlay = document.createElement('div');
-  overlay.className = 'mega-overlay';
-  document.body.appendChild(overlay);
+  var triggers = Array.from(document.querySelectorAll('.nm-t'));
+  if(!triggers.length) return;
 
-  var current = null;
-
-  function open(item) {
-    if (current && current !== item) close(current);
-    item.classList.add('is-open');
-    overlay.classList.add('active');
-    current = item;
+  var tpl = document.getElementById('nm-panels');
+  if(tpl){
+    Array.from(tpl.children).forEach(function(panel){ document.body.appendChild(panel); });
   }
 
-  function close(item) {
-    item.classList.remove('is-open');
-    overlay.classList.remove('active');
-    current = null;
+  var panels = Array.from(document.querySelectorAll('.nm-drop'));
+  var dim = document.getElementById('nm-dim');
+  if(!dim){
+    dim = document.createElement('div');
+    dim.id = 'nm-dim';
+    document.body.appendChild(dim);
   }
 
-  items.forEach(function(item) {
-    var trigger = item.querySelector('.nav-trigger');
-    var panel = item.querySelector('.mega-panel');
+  var cur = null;
+  var hideTimer = null;
+  var openTimer = null;
+  var lastMouse = {x:0,y:0};
 
-    trigger.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (item.classList.contains('is-open')) {
-        close(item);
-      } else {
-        open(item);
+  document.addEventListener('mousemove', function(e){
+    lastMouse.x = e.clientX;
+    lastMouse.y = e.clientY;
+  }, {passive:true});
+
+  function navBottom(){
+    var nav = document.querySelector('.nav');
+    return nav ? Math.round(nav.getBoundingClientRect().bottom) : 82;
+  }
+
+  function setPanelPosition(panel){
+    panel.style.top = (navBottom() - 1) + 'px';
+  }
+
+  function insideElement(el, pad){
+    if(!el) return false;
+    var r = el.getBoundingClientRect();
+    pad = pad || 0;
+    return lastMouse.x >= r.left - pad && lastMouse.x <= r.right + pad && lastMouse.y >= r.top - pad && lastMouse.y <= r.bottom + pad;
+  }
+
+  function insideSafeZone(){
+    if(!cur) return false;
+    if(insideElement(cur.btn, 26) || insideElement(cur.panel, 18)) return true;
+    var nav = document.querySelector('.nav');
+    var pb = cur.panel.getBoundingClientRect();
+    var nb = nav ? nav.getBoundingClientRect() : {bottom:navBottom()};
+    /* invisible bridge between main menu and dropdown */
+    return lastMouse.x >= pb.left - 20 && lastMouse.x <= pb.right + 20 && lastMouse.y >= nb.bottom - 6 && lastMouse.y <= pb.top + 34;
+  }
+
+  function resetButtons(){
+    triggers.forEach(function(t){ t.setAttribute('aria-expanded','false'); });
+  }
+
+  function closeNow(){
+    clearTimeout(hideTimer);
+    clearTimeout(openTimer);
+    resetButtons();
+    panels.forEach(function(panel){
+      panel.classList.remove('is-open');
+      panel.setAttribute('aria-hidden','true');
+    });
+    dim.classList.remove('is-on');
+    cur = null;
+  }
+
+  function softClose(){
+    clearTimeout(openTimer);
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(function(){
+      if(insideSafeZone()){
+        softClose();
+        return;
+      }
+      closeNow();
+    }, 620);
+  }
+
+  function show(btn){
+    clearTimeout(hideTimer);
+    clearTimeout(openTimer);
+    var id = btn.getAttribute('data-drop');
+    var panel = document.getElementById(id);
+    if(!panel) return;
+
+    panels.forEach(function(p){
+      if(p !== panel){
+        p.classList.remove('is-open');
+        p.setAttribute('aria-hidden','true');
       }
     });
+    resetButtons();
 
-    item.addEventListener('mouseenter', function() { open(item); });
-    item.addEventListener('mouseleave', function(e) {
-      // only close if mouse not going to panel
-      if (!item.contains(e.relatedTarget)) { close(item); }
+    setPanelPosition(panel);
+    panel.classList.add('is-open');
+    panel.removeAttribute('aria-hidden');
+    btn.setAttribute('aria-expanded','true');
+    dim.classList.add('is-on');
+    cur = {btn:btn,panel:panel};
+  }
+
+  function scheduleOpen(btn){
+    clearTimeout(hideTimer);
+    clearTimeout(openTimer);
+    if(cur){
+      show(btn);
+      return;
+    }
+    openTimer = setTimeout(function(){ show(btn); }, 55);
+  }
+
+  triggers.forEach(function(btn){
+    btn.addEventListener('mouseenter', function(){ scheduleOpen(btn); });
+    btn.addEventListener('focus', function(){ scheduleOpen(btn); });
+    btn.addEventListener('mouseleave', softClose);
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      if(cur && cur.btn === btn){ closeNow(); }
+      else { show(btn); }
     });
   });
 
-  overlay.addEventListener('click', function() {
-    if (current) close(current);
+  panels.forEach(function(panel){
+    panel.addEventListener('mouseenter', function(){ clearTimeout(hideTimer); });
+    panel.addEventListener('mousemove', function(){ clearTimeout(hideTimer); });
+    panel.addEventListener('mouseleave', softClose);
   });
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && current) close(current);
+  document.addEventListener('click', function(e){
+    if(!cur) return;
+    if(e.target.closest('.nm-t') || e.target.closest('.nm-drop')) return;
+    closeNow();
+  });
+
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNow(); });
+
+  var rafId = null;
+  function refreshPosition(){
+    if(!cur) return;
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(function(){ setPanelPosition(cur.panel); });
+  }
+  window.addEventListener('scroll', refreshPosition, {passive:true});
+  window.addEventListener('resize', refreshPosition, {passive:true});
+})();
+</script>
+
+<script>
+/* MONTY V3 polish: soft spotlight + magnetic buttons without touching backend logic */
+(function(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var root=document.documentElement;
+  var last=0;
+  document.addEventListener('pointermove',function(e){
+    var now=performance.now();
+    if(now-last<32) return;
+    last=now;
+    root.style.setProperty('--mx', (e.clientX/window.innerWidth*100).toFixed(1)+'%');
+    root.style.setProperty('--my', (e.clientY/window.innerHeight*100).toFixed(1)+'%');
+  },{passive:true});
+
+  var magnetic='.apply-btn,.primary-btn,.ghost-btn,.circle-btn,.floating-apply,.slider-arrow,.play';
+  document.querySelectorAll(magnetic).forEach(function(el){
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect();
+      var x=((e.clientX-r.left)/r.width-.5)*10;
+      var y=((e.clientY-r.top)/r.height-.5)*10;
+      el.style.transform='translateY(-3px) translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';
+    },{passive:true});
+    el.addEventListener('pointerleave',function(){el.style.transform='';},{passive:true});
   });
 })();
 </script>
