@@ -2039,6 +2039,798 @@ html{scroll-padding-top:110px !important;}
 @media(max-width:1180px){.chairman-section-head{display:block!important}.chairman-section-head p{margin-top:14px!important;max-width:760px!important}.chairman-royal-stage{grid-template-columns:1fr!important;gap:22px!important;min-height:auto!important;padding:28px!important}.chairman-word-en.chairman-royal-card,.chairman-word-ar.chairman-royal-card{border-radius:32px!important;padding:34px!important}.chairman-royal-portrait{order:2!important;min-height:560px!important;margin:0 auto!important;width:min(520px,100%)!important}.chairman-word-en{order:1!important}.chairman-word-ar{order:3!important}}
 @media(max-width:760px){.chairman-section-head h2{font-size:clamp(36px,11vw,56px)!important}.chairman-royal-stage{border-radius:32px!important;padding:18px!important}.chairman-word-en.chairman-royal-card,.chairman-word-ar.chairman-royal-card{padding:24px 18px!important;border-radius:24px!important}.chairman-royal-portrait{min-height:430px!important}.chairman-memari-img{width:280px!important}.chairman-portrait-label{min-width:230px!important;bottom:16px!important}}
 
+/* ════════════════════════════════════════════════════════
+   SUPREME NAV — COMMAND EDITION
+   Full-width bar · edge-to-edge · massive hover panels
+   that expand with cinematic spring physics
+════════════════════════════════════════════════════════ */
+
+:root {
+  --sn-h: 82px;
+  --sn-obsidian:  #010d1e;
+  --sn-navy:      #030f24;
+  --sn-deep:      #051630;
+  --sn-blue:      #0a4d96;
+  --sn-royal:     #1266cc;
+  --sn-sky:       #2a8eea;
+  --sn-crystal:   #67d4fc;
+  --sn-pearl:     #eaf6ff;
+  --sn-gold:      #c89520;
+  --sn-gold-lt:   #f0c84a;
+  --sn-gold-pale: #fef3d0;
+  --sn-ease:   cubic-bezier(.22,.88,.25,1);
+  --sn-spring: cubic-bezier(.34,1.48,.64,1);
+  --sn-sharp:  cubic-bezier(.16,1,.3,1);
+}
+html { scroll-padding-top: calc(var(--sn-h) + 8px); }
+
+/* ══════════════════════════════════════
+   BAR — full width, edge-to-edge
+══════════════════════════════════════ */
+.snav {
+  position: sticky;
+  top: 0;
+  z-index: 100000;
+  width: 100%;
+  margin: 0;
+  height: var(--sn-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 3.5vw, 60px);
+  border-radius: 0;
+
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,.98) 0%,
+      rgba(244,251,255,.96) 100%);
+
+  border-bottom: 1px solid rgba(10,77,150,.10);
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,1) inset,
+    0 4px 24px rgba(1,13,30,.06),
+    0 16px 48px rgba(1,13,30,.08);
+
+  overflow: visible;
+  transition: background .35s ease, box-shadow .35s ease;
+}
+
+/* Prismatic bottom line — always visible, animates on scroll */
+.snav::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--sn-blue) 0%,
+    var(--sn-crystal) 25%,
+    var(--sn-royal) 45%,
+    var(--sn-gold) 55%,
+    var(--sn-royal) 65%,
+    var(--sn-crystal) 80%,
+    var(--sn-blue) 100%);
+  background-size: 200% 100%;
+  animation: prismaShift 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes prismaShift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.snav.scrolled {
+  background: rgba(255,255,255,.99);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,1) inset,
+    0 8px 32px rgba(1,13,30,.10),
+    0 20px 60px rgba(1,13,30,.12);
+}
+
+/* ── Logo ── */
+.snav__logo {
+  display: flex; align-items: center; flex-shrink: 0;
+  text-decoration: none;
+}
+.snav__logo img {
+  height: 56px; width: auto; object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(5,22,48,.10));
+  transition: filter .3s, transform .3s var(--sn-spring);
+}
+.snav__logo:hover img {
+  transform: scale(1.05) translateY(-1px);
+  filter: drop-shadow(0 8px 22px rgba(10,77,150,.18));
+}
+
+/* ══════════════════════════════════════
+   TRIGGER BUTTONS — large, bold, spaced
+══════════════════════════════════════ */
+.snav__links {
+  display: flex; align-items: center; height: 100%;
+  gap: 0;
+  overflow: visible;
+  flex: 1;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.snav__trigger {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 6px;
+  height: var(--sn-h);
+  padding: 0 clamp(14px, 1.4vw, 26px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #0a1c38;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(13px, 1vw, 15.5px);
+  font-weight: 800;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  overflow: visible;
+
+  transition:
+    color .2s ease,
+    background .2s ease;
+}
+
+/* The expanding highlight block */
+.snav__trigger::after {
+  content: "";
+  position: absolute;
+  left: 50%; right: 50%;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(90deg, var(--sn-royal), var(--sn-crystal));
+  transition: left .3s var(--sn-spring), right .3s var(--sn-spring);
+}
+
+.snav__trigger:hover,
+.snav__trigger[aria-expanded="true"] {
+  color: var(--sn-royal);
+  background: linear-gradient(180deg,
+    rgba(232,246,255,.0) 0%,
+    rgba(232,246,255,.6) 100%);
+}
+.snav__trigger:hover::after,
+.snav__trigger[aria-expanded="true"]::after {
+  left: 0; right: 0;
+}
+
+.snav__trigger svg {
+  width: 10px; height: 6px;
+  color: var(--sn-sky);
+  flex-shrink: 0;
+  transition: transform .28s var(--sn-spring), color .2s;
+}
+.snav__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+  color: var(--sn-gold);
+}
+
+/* hover bridge */
+.snav__trigger::before {
+  content: "";
+  position: absolute;
+  left: -20px; right: -20px;
+  top: 100%; height: 60px;
+  pointer-events: auto;
+}
+
+/* Founder — golden accent */
+.snav__trigger--founder {
+  color: var(--sn-deep);
+}
+.snav__trigger--founder::after {
+  background: linear-gradient(90deg, var(--sn-gold), var(--sn-gold-lt));
+}
+.snav__trigger--founder:hover,
+.snav__trigger--founder[aria-expanded="true"] {
+  color: var(--sn-gold);
+  background: linear-gradient(180deg,
+    rgba(255,243,200,.0) 0%,
+    rgba(255,243,200,.55) 100%);
+}
+
+/* ── Actions ── */
+.snav__actions {
+  display: flex; align-items: center;
+  gap: 10px; flex-shrink: 0;
+}
+
+.snav__icon-btn {
+  width: 44px; height: 44px; border-radius: 12px;
+  border: 1px solid rgba(10,77,150,.14);
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(230,246,255,.88));
+  color: var(--sn-deep);
+  display: grid; place-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(1,13,30,.07);
+  transition: background .2s, box-shadow .2s, transform .22s var(--sn-spring);
+}
+.snav__icon-btn:hover {
+  background: #fff;
+  border-color: rgba(103,212,252,.42);
+  box-shadow: 0 8px 24px rgba(10,77,150,.14);
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* EN/AR pill */
+.snav__lang {
+  display: inline-flex; align-items: center;
+  height: 38px; padding: 3px;
+  border-radius: 10px;
+  border: 1px solid rgba(10,77,150,.13);
+  background: linear-gradient(180deg, rgba(240,250,255,.9), rgba(255,255,255,.8));
+  box-shadow: 0 2px 8px rgba(1,13,30,.05);
+}
+.snav__lang-btn {
+  height: 100%; padding: 0 14px;
+  border: 0; background: none;
+  font-size: 12px; font-weight: 900;
+  letter-spacing: .05em; text-transform: uppercase;
+  color: #7a90a8; border-radius: 8px;
+  cursor: pointer;
+  transition: background .22s, color .22s, box-shadow .22s;
+}
+.snav__lang-btn.active {
+  background: linear-gradient(135deg, var(--sn-deep), var(--sn-royal));
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(10,77,150,.22);
+}
+
+/* Apply CTA */
+.snav__apply {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 48px; padding: 0 24px;
+  border-radius: 12px; border: 0;
+  text-decoration: none;
+  font-size: 13.5px; font-weight: 950; letter-spacing: .02em;
+  color: #fff; white-space: nowrap;
+  background:
+    linear-gradient(135deg,
+      var(--sn-obsidian) 0%,
+      var(--sn-blue) 50%,
+      var(--sn-sky) 100%);
+  background-size: 200% 100%;
+  background-position: 0%;
+  box-shadow:
+    0 8px 28px rgba(10,77,150,.24),
+    0 1px 0 rgba(255,255,255,.15) inset;
+  transition:
+    background-position .5s ease,
+    transform .28s var(--sn-spring),
+    box-shadow .28s;
+}
+.snav__apply:hover {
+  background-position: 100%;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 42px rgba(10,77,150,.3);
+}
+.snav__apply--full {
+  width: 100%; justify-content: center; height: 52px; margin-top: 14px; border-radius: 14px;
+}
+
+/* Hamburger */
+.snav__burger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  width: 44px; height: 44px; border-radius: 12px;
+  border: 1px solid rgba(10,77,150,.14);
+  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(230,246,255,.88));
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(1,13,30,.07);
+}
+.snav__burger span {
+  display: block; width: 20px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--sn-deep), var(--sn-royal));
+  transition: transform .35s var(--sn-ease), opacity .25s, width .25s;
+}
+.snav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.snav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; width: 0; }
+.snav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ══════════════════════════════════════════════════════
+   MEGA DROP — FULL WIDTH, CINEMATIC EXPANSION
+   Slides down from bar edge-to-edge, massive content
+══════════════════════════════════════════════════════ */
+.snav-drop {
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(280px, .5fr);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(10,77,150,.08), transparent 40%),
+    radial-gradient(ellipse at 80% 0%, rgba(200,149,32,.06), transparent 38%),
+    linear-gradient(180deg,
+      rgba(250,254,255,1) 0%,
+      rgba(242,251,255,.99) 100%);
+
+  border-top: none;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg,
+    var(--sn-blue),
+    var(--sn-crystal),
+    var(--sn-gold),
+    var(--sn-crystal),
+    var(--sn-blue)) 1;
+
+  box-shadow:
+    0 30px 80px rgba(1,13,30,.18),
+    0 8px 24px rgba(1,13,30,.08);
+
+  /* Start: collapsed at top, invisible */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-16px) scaleY(.88);
+  transform-origin: top center;
+
+  transition:
+    opacity .28s var(--sn-sharp),
+    visibility 0s .28s,
+    transform .38s var(--sn-spring);
+}
+
+/* Inner shimmer line at top */
+.snav-drop::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--sn-blue) 0%,
+    var(--sn-crystal) 25%,
+    var(--sn-gold-lt) 50%,
+    var(--sn-crystal) 75%,
+    var(--sn-blue) 100%);
+  background-size: 200%;
+  animation: shimmerTop 4s linear infinite;
+  box-shadow: 0 0 20px rgba(103,212,252,.4), 0 0 8px rgba(200,149,32,.3);
+}
+@keyframes shimmerTop {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* Grid dots bg texture */
+.snav-drop::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(10,77,150,.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.3) 0%, transparent 70%);
+}
+
+/* OPEN STATE — expands with spring bounce */
+.snav-drop.is-open {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateY(0) scaleY(1);
+  transition:
+    opacity .22s ease,
+    visibility 0s 0s,
+    transform .4s var(--sn-spring);
+}
+
+/* ── Columns ── */
+.snav-drop__col {
+  position: relative; z-index: 2;
+  padding: 36px 30px 32px;
+  border-right: 1px solid rgba(10,77,150,.06);
+
+  /* Stagger reveal of rows */
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .32s ease, transform .38s var(--sn-ease);
+}
+.snav-drop__col:last-of-type { border-right: none; }
+
+.snav-drop.is-open .snav-drop__col:nth-child(1) {
+  opacity: 1; transform: none;
+  transition-delay: .06s;
+}
+.snav-drop.is-open .snav-drop__col:nth-child(2) {
+  opacity: 1; transform: none;
+  transition-delay: .10s;
+}
+.snav-drop.is-open .snav-drop__col:nth-child(3) {
+  opacity: 1; transform: none;
+  transition-delay: .14s;
+}
+
+.snav-drop__head {
+  margin: 0 0 16px; padding: 0 0 12px;
+  border-bottom: 1px solid rgba(10,77,150,.08);
+  font-size: 10px; font-weight: 1000;
+  letter-spacing: .24em; text-transform: uppercase;
+  background: linear-gradient(90deg, var(--sn-royal), var(--sn-sky));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Row links — scale up on hover */
+.snav-drop__row {
+  display: grid;
+  grid-template-columns: 50px 1fr 20px;
+  grid-template-rows: auto auto;
+  column-gap: 13px;
+  align-items: center;
+  padding: 11px 12px;
+  margin-bottom: 4px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--sn-deep);
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    transform .3s var(--sn-spring),
+    box-shadow .22s ease;
+}
+.snav-drop__row:hover {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.98) 0%,
+    rgba(220,244,255,.85) 100%);
+  border-color: rgba(103,212,252,.32);
+  transform: translateX(8px) scale(1.02);
+  box-shadow:
+    0 8px 28px rgba(10,77,150,.10),
+    0 2px 6px rgba(10,77,150,.06);
+}
+
+.snav-drop__ico {
+  grid-row: 1 / 3;
+  width: 50px; height: 50px; border-radius: 15px;
+  display: grid; place-items: center; font-size: 22px;
+  background: linear-gradient(145deg, rgba(255,255,255,1), rgba(220,244,255,.9));
+  border: 1px solid rgba(10,77,150,.10);
+  box-shadow:
+    0 4px 16px rgba(10,77,150,.08),
+    0 1px 0 rgba(255,255,255,.95) inset;
+  transition: border-color .22s, box-shadow .22s, transform .28s var(--sn-spring);
+  flex-shrink: 0;
+}
+.snav-drop__row:hover .snav-drop__ico {
+  border-color: rgba(103,212,252,.45);
+  box-shadow: 0 10px 28px rgba(10,77,150,.16);
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.snav-drop__row b {
+  grid-column: 2; align-self: end;
+  font-size: 14px; font-weight: 900; color: #051428; line-height: 1.2;
+}
+.snav-drop__row em {
+  grid-column: 2; align-self: start;
+  font-style: normal; font-size: 11.5px; color: #6888a8; line-height: 1.2;
+}
+.snav-drop__arrow {
+  grid-column: 3; grid-row: 1 / 3; align-self: center;
+  color: var(--sn-sky); font-size: 18px; font-weight: 900;
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity .22s, transform .28s var(--sn-spring);
+}
+.snav-drop__row:hover .snav-drop__arrow {
+  opacity: 1; transform: translateX(0);
+}
+
+/* ── Dark CTA column ── */
+.snav-drop__cta {
+  position: relative; z-index: 2;
+  padding: 36px 28px 32px;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 90% 8%, rgba(103,212,252,.38), transparent 44%),
+    radial-gradient(ellipse at 10% 85%, rgba(10,77,150,.3), transparent 40%),
+    linear-gradient(155deg,
+      var(--sn-obsidian) 0%,
+      var(--sn-navy) 35%,
+      var(--sn-deep) 65%,
+      #0b3d80 100%);
+}
+.snav-drop__cta::before {
+  content: "";
+  position: absolute; left: -60px; top: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(103,212,252,.12), transparent 68%);
+  pointer-events: none;
+  animation: ctaGlow 5s ease-in-out infinite alternate;
+}
+@keyframes ctaGlow {
+  from { transform: scale(.9) translate(0,0); opacity: .6; }
+  to   { transform: scale(1.15) translate(20px,20px); opacity: 1; }
+}
+
+.snav-drop__cta-eyebrow {
+  font-size: 9.5px; font-weight: 1000; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--sn-crystal); margin: 0 0 10px;
+}
+.snav-drop__cta-title {
+  font-family: Cinzel, Georgia, serif;
+  font-size: 24px; font-weight: 700; line-height: 1.1;
+  color: #fff; margin: 0 0 14px;
+}
+.snav-drop__cta-body {
+  font-size: 13px; line-height: 1.72;
+  color: rgba(195,228,255,.76); margin: 0 0 22px;
+}
+.snav-drop__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 48px; padding: 0 22px; margin-bottom: 10px;
+  border-radius: 12px;
+  font-size: 13px; font-weight: 950; letter-spacing: .02em;
+  text-decoration: none;
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(210,242,255,.9));
+  color: var(--sn-deep);
+  box-shadow: 0 10px 28px rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.7) inset;
+  transition: transform .28s var(--sn-spring), box-shadow .22s;
+}
+.snav-drop__btn--gold {
+  background: linear-gradient(135deg, var(--sn-gold-pale), var(--sn-gold-lt) 50%, var(--sn-gold));
+  color: #1a0e00;
+  box-shadow: 0 10px 28px rgba(200,149,32,.32);
+}
+.snav-drop__btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+}
+
+/* ══════════════════════════════════════════════════
+   FOUNDER PANEL — 2-column cinematic
+══════════════════════════════════════════════════ */
+#sdrop-founder {
+  grid-template-columns: 320px 1fr;
+}
+#sdrop-founder::before {
+  background: linear-gradient(90deg,
+    var(--sn-gold) 0%, var(--sn-gold-lt) 20%,
+    var(--sn-crystal) 50%,
+    var(--sn-gold-lt) 80%, var(--sn-gold) 100%);
+  background-size: 200%;
+  animation: shimmerTop 3s linear infinite;
+  box-shadow: 0 0 28px rgba(200,149,32,.5), 0 0 14px rgba(103,212,252,.3);
+}
+
+/* Portrait column */
+.snav-drop__founder-portrait {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding: 30px 24px 26px;
+  overflow: hidden; min-height: 400px;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(103,212,252,.18), transparent 52%),
+    radial-gradient(ellipse at 80% 90%, rgba(200,149,32,.14), transparent 40%),
+    linear-gradient(165deg, #010d1e 0%, #031630 45%, #0a3870 100%);
+}
+.snav-drop__founder-portrait::before {
+  content: "";
+  position: absolute; left: 50%; top: 24px; transform: translateX(-50%);
+  width: 230px; height: 230px; border-radius: 50%;
+  border: 1px solid rgba(103,212,252,.3);
+  box-shadow: 0 0 0 24px rgba(103,212,252,.04), 0 0 60px rgba(103,212,252,.16);
+  animation: founderPulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+.snav-drop__founder-portrait::after {
+  content: "";
+  position: absolute; left: 50%; top: 40px; transform: translateX(-50%);
+  width: 192px; height: 192px; border-radius: 50%;
+  border: 1px solid rgba(200,149,32,.38);
+  animation: founderOrbit 10s linear infinite;
+  pointer-events: none;
+}
+@keyframes founderPulse {
+  0%,100% { transform: translateX(-50%) scale(1); opacity: .7; }
+  50%      { transform: translateX(-50%) scale(1.07); opacity: 1; }
+}
+@keyframes founderOrbit { to { transform: translateX(-50%) rotate(360deg); } }
+
+.snav-drop__founder-img {
+  position: relative; z-index: 3;
+  width: 210px; object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,.5)) drop-shadow(0 4px 10px rgba(103,212,252,.2));
+  border-radius: 0 0 14px 14px;
+}
+#sdrop-founder.is-open .snav-drop__founder-img {
+  animation: founderReveal .52s var(--sn-spring) both;
+}
+@keyframes founderReveal {
+  from { opacity: 0; transform: translateY(18px) scale(.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+.snav-drop__founder-badge {
+  position: relative; z-index: 4; margin-top: 16px;
+  padding: 12px 22px; border-radius: 999px; text-align: center;
+  background: linear-gradient(135deg, rgba(255,255,255,.11), rgba(255,255,255,.05));
+  border: 1px solid rgba(103,212,252,.28); backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.24);
+}
+.snav-drop__founder-badge b {
+  display: block; font-size: 13px; font-weight: 900;
+  font-family: Cinzel, Georgia, serif; color: #fff; letter-spacing: .02em;
+}
+.snav-drop__founder-badge span {
+  display: block; font-size: 9.5px; color: var(--sn-crystal);
+  font-weight: 900; letter-spacing: .18em; text-transform: uppercase; margin-top: 4px;
+}
+
+/* Quote column */
+.snav-drop__founder-quote {
+  position: relative; z-index: 2; padding: 32px 36px 30px;
+  display: flex; flex-direction: column; justify-content: center;
+  background: radial-gradient(ellipse at 90% 8%, rgba(200,149,32,.06), transparent 36%),
+    linear-gradient(180deg, rgba(252,254,255,1), rgba(242,251,255,.98));
+}
+.snav-drop__lang-toggle {
+  display: inline-flex; margin-bottom: 22px; padding: 3px;
+  border-radius: 12px; border: 1px solid rgba(10,77,150,.14);
+  background: linear-gradient(180deg, rgba(240,250,255,.9), rgba(255,255,255,.8));
+  box-shadow: 0 2px 10px rgba(10,77,150,.07); width: fit-content;
+}
+.snav-drop__lang-btn {
+  padding: 8px 22px; height: 36px; border: 0; background: none;
+  font-size: 12px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+  cursor: pointer; color: #7a90a8; border-radius: 10px;
+  transition: background .22s, color .22s, box-shadow .22s;
+}
+.snav-drop__lang-btn.active {
+  background: linear-gradient(135deg, var(--sn-deep), var(--sn-royal));
+  color: #fff; box-shadow: 0 4px 16px rgba(10,77,150,.22);
+}
+
+.snav-drop__quote { display: none; }
+.snav-drop__quote.active {
+  display: block; animation: quoteSlide .34s var(--sn-ease) both;
+}
+@keyframes quoteSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.snav-drop__quote-kicker {
+  font-size: 10px; font-weight: 1000; letter-spacing: .22em; text-transform: uppercase;
+  background: linear-gradient(90deg, var(--sn-blue), var(--sn-sky));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 9px;
+}
+.snav-drop__quote-title {
+  font-family: Cinzel, Georgia, serif;
+  font-size: 26px; font-weight: 700; color: var(--sn-deep);
+  margin: 0 0 14px; line-height: 1.08; letter-spacing: -.03em;
+}
+.snav-drop__quote-title[lang="ar"] {
+  font-family: 'Traditional Arabic', 'Scheherazade New', serif;
+  font-size: 28px; line-height: 1.45; direction: rtl; text-align: right; letter-spacing: 0;
+}
+.snav-drop__quote-body {
+  font-size: 13.5px; line-height: 1.82; color: #4a607a; margin: 0 0 18px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+}
+.snav-drop__quote-body[lang="ar"] {
+  direction: rtl; text-align: right;
+  font-family: 'Traditional Arabic', 'Scheherazade New', serif;
+  font-size: 16px; line-height: 2; -webkit-line-clamp: 3;
+}
+.snav-drop__quote-sig {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-top: 14px; border-top: 1px solid rgba(10,77,150,.09); margin-bottom: 18px;
+}
+.snav-drop__quote-sig b {
+  font-size: 13.5px; font-weight: 950;
+  background: linear-gradient(90deg, var(--sn-deep), var(--sn-blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.snav-drop__quote-sig span {
+  font-size: 10.5px; font-weight: 900; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--sn-royal);
+}
+.snav-drop__quote-sig[lang="ar"] { direction: rtl; text-align: right; }
+.snav-drop__founder-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 46px; padding: 0 22px; border-radius: 12px;
+  font-size: 13px; font-weight: 950; letter-spacing: .018em;
+  text-decoration: none; color: #fff; width: fit-content;
+  background: linear-gradient(135deg, var(--sn-obsidian), var(--sn-blue) 60%, var(--sn-sky));
+  box-shadow: 0 8px 24px rgba(10,77,150,.22);
+  transition: transform .28s var(--sn-spring), box-shadow .22s;
+}
+.snav-drop__founder-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 16px 38px rgba(10,77,150,.3); }
+
+/* ── Scrim ── */
+.snav-overlay {
+  position: fixed; inset: 0; z-index: 99998;
+  background: rgba(1,9,20,.05);
+  backdrop-filter: blur(.8px);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .24s ease, visibility 0s .24s;
+}
+.snav-overlay.is-on { opacity: 1; visibility: visible; transition: opacity .22s ease, visibility 0s 0s; }
+.snav-overlay.drawer-open { pointer-events: auto; }
+
+/* ══════════════════════════
+   MOBILE DRAWER
+══════════════════════════ */
+.snav-mobile {
+  position: fixed; inset: 0 0 0 auto; z-index: 100001;
+  width: min(400px, 100vw);
+  background: linear-gradient(180deg, #fff 0%, rgba(242,251,255,.99) 100%);
+  transform: translateX(100%);
+  transition: transform .42s var(--sn-ease);
+  overflow-y: auto; overscroll-behavior: contain;
+  box-shadow: -32px 0 100px rgba(1,13,30,.18);
+}
+.snav-mobile.is-open { transform: translateX(0); }
+.snav-mobile__topbar {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid rgba(10,77,150,.09);
+  backdrop-filter: blur(20px);
+}
+.snav-mobile__topbar img { height: 42px; object-fit: contain; }
+.snav-mobile__close {
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid rgba(10,77,150,.14);
+  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(230,246,255,.9));
+  display: grid; place-items: center; font-size: 18px; cursor: pointer; color: var(--sn-deep);
+  transition: transform .2s var(--sn-spring);
+}
+.snav-mobile__close:hover { transform: scale(1.1) rotate(5deg); }
+.snav-mobile__body { padding: 10px 16px 52px; }
+.snav-mobile__lang { display: flex; gap: 6px; padding: 12px 4px 14px; border-bottom: 1px solid rgba(10,77,150,.08); margin-bottom: 4px; }
+.snav-mobile__lang button { flex: 1; height: 40px; border-radius: 10px; border: 1px solid rgba(10,77,150,.13); background: linear-gradient(180deg,rgba(240,250,255,.8),rgba(255,255,255,.7)); font-size: 13px; font-weight: 900; color: #6a7f98; cursor: pointer; transition: background .22s, color .22s; }
+.snav-mobile__lang button.active { background: linear-gradient(135deg,var(--sn-deep),var(--sn-royal)); color: #fff; border-color: transparent; }
+.snav-mobile__group { border-bottom: 1px solid rgba(10,77,150,.07); }
+.snav-mobile__group summary { list-style: none; padding: 14px 6px; font-size: 14.5px; font-weight: 850; color: var(--sn-deep); cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: color .2s; }
+.snav-mobile__group summary::-webkit-details-marker { display: none; }
+.snav-mobile__group summary::after { content: "+"; color: var(--sn-royal); font-size: 20px; font-weight: 300; transition: transform .28s var(--sn-ease); }
+.snav-mobile__group[open] summary { color: var(--sn-royal); }
+.snav-mobile__group[open] summary::after { transform: rotate(45deg); }
+.snav-mobile__sub { display: flex; flex-direction: column; gap: 1px; padding: 4px 0 12px 10px; }
+.snav-mobile__sub a { padding: 9px 13px; border-radius: 9px; font-size: 13.5px; font-weight: 750; color: #1c3b60; text-decoration: none; transition: background .18s, color .18s, transform .18s; }
+.snav-mobile__sub a:hover { background: var(--sn-pearl); color: var(--sn-royal); transform: translateX(3px); }
+.snav-mobile__founder { padding: 16px 4px 4px; }
+.snav-mobile__founder-card { display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 16px; border: 1px solid rgba(10,77,150,.1); background: radial-gradient(ellipse at 90% 10%,rgba(103,212,252,.18),transparent 44%), linear-gradient(135deg,#010d1e,#031630 55%,#0a3870); color: #fff; margin-bottom: 10px; box-shadow: 0 8px 28px rgba(1,13,30,.18); }
+.snav-mobile__founder-card img { width: 52px; height: 62px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(103,212,252,.28); flex-shrink: 0; }
+.snav-mobile__founder-card b { display: block; font-size: 12.5px; font-weight: 900; color: #fff; font-family: Cinzel, serif; line-height: 1.3; }
+.snav-mobile__founder-card span { display: block; font-size: 10px; color: var(--sn-crystal); margin-top: 3px; letter-spacing: .06em; text-transform: uppercase; }
+.snav-mobile__footer { padding-top: 16px; }
+
+/* ── Responsive ── */
+@media (max-width: 1180px) {
+  .snav__links { display: none; }
+  .snav__burger { display: flex; }
+}
+@media (max-width: 700px) {
+  :root { --sn-h: 66px; }
+  .snav { padding: 0 16px; }
+  .snav__logo img { height: 44px; }
+  .snav__apply { display: none; }
+  .snav__lang { display: none; }
+}
+
+/* Kill old nav */
+.nav:not(.snav) { display: none !important; }
+.nm-t, .nm-drop, #nm-dim { display: none !important; }
+
+/* Hero starts right below nav */
+.hero { margin-top: 0 !important; }
+
+
 </style>
 </head>
 <body class="preload-active">
@@ -2055,11 +2847,317 @@ html{scroll-padding-top:110px !important;}
     <b>Apply Now</b>
     <i>→</i>
   </a>
-  <header class="nav">
-    <a class="logo" href="#home"><img src="assets/img/logo-full-new.png" alt="Founder, Ain Al Khaleej University"></a>
-    <nav class="nav-links"><button class="nm-t" data-drop="drop-study" aria-expanded="false" aria-haspopup="true">Study<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-faculties" aria-expanded="false" aria-haspopup="true">Faculties<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-admissions" aria-expanded="false" aria-haspopup="true">Admissions<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-research" aria-expanded="false" aria-haspopup="true">Research<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-studentlife" aria-expanded="false" aria-haspopup="true">Student Life<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><button class="nm-t" data-drop="drop-about" aria-expanded="false" aria-haspopup="true">About AKU<svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button></nav>
-    <div class="nav-actions"><button class="circle-btn smart-search-open" aria-label="Open Smart Search">⌕</button><a class="apply-btn" href="#admissions">Apply Now <span>→</span></a><button class="circle-btn menu-btn" aria-label="Menu">☰</button></div>
+  <!-- ═══════════════════════════════════════════════
+       SUPREME NAV V2 — Founder Edition
+  ═══════════════════════════════════════════════ -->
+  <header class="snav" id="snav" role="banner">
+
+    <a class="snav__logo" href="#home" aria-label="Ain Al Khaleej University">
+      <img src="assets/img/logo-full-new.png" alt="AKU">
+    </a>
+
+    <nav class="snav__links" aria-label="Main navigation">
+      <button class="snav__trigger" data-drop="sdrop-study"      aria-expanded="false" aria-haspopup="true">Study <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger" data-drop="sdrop-faculties"  aria-expanded="false" aria-haspopup="true">Faculties <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger" data-drop="sdrop-admissions" aria-expanded="false" aria-haspopup="true">Admissions <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger" data-drop="sdrop-research"   aria-expanded="false" aria-haspopup="true">Research <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger" data-drop="sdrop-campus"     aria-expanded="false" aria-haspopup="true">Student Life <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger" data-drop="sdrop-about"      aria-expanded="false" aria-haspopup="true">About AKU <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="snav__tul" aria-hidden="true"></span></button>
+      <button class="snav__trigger snav__trigger--founder" data-drop="sdrop-founder" aria-expanded="false" aria-haspopup="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="width:14px;height:14px;margin-right:2px"><circle cx="7" cy="4" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M1 12c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Founder
+        <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+
+    <div class="snav__actions">
+      <button class="snav__icon-btn smart-search-open" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.8"/><line x1="11.5" y1="11.5" x2="16" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="snav__lang" id="snavLang">
+        <button class="snav__lang-btn active" data-lang="en">EN</button>
+        <button class="snav__lang-btn" data-lang="ar">AR</button>
+      </div>
+      <a class="snav__apply" href="#admissions">Apply Now <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="snav__burger" id="snavBurger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="snavMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
+
+  <!-- ─── Study ─── -->
+  <div class="snav-drop" id="sdrop-study" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Programs</p>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">♁</span><b>MBBS</b><em>Bachelor of Medicine &amp; Surgery</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">🦷</span><b>BDS</b><em>Bachelor of Dental Surgery</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">♡</span><b>BSc Nursing</b><em>Bachelor of Science in Nursing</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">⌁</span><b>MSc Physiotherapy</b><em>Master of Science in Physiotherapy</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">More Programs</p>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">♜</span><b>BPharmacy</b><em>Bachelor of Pharmacy</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">◌</span><b>BSc Radiology</b><em>Bachelor of Science in Radiology</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">🔬</span><b>Medical Lab Sciences</b><em>Bachelor of Medical Laboratory Sciences</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#programs"><span class="snav-drop__ico">👂</span><b>Audiology</b><em>Audiology and Speech Therapy</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">Academic Excellence</p>
+      <p class="snav-drop__cta-title">Shape the Future of Healthcare</p>
+      <p class="snav-drop__cta-body">Discover world-class programs built to inspire the next generation of healthcare leaders and innovators.</p>
+      <a class="snav-drop__btn" href="#programs">Browse All Programs →</a>
+      <a class="snav-drop__btn snav-drop__btn--gold" href="#admissions">Apply Now →</a>
+    </div>
+  </div>
+
+  <!-- ─── Faculties ─── -->
+  <div class="snav-drop" id="sdrop-faculties" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Colleges</p>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">⚕</span><b>Medicine &amp; Surgery</b><em>Compassionate clinical excellence</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">🦷</span><b>Dental Sciences</b><em>Precision oral healthcare</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">💊</span><b>Pharmacy</b><em>Advanced pharmaceutical studies</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Allied Health</p>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">♡</span><b>Nursing</b><em>Leading with care and skill</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">🔬</span><b>Medical Laboratory</b><em>Diagnostic science &amp; innovation</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#college"><span class="snav-drop__ico">◌</span><b>Radiology</b><em>Imaging and diagnostic excellence</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">Colleges at AKU</p>
+      <p class="snav-drop__cta-title">Explore Our Faculties</p>
+      <p class="snav-drop__cta-body">Each college reflects our commitment to academic distinction and professional formation in healthcare.</p>
+      <a class="snav-drop__btn" href="#college">View All Colleges →</a>
+    </div>
+  </div>
+
+  <!-- ─── Admissions ─── -->
+  <div class="snav-drop" id="sdrop-admissions" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">How to Apply</p>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">📋</span><b>Application Process</b><em>Step-by-step guide</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">📅</span><b>Key Dates &amp; Deadlines</b><em>Never miss a milestone</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">📄</span><b>Requirements</b><em>Documents and eligibility</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Support</p>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">💬</span><b>Counseling</b><em>Talk to an advisor</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">💰</span><b>Scholarships &amp; Fees</b><em>Financial opportunities</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#admissions"><span class="snav-drop__ico">🌍</span><b>International Students</b><em>Global admissions guidance</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">Join Us</p>
+      <p class="snav-drop__cta-title">Ready to Apply?</p>
+      <p class="snav-drop__cta-body">Applications are now open. Join a community of future healthcare innovators at AKU.</p>
+      <a class="snav-drop__btn snav-drop__btn--gold" href="#admissions">Apply Now →</a>
+    </div>
+  </div>
+
+  <!-- ─── Research ─── -->
+  <div class="snav-drop" id="sdrop-research" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Research</p>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">🔬</span><b>Research Centers</b><em>Innovation &amp; discovery labs</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">📰</span><b>Publications</b><em>Journals and faculty papers</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">🤝</span><b>Collaborations</b><em>Global academic partnerships</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Innovation</p>
+      <a class="snav-drop__row" href="#ar-campus"><span class="snav-drop__ico">🥽</span><b>AR Campus Tour</b><em>Experience our campus virtually</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">💡</span><b>Innovation Hub</b><em>Entrepreneurship in health</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">🌐</span><b>Global Impact</b><em>Contributing to world health</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">Discovery</p>
+      <p class="snav-drop__cta-title">Research Excellence</p>
+      <p class="snav-drop__cta-body">Advancing global health through pioneering research, discovery, and collaborative science.</p>
+      <a class="snav-drop__btn" href="#research">Explore Research →</a>
+    </div>
+  </div>
+
+  <!-- ─── Campus ─── -->
+  <div class="snav-drop" id="sdrop-campus" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Campus Life</p>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🏛</span><b>Facilities</b><em>State-of-the-art environment</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🎓</span><b>Student Clubs</b><em>Grow beyond the classroom</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🏥</span><b>Clinical Training</b><em>Real-world patient care</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Services</p>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">📚</span><b>Library</b><em>Digital and physical resources</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🏋</span><b>Sports &amp; Wellness</b><em>Mind and body balance</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🏠</span><b>Accommodation</b><em>On-campus housing</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">Student Life</p>
+      <p class="snav-drop__cta-title">Life at AKU</p>
+      <p class="snav-drop__cta-body">Vibrant campus life that nurtures every dimension of student growth and well-being.</p>
+      <a class="snav-drop__btn" href="#">Discover Campus →</a>
+    </div>
+  </div>
+
+  <!-- ─── About ─── -->
+  <div class="snav-drop" id="sdrop-about" aria-hidden="true">
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Our Story</p>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">🏛</span><b>About AKU</b><em>Mission, vision and values</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#research"><span class="snav-drop__ico">🌐</span><b>Leadership</b><em>Board and governance</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#news"><span class="snav-drop__ico">📰</span><b>News &amp; Events</b><em>Latest from AKU</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__col">
+      <p class="snav-drop__head">Connect</p>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">📞</span><b>Contact Us</b><em>Al Ain, UAE</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">🤝</span><b>Partnerships</b><em>Academic collaborations</em><span class="snav-drop__arrow">›</span></a>
+      <a class="snav-drop__row" href="#"><span class="snav-drop__ico">📊</span><b>Accreditation</b><em>Quality &amp; standards</em><span class="snav-drop__arrow">›</span></a>
+    </div>
+    <div class="snav-drop__cta">
+      <p class="snav-drop__cta-eyebrow">About Us</p>
+      <p class="snav-drop__cta-title">Accredited Excellence</p>
+      <p class="snav-drop__cta-body">Built on integrity, innovation, and a clear commitment to the future of healthcare in the UAE.</p>
+      <a class="snav-drop__btn" href="#research">Our Story →</a>
+    </div>
+  </div>
+
+  <!-- ─── FOUNDER (special wide panel) ─── -->
+  <div class="snav-drop" id="sdrop-founder" aria-hidden="true">
+    <!-- Portrait column -->
+    <div class="snav-drop__founder-portrait">
+      <img class="snav-drop__founder-img" src="assets/img/memari.png" alt="H.E. Mohammed Shemel Al Memari" onerror="this.src='assets/img/img13.png'">
+      <div class="snav-drop__founder-badge">
+        <b>H.E. Mohammed Shemel Al Memari</b>
+        <span>Founder — Ain Al Khaleej University</span>
+      </div>
+    </div>
+    <!-- Quote column -->
+    <div class="snav-drop__founder-quote">
+      <!-- Language toggle -->
+      <div class="snav-drop__lang-toggle" id="founderLangToggle">
+        <button class="snav-drop__lang-btn active" data-flang="en">EN — English</button>
+        <button class="snav-drop__lang-btn" data-flang="ar">AR — عربي</button>
+      </div>
+
+      <!-- English quote -->
+      <div class="snav-drop__quote active" id="founderQuoteEn">
+        <p class="snav-drop__quote-kicker">English — Founder's Vision</p>
+        <h3 class="snav-drop__quote-title">A Message from the Founder</h3>
+        <p class="snav-drop__quote-body">It is my great pleasure to introduce Ain Al Khaleej University of Health Sciences to the people of Al Ain and the wider UAE community. Our university is committed to academic excellence, innovation, and preparing future healthcare leaders through world-class education, advanced research, and a dynamic learning environment.</p>
+        <div class="snav-drop__quote-sig">
+          <b>H.E. Mohammed Shemel Al Memari</b>
+          <span>Founder</span>
+        </div>
+        <a class="snav-drop__founder-cta" href="#research">Read Full Message →</a>
+      </div>
+
+      <!-- Arabic quote -->
+      <div class="snav-drop__quote" id="founderQuoteAr">
+        <p class="snav-drop__quote-kicker" style="direction:rtl;text-align:right;">العربية — كلمة المؤسس</p>
+        <h3 class="snav-drop__quote-title" lang="ar">رسالة المؤسس</h3>
+        <p class="snav-drop__quote-body" lang="ar">يسعدني أن أقدّم جامعة عين الخليج لعلوم الصحة إلى أبناء مدينة العين والمجتمع الإماراتي الكريم. تلتزم الجامعة بالتميز الأكاديمي والابتكار وإعداد قادة الرعاية الصحية في المستقبل من خلال التعليم العالمي المستوى والبحث العلمي المتقدم وبيئة تعليمية ديناميكية.</p>
+        <div class="snav-drop__quote-sig" lang="ar">
+          <b>معالي محمد شميل المهيري</b>
+          <span>المؤسس</span>
+        </div>
+        <a class="snav-drop__founder-cta" href="#research" style="direction:rtl;">← قراءة الرسالة كاملة</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="snav-mobile" id="snavMobile" aria-hidden="true">
+    <div class="snav-mobile__topbar">
+      <img src="assets/img/logo-full-new.png" alt="AKU">
+      <button class="snav-mobile__close" id="snavClose" aria-label="Close menu">✕</button>
+    </div>
+    <div class="snav-mobile__body">
+
+      <!-- Mobile lang toggle -->
+      <div class="snav-mobile__lang">
+        <button class="active" data-mobile-lang="en">🇬🇧 English</button>
+        <button data-mobile-lang="ar">🇦🇪 عربي</button>
+      </div>
+
+      <details class="snav-mobile__group">
+        <summary>Study</summary>
+        <div class="snav-mobile__sub">
+          <a href="#programs">MBBS — Medicine &amp; Surgery</a>
+          <a href="#programs">BDS — Dental Surgery</a>
+          <a href="#programs">BSc Nursing</a>
+          <a href="#programs">MSc Physiotherapy</a>
+          <a href="#programs">BPharmacy</a>
+          <a href="#programs">BSc Radiology</a>
+          <a href="#programs">Medical Lab Sciences</a>
+          <a href="#programs">Audiology</a>
+        </div>
+      </details>
+      <details class="snav-mobile__group">
+        <summary>Faculties</summary>
+        <div class="snav-mobile__sub">
+          <a href="#college">Medicine &amp; Surgery</a>
+          <a href="#college">Dental Sciences</a>
+          <a href="#college">Pharmacy</a>
+          <a href="#college">Nursing</a>
+          <a href="#college">Allied Health Sciences</a>
+        </div>
+      </details>
+      <details class="snav-mobile__group">
+        <summary>Admissions</summary>
+        <div class="snav-mobile__sub">
+          <a href="#admissions">Application Process</a>
+          <a href="#admissions">Key Dates &amp; Deadlines</a>
+          <a href="#admissions">Requirements</a>
+          <a href="#admissions">Scholarships &amp; Fees</a>
+          <a href="#admissions">International Students</a>
+        </div>
+      </details>
+      <details class="snav-mobile__group">
+        <summary>Research</summary>
+        <div class="snav-mobile__sub">
+          <a href="#research">Research Centers</a>
+          <a href="#ar-campus">AR Campus Tour</a>
+          <a href="#research">Publications</a>
+        </div>
+      </details>
+      <details class="snav-mobile__group">
+        <summary>Student Life</summary>
+        <div class="snav-mobile__sub">
+          <a href="#">Campus Facilities</a>
+          <a href="#">Student Clubs</a>
+          <a href="#">Clinical Training</a>
+          <a href="#">Library &amp; Resources</a>
+        </div>
+      </details>
+      <details class="snav-mobile__group">
+        <summary>About AKU</summary>
+        <div class="snav-mobile__sub">
+          <a href="#research">About AKU</a>
+          <a href="#news">News &amp; Events</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </details>
+
+      <!-- Founder card in mobile -->
+      <div class="snav-mobile__founder">
+        <div class="snav-mobile__founder-card">
+          <img src="assets/img/memari.png" alt="Founder" onerror="this.src='assets/img/img13.png'">
+          <div>
+            <b>H.E. Mohammed Shemel Al Memari</b>
+            <span>Founder — AKU</span>
+          </div>
+        </div>
+        <a href="#research" class="snav-mobile__sub" style="display:block;padding:0">
+          <a href="#research" style="display:block;padding:10px 14px;border-radius:10px;font-size:14px;font-weight:800;color:#1e3d60;text-decoration:none;background:var(--sn-ice)">Read Founder's Message →</a>
+        </a>
+      </div>
+
+      <div class="snav-mobile__footer">
+        <a href="#admissions" class="snav__apply snav__apply--full">Apply Now →</a>
+      </div>
+    </div>
+  </div>
+  <div class="snav-overlay" id="snavOverlay"></div>
+
 
   <section id="home" class="hero">
     <div class="hero-copy reveal">
@@ -2290,11 +3388,19 @@ html{scroll-padding-top:110px !important;}
   document.querySelectorAll('[data-chat]').forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.chat;addChat(v,true);setTimeout(()=>addChat(botReply(v)),280)}));
 
 
-  // Reload intro restored
-  window.addEventListener('load',()=>{
-    setTimeout(()=>document.body.classList.remove('preload-active'),5000);
-    setTimeout(()=>document.body.classList.add('page-ready'),5000);
-  });
+  // Intro dismissal — fast & bulletproof
+  (function(){
+    function dismissIntro(){
+      document.body.classList.remove('preload-active');
+      document.body.classList.add('page-ready');
+    }
+    var done=false;
+    function go(d){ if(done)return; done=true; setTimeout(dismissIntro,d||0); }
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',function(){ go(1600); });
+    } else { go(1600); }
+    setTimeout(dismissIntro, 3000); // hard safety net
+  })();
 
 
 // Disable right-click, F12, and common inspect shortcuts
@@ -2524,6 +3630,212 @@ html{scroll-padding-top:110px !important;}
     },{passive:true});
     el.addEventListener('pointerleave',function(){el.style.transform='';},{passive:true});
   });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════
+   SUPREME NAV JS V2 — Founder Edition
+═══════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  var nav      = document.getElementById('snav');
+  var burger   = document.getElementById('snavBurger');
+  var drawer   = document.getElementById('snavMobile');
+  var overlay  = document.getElementById('snavOverlay');
+  var closeBtn = document.getElementById('snavClose');
+  var triggers = Array.from(document.querySelectorAll('.snav__trigger'));
+  var drops    = Array.from(document.querySelectorAll('.snav-drop'));
+
+  /* ── Scrolled ── */
+  function updateScrolled() {
+    nav.classList.toggle('scrolled', window.scrollY > 36);
+  }
+  window.addEventListener('scroll', updateScrolled, { passive: true });
+  updateScrolled();
+
+  /* ── Drop panel top ── */
+  function setDropTop(panel) {
+    var r = nav.getBoundingClientRect();
+    panel.style.top = Math.round(r.bottom - 1) + 'px';
+  }
+
+  /* ── State ── */
+  var cur = null, closeTimer = null, openTimer = null;
+  var mouse = { x: 0, y: 0 };
+  document.addEventListener('mousemove', function(e) {
+    mouse.x = e.clientX; mouse.y = e.clientY;
+  }, { passive: true });
+
+  function inBounds(el, pad) {
+    if (!el) return false;
+    pad = pad || 0;
+    var r = el.getBoundingClientRect();
+    return mouse.x >= r.left - pad && mouse.x <= r.right + pad &&
+           mouse.y >= r.top  - pad && mouse.y <= r.bottom + pad;
+  }
+
+  function inSafeZone() {
+    if (!cur) return false;
+    if (inBounds(cur.btn, 22) || inBounds(cur.panel, 16)) return true;
+    var pb = cur.panel.getBoundingClientRect();
+    var nb = nav.getBoundingClientRect();
+    return mouse.x >= pb.left - 20 && mouse.x <= pb.right + 20 &&
+           mouse.y >= nb.bottom - 4 && mouse.y <= pb.top + 30;
+  }
+
+  function resetAll() {
+    drops.forEach(function(d) { d.classList.remove('is-open'); d.setAttribute('aria-hidden', 'true'); });
+    triggers.forEach(function(t) { t.setAttribute('aria-expanded', 'false'); });
+    overlay.classList.remove('is-on');
+    cur = null;
+  }
+
+  function closeAll() {
+    clearTimeout(closeTimer); clearTimeout(openTimer);
+    resetAll();
+  }
+
+  function softClose() {
+    clearTimeout(openTimer); clearTimeout(closeTimer);
+    closeTimer = setTimeout(function() {
+      if (inSafeZone()) { softClose(); return; }
+      closeAll();
+    }, 520);
+  }
+
+  function openDrop(btn) {
+    clearTimeout(closeTimer); clearTimeout(openTimer);
+    var id = btn.getAttribute('data-drop');
+    var panel = document.getElementById(id);
+    if (!panel) return;
+    drops.forEach(function(d) {
+      if (d !== panel) { d.classList.remove('is-open'); d.setAttribute('aria-hidden', 'true'); }
+    });
+    triggers.forEach(function(t) { t.setAttribute('aria-expanded', 'false'); });
+    setDropTop(panel);
+    panel.classList.add('is-open');
+    panel.removeAttribute('aria-hidden');
+    btn.setAttribute('aria-expanded', 'true');
+    overlay.classList.add('is-on');
+    cur = { btn: btn, panel: panel };
+  }
+
+  function scheduleOpen(btn) {
+    clearTimeout(closeTimer); clearTimeout(openTimer);
+    if (cur) { openDrop(btn); return; }
+    openTimer = setTimeout(function() { openDrop(btn); }, 55);
+  }
+
+  triggers.forEach(function(btn) {
+    btn.addEventListener('mouseenter', function() { scheduleOpen(btn); });
+    btn.addEventListener('focus',      function() { scheduleOpen(btn); });
+    btn.addEventListener('mouseleave', softClose);
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      cur && cur.btn === btn ? closeAll() : openDrop(btn);
+    });
+  });
+
+  drops.forEach(function(p) {
+    p.addEventListener('mouseenter', function() { clearTimeout(closeTimer); });
+    p.addEventListener('mousemove',  function() { clearTimeout(closeTimer); });
+    p.addEventListener('mouseleave', softClose);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!cur) return;
+    if (e.target.closest('.snav__trigger') || e.target.closest('.snav-drop')) return;
+    closeAll();
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAll(); });
+
+  var rafId = null;
+  function reposition() {
+    if (!cur) return;
+    cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(function() { setDropTop(cur.panel); });
+  }
+  window.addEventListener('scroll', reposition, { passive: true });
+  window.addEventListener('resize', reposition,  { passive: true });
+
+  /* ── Founder EN/AR toggle ── */
+  var founderToggle = document.getElementById('founderLangToggle');
+  if (founderToggle) {
+    founderToggle.addEventListener('click', function(e) {
+      var btn = e.target.closest('.snav-drop__lang-btn');
+      if (!btn) return;
+      var lang = btn.getAttribute('data-flang');
+      founderToggle.querySelectorAll('.snav-drop__lang-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('founderQuoteEn').classList.toggle('active', lang === 'en');
+      document.getElementById('founderQuoteAr').classList.toggle('active', lang === 'ar');
+    });
+  }
+
+  /* ── Global EN/AR lang toggle (nav bar) ── */
+  var snavLang = document.getElementById('snavLang');
+  if (snavLang) {
+    snavLang.addEventListener('click', function(e) {
+      var btn = e.target.closest('.snav__lang-btn');
+      if (!btn) return;
+      snavLang.querySelectorAll('.snav__lang-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var lang = btn.getAttribute('data-lang');
+      document.documentElement.setAttribute('lang', lang);
+      /* also sync the founder panel toggle */
+      if (founderToggle) {
+        founderToggle.querySelectorAll('.snav-drop__lang-btn').forEach(function(b) { b.classList.remove('active'); });
+        var fl = founderToggle.querySelector('[data-flang="' + lang + '"]');
+        if (fl) fl.classList.add('active');
+        document.getElementById('founderQuoteEn').classList.toggle('active', lang === 'en');
+        document.getElementById('founderQuoteAr').classList.toggle('active', lang === 'ar');
+      }
+    });
+  }
+
+  /* ── Mobile drawer ── */
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    burger.setAttribute('aria-expanded', 'true');
+    overlay.classList.add('is-on', 'drawer-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    burger.setAttribute('aria-expanded', 'false');
+    overlay.classList.remove('is-on', 'drawer-open');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', function() {
+    drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', function() { closeDrawer(); closeAll(); });
+  drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDrawer); });
+
+  /* Mobile lang buttons */
+  document.querySelectorAll('[data-mobile-lang]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('[data-mobile-lang]').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    });
+  });
+
+  /* ── Magnetic effect on apply btn ── */
+  document.querySelectorAll('.snav__apply').forEach(function(el) {
+    el.addEventListener('pointermove', function(e) {
+      var r = el.getBoundingClientRect();
+      var x = ((e.clientX - r.left) / r.width  - .5) * 7;
+      var y = ((e.clientY - r.top)  / r.height - .5) * 7;
+      el.style.transform = 'translateY(-3px) scale(1.02) translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+    }, { passive: true });
+    el.addEventListener('pointerleave', function() { el.style.transform = ''; }, { passive: true });
+  });
+
 })();
 </script>
 
