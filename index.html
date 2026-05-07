@@ -2962,6 +2962,34 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     height:48px !important;
   }
 }
+
+
+/* =========================================================
+   MONTY HERO SPLIT POSITION FIX
+   Move the diagonal hero split line slightly left toward the text
+   while keeping the hero image clear and full.
+========================================================= */
+@media (min-width:1181px){
+  .hero{
+    grid-template-columns:minmax(390px,37vw) minmax(0,1fr) !important;
+  }
+
+  .hero-copy{
+    padding-right:clamp(20px,2.6vw,46px) !important;
+  }
+
+  .hero-split-orbit{
+    left:-242px !important;
+    top:-14% !important;
+    width:292px !important;
+    height:128% !important;
+    transform:rotate(6deg) !important;
+  }
+
+  .hero-split-orbit:before{
+    right:-4px !important;
+  }
+}
 </style>
 </head>
 <body class="preload-active">
