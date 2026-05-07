@@ -285,6 +285,175 @@ model-viewer#mv3d{width:100%;flex:1;background:transparent}
   color:#fff;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;
   box-shadow:0 8px 24px rgba(91,45,142,.4);margin-top:8px;
 }
+
+
+/* =========================================================
+   AKU BLUE COMMAND THEME — applied to match main website
+   Dark blue / royal blue / ice-blue AR experience
+========================================================= */
+:root{
+  --purple:#063b73 !important;
+  --purple-mid:#0b63b6 !important;
+  --purple-light:#51b8ff !important;
+  --aku-navy:#031733;
+  --aku-deep:#05264f;
+  --aku-blue:#0a4f97;
+  --aku-royal:#0f76d7;
+  --aku-cyan:#58c9ff;
+  --aku-ice:#eaf7ff;
+  --aku-glass:rgba(7,41,83,.72);
+  --aku-border:rgba(112,205,255,.24);
+  --aku-shadow:0 28px 78px rgba(1,25,55,.46);
+}
+html,body{
+  background:#031733 !important;
+  color:#ffffff;
+}
+#landing{
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 0%,rgba(42,154,255,.36),transparent 46%),
+    radial-gradient(circle at 16% 18%,rgba(88,201,255,.20),transparent 24rem),
+    radial-gradient(circle at 86% 72%,rgba(7,93,175,.26),transparent 24rem),
+    linear-gradient(145deg,#031733 0%,#05264f 45%,#010b1a 100%) !important;
+}
+#landing:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(88,201,255,.055) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(88,201,255,.045) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:radial-gradient(circle at 50% 42%,#000 0%,transparent 76%);
+}
+#landing:after{
+  content:"";position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);
+  border-radius:50%;pointer-events:none;
+  border:1px solid rgba(88,201,255,.16);
+  box-shadow:0 0 0 18px rgba(88,201,255,.025), inset 0 0 60px rgba(15,118,215,.09);
+  animation:blueOrbit 7s ease-in-out infinite alternate;
+}
+@keyframes blueOrbit{from{opacity:.55;transform:translate(-50%,-50%) scale(.95)}to{opacity:1;transform:translate(-50%,-50%) scale(1.04)}}
+.ar-logo{
+  position:relative;z-index:2;
+  filter:drop-shadow(0 0 26px rgba(88,201,255,.55)) drop-shadow(0 14px 30px rgba(0,0,0,.26)) !important;
+}
+.ar-title{
+  position:relative;z-index:2;
+  color:#ffffff !important;
+  text-shadow:0 16px 45px rgba(0,0,0,.26);
+}
+.ar-title em{
+  color:#9fe0ff !important;
+  background:linear-gradient(90deg,#eaf7ff,#58c9ff,#0f76d7);
+  -webkit-background-clip:text;background-clip:text;color:transparent !important;
+}
+.ar-subtitle{position:relative;z-index:2;color:rgba(234,247,255,.72) !important}
+.platform-badges,.ar-launch-btn,.how-steps,#unsupportedMsg{position:relative;z-index:2}
+.platform-badge{
+  border:1px solid rgba(112,205,255,.22) !important;
+  background:rgba(234,247,255,.08) !important;
+  color:rgba(234,247,255,.78) !important;
+  backdrop-filter:blur(16px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.platform-badge.active{
+  background:linear-gradient(135deg,rgba(8,78,150,.54),rgba(7,128,214,.28)) !important;
+  border-color:rgba(112,205,255,.42) !important;
+  color:#eaf7ff !important;
+  box-shadow:0 12px 34px rgba(5,76,150,.25), inset 0 0 22px rgba(88,201,255,.10);
+}
+.badge-dot{background:#58c9ff !important;box-shadow:0 0 8px rgba(88,201,255,.9) !important}
+.ar-launch-btn{
+  border:1px solid rgba(155,226,255,.38) !important;
+  background:linear-gradient(135deg,#063b73 0%,#0b63b6 42%,#51b8ff 100%) !important;
+  box-shadow:0 0 0 0 rgba(88,201,255,.25),0 20px 58px rgba(2,41,88,.54), inset 0 1px 0 rgba(255,255,255,.38) !important;
+  color:#fff !important;
+}
+.ar-launch-btn:hover{transform:translateY(-3px);box-shadow:0 24px 70px rgba(5,91,174,.55),0 0 34px rgba(88,201,255,.22), inset 0 1px 0 rgba(255,255,255,.45) !important}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(88,201,255,0),0 20px 58px rgba(2,41,88,.54), inset 0 1px 0 rgba(255,255,255,.38)}
+  50%{box-shadow:0 0 0 14px rgba(88,201,255,0),0 26px 72px rgba(5,91,174,.70),0 0 32px rgba(88,201,255,.28), inset 0 1px 0 rgba(255,255,255,.42)}
+}
+.how-step{border-bottom-color:rgba(112,205,255,.12) !important}
+.step-num{
+  background:linear-gradient(135deg,#0a4f97,#58c9ff) !important;
+  box-shadow:0 8px 22px rgba(5,91,174,.32), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.step-text{color:rgba(234,247,255,.66) !important}
+.step-text strong{color:#eaf7ff !important}
+#unsupportedMsg{
+  background:rgba(7,80,145,.20) !important;
+  border-color:rgba(112,205,255,.24) !important;
+  color:#d9f3ff !important;
+}
+#arViewer{background:#010b1a !important}
+.hud-top{
+  background:linear-gradient(180deg,rgba(3,23,51,.78),rgba(3,23,51,.34),transparent) !important;
+}
+.hud-logo{filter:brightness(0) invert(1) drop-shadow(0 0 14px rgba(88,201,255,.45)) !important}
+.hud-close,.hud-ctrl,.fb-close{
+  background:rgba(3,23,51,.58) !important;
+  border-color:rgba(112,205,255,.24) !important;
+  color:#eaf7ff !important;
+  backdrop-filter:blur(14px) saturate(135%);
+  box-shadow:0 12px 32px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.hud-close:active,.hud-ctrl:active,.fb-close:active{background:rgba(10,79,151,.62) !important}
+.hud-ctrl.primary{
+  background:linear-gradient(135deg,#063b73,#0b63b6,#51b8ff) !important;
+  border-color:rgba(155,226,255,.42) !important;
+  box-shadow:0 10px 32px rgba(5,91,174,.52),0 0 26px rgba(88,201,255,.22), inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+.hud-bottom{
+  background:linear-gradient(0deg,rgba(3,23,51,.78),rgba(3,23,51,.20),transparent) !important;
+}
+.hud-label{color:rgba(234,247,255,.64) !important}
+#tapHint{
+  background:rgba(3,23,51,.70) !important;
+  border-color:rgba(112,205,255,.26) !important;
+  color:#eaf7ff !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.26),0 0 24px rgba(88,201,255,.12);
+}
+#hotspotBubble{
+  background:linear-gradient(135deg,rgba(6,59,115,.94),rgba(15,118,215,.88)) !important;
+  border-color:rgba(155,226,255,.34) !important;
+  box-shadow:0 14px 38px rgba(5,91,174,.42),0 0 26px rgba(88,201,255,.18) !important;
+}
+#reticle svg circle:first-child{stroke:rgba(88,201,255,.70) !important}
+#reticle svg circle:nth-child(2){stroke:#eaf7ff !important}
+#reticle svg circle:nth-child(3){fill:rgba(88,201,255,.95) !important}
+#reticle svg line{stroke:#eaf7ff !important}
+#fallback3D{
+  background:
+    radial-gradient(circle at 20% 10%,rgba(88,201,255,.18),transparent 28rem),
+    linear-gradient(160deg,#031733,#05264f 60%,#010b1a) !important;
+}
+.fallback-header{
+  background:rgba(3,23,51,.72) !important;
+  border-bottom-color:rgba(112,205,255,.16) !important;
+  backdrop-filter:blur(18px);
+}
+.fallback-title{color:#eaf7ff !important}
+#arLoading,#permissionScreen{
+  background:
+    radial-gradient(circle at 50% 34%,rgba(15,118,215,.25),transparent 26rem),
+    linear-gradient(145deg,#031733,#010b1a) !important;
+}
+#arLoading img{filter:drop-shadow(0 0 22px rgba(88,201,255,.65)) !important}
+.loading-ring{
+  border-color:rgba(88,201,255,.20) !important;
+  border-top-color:#58c9ff !important;
+  box-shadow:0 0 28px rgba(88,201,255,.22);
+}
+.loading-text,.perm-text{color:rgba(234,247,255,.66) !important}
+.perm-title{color:#ffffff !important}
+.perm-btn{
+  background:linear-gradient(135deg,#063b73,#0b63b6,#51b8ff) !important;
+  border:1px solid rgba(155,226,255,.35) !important;
+  box-shadow:0 12px 34px rgba(5,91,174,.46), inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+model-viewer#mv3d{--poster-color:transparent;background:transparent !important}
+console{color:#58c9ff}
+
 </style>
 </head>
 <body>
@@ -685,7 +854,7 @@ iosARLink.addEventListener('message', e=>{
   }
 });
 
-console.log('%c🔮 AAKU AR Engine loaded','color:#9b6ddc;font-weight:900;font-size:16px');
+console.log('%c🔮 AAKU AR Engine loaded','color:#58c9ff;font-weight:900;font-size:16px');
 console.log('Platform:', isIOS ? 'iOS' : isAndroid ? 'Android' : 'Desktop');
 </script>
 </body>
