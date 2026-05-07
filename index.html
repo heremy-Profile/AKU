@@ -2081,9 +2081,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   border-radius: 0;
 
   background:
-    linear-gradient(180deg,
-      rgba(255,255,255,.98) 0%,
-      rgba(244,251,255,.96) 100%);
+    rgba(255,255,255,.98);
 
   border-bottom: 1px solid rgba(10,77,150,.10);
 
@@ -2120,7 +2118,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 }
 
 .snav.scrolled {
-  background: rgba(255,255,255,.99);
+  background: rgba(255,255,255,1);
   box-shadow:
     0 1px 0 rgba(255,255,255,1) inset,
     0 8px 32px rgba(1,13,30,.10),
@@ -2192,9 +2190,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 .snav__trigger:hover,
 .snav__trigger[aria-expanded="true"] {
   color: var(--sn-royal);
-  background: linear-gradient(180deg,
-    rgba(232,246,255,.0) 0%,
-    rgba(232,246,255,.6) 100%);
+  background: rgba(248,252,255,.65);
 }
 .snav__trigger:hover::after,
 .snav__trigger[aria-expanded="true"]::after {
@@ -2245,7 +2241,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 .snav__icon-btn {
   width: 44px; height: 44px; border-radius: 12px;
   border: 1px solid rgba(10,77,150,.14);
-  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(230,246,255,.88));
+  background: rgba(255,255,255,.96);
   color: var(--sn-deep);
   display: grid; place-items: center;
   cursor: pointer;
@@ -2265,7 +2261,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   height: 38px; padding: 3px;
   border-radius: 10px;
   border: 1px solid rgba(10,77,150,.13);
-  background: linear-gradient(180deg, rgba(240,250,255,.9), rgba(255,255,255,.8));
+  background: rgba(255,255,255,.92);
   box-shadow: 0 2px 8px rgba(1,13,30,.05);
 }
 .snav__lang-btn {
@@ -2321,7 +2317,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   flex-direction: column; justify-content: center; align-items: center; gap: 5px;
   width: 44px; height: 44px; border-radius: 12px;
   border: 1px solid rgba(10,77,150,.14);
-  background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(230,246,255,.88));
+  background: rgba(255,255,255,.96);
   cursor: pointer;
   box-shadow: 0 3px 12px rgba(1,13,30,.07);
 }
@@ -2678,7 +2674,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 .snav-drop__lang-toggle {
   display: inline-flex; margin-bottom: 22px; padding: 3px;
   border-radius: 12px; border: 1px solid rgba(10,77,150,.14);
-  background: linear-gradient(180deg, rgba(240,250,255,.9), rgba(255,255,255,.8));
+  background: rgba(255,255,255,.92);
   box-shadow: 0 2px 10px rgba(10,77,150,.07); width: fit-content;
 }
 .snav-drop__lang-btn {
@@ -2777,7 +2773,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   position: sticky; top: 0; z-index: 2;
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 18px;
-  background: rgba(255,255,255,.97);
+  background: rgba(255,255,255,1);
   border-bottom: 1px solid rgba(10,77,150,.09);
   backdrop-filter: blur(20px);
 }
@@ -2785,14 +2781,14 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 .snav-mobile__close {
   width: 38px; height: 38px; border-radius: 10px;
   border: 1px solid rgba(10,77,150,.14);
-  background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(230,246,255,.9));
+  background: rgba(255,255,255,.96);
   display: grid; place-items: center; font-size: 18px; cursor: pointer; color: var(--sn-deep);
   transition: transform .2s var(--sn-spring);
 }
 .snav-mobile__close:hover { transform: scale(1.1) rotate(5deg); }
 .snav-mobile__body { padding: 10px 16px 52px; }
 .snav-mobile__lang { display: flex; gap: 6px; padding: 12px 4px 14px; border-bottom: 1px solid rgba(10,77,150,.08); margin-bottom: 4px; }
-.snav-mobile__lang button { flex: 1; height: 40px; border-radius: 10px; border: 1px solid rgba(10,77,150,.13); background: linear-gradient(180deg,rgba(240,250,255,.8),rgba(255,255,255,.7)); font-size: 13px; font-weight: 900; color: #6a7f98; cursor: pointer; transition: background .22s, color .22s; }
+.snav-mobile__lang button { flex: 1; height: 40px; border-radius: 10px; border: 1px solid rgba(10,77,150,.13); background: rgba(255,255,255,.8); font-size: 13px; font-weight: 900; color: #6a7f98; cursor: pointer; transition: background .22s, color .22s; }
 .snav-mobile__lang button.active { background: linear-gradient(135deg,var(--sn-deep),var(--sn-royal)); color: #fff; border-color: transparent; }
 .snav-mobile__group { border-bottom: 1px solid rgba(10,77,150,.07); }
 .snav-mobile__group summary { list-style: none; padding: 14px 6px; font-size: 14.5px; font-weight: 850; color: var(--sn-deep); cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: color .2s; }
@@ -2831,6 +2827,141 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
 .hero { margin-top: 0 !important; }
 
 
+
+/* Slider disabled — hide counter and dots */
+.hero-slide-counter,
+.hero-dots,
+.hero-progress { display: none !important; }
+
+/* Single hero image — fill frame fully */
+.hero-image-frame img.hero-slide {
+  opacity: 0 !important;
+  transition: none !important;
+}
+.hero-image-frame img.hero-slide.active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  animation: none !important;
+}
+
+
+
+/* =========================================================
+   MONTY PROGRAM CARDS FINAL FIX
+   Correct picture + related icon + icon name centered on card
+========================================================= */
+#programs .program-card{
+  position:relative !important;
+  overflow:hidden !important;
+  text-align:center !important;
+}
+
+#programs .program-img{
+  height:190px !important;
+  position:relative !important;
+  overflow:hidden !important;
+}
+
+#programs .program-img > img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block !important;
+  transition:transform .55s ease, filter .55s ease !important;
+}
+
+#programs .program-card:hover .program-img > img{
+  transform:scale(1.075) !important;
+  filter:saturate(1.08) contrast(1.04) !important;
+}
+
+#programs .program-icon{
+  display:none !important;
+}
+
+#programs .program-mid-icon{
+  position:relative !important;
+  z-index:8 !important;
+  width:118px !important;
+  height:118px !important;
+  margin:-58px auto 0 !important;
+  border-radius:50% !important;
+  background:
+    radial-gradient(circle at 50% 32%, #ffffff 0%, #f8fbff 56%, #edf4ff 100%) !important;
+  border:1px solid rgba(201,154,63,.82) !important;
+  box-shadow:
+    0 22px 48px rgba(7,27,58,.18),
+    0 0 0 7px rgba(255,255,255,.72),
+    inset 0 0 0 1px rgba(255,255,255,.88),
+    inset 0 0 0 9px rgba(11,59,116,.07) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+  text-align:center !important;
+  transition:transform .36s cubic-bezier(.2,.8,.2,1), box-shadow .36s ease !important;
+}
+
+#programs .program-mid-icon:before{
+  content:"" !important;
+  position:absolute !important;
+  inset:7px !important;
+  border-radius:50% !important;
+  border:1px solid rgba(11,59,116,.10) !important;
+  pointer-events:none !important;
+}
+
+#programs .program-mid-icon img{
+  width:52px !important;
+  height:52px !important;
+  object-fit:contain !important;
+  display:block !important;
+  filter:drop-shadow(0 8px 12px rgba(7,27,58,.13)) !important;
+}
+
+#programs .program-mid-icon span{
+  max-width:96px !important;
+  font-size:10px !important;
+  font-weight:950 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  color:#0b3b74 !important;
+  line-height:1.08 !important;
+}
+
+#programs .program-card:hover .program-mid-icon{
+  transform:translateY(-7px) scale(1.045) !important;
+  box-shadow:
+    0 28px 60px rgba(7,27,58,.25),
+    0 0 0 9px rgba(201,154,63,.10),
+    inset 0 0 0 1px rgba(255,255,255,.92),
+    inset 0 0 0 9px rgba(11,59,116,.08) !important;
+}
+
+#programs .program-body{
+  padding-top:22px !important;
+  text-align:center !important;
+}
+
+#programs .program-body h3,
+#programs .program-body p,
+#programs .learn{
+  text-align:center !important;
+}
+
+@media(max-width:700px){
+  #programs .program-img{height:180px !important;}
+  #programs .program-mid-icon{
+    width:108px !important;
+    height:108px !important;
+    margin-top:-54px !important;
+  }
+  #programs .program-mid-icon img{
+    width:48px !important;
+    height:48px !important;
+  }
+}
 </style>
 </head>
 <body class="preload-active">
@@ -3169,20 +3300,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     </div>
     <div class="hero-visual">
       <div class="hero-image-frame" aria-label="Hero visual slideshow">
-        <img class="hero-slide active" src="assets/img/img01.png" alt="Campus innovation">
-        <img class="hero-slide active" src="assets/img/h2.jpg" alt="Campus innovation1">
-        <img class="hero-slide active" src="assets/img/h3.jpg" alt="Campus innovation2">        
-        <img class="hero-slide active" src="assets/img/h4.jpg" alt="Campus innovation3">
-        <img class="hero-slide active" src="assets/img/h1.jpg" alt="Campus innovation4">
-        <img class="hero-slide active" src="assets/img/h5.jpg" alt="Campus innovation5">
-        <img class="hero-slide" src="assets/img/img03.png" alt="Medicine and surgery">
-        <img class="hero-slide" src="assets/img/img04.png" alt="Dental learning">
-        <img class="hero-slide" src="assets/img/img05.png" alt="Pharmacy laboratory">
-        <img class="hero-slide" src="assets/img/img06.png" alt="Nursing education">
-        <img class="hero-slide" src="assets/img/img07.png" alt="Radiology simulation">
-        <img class="hero-slide" src="assets/img/img08.png" alt="Physiotherapy training">
-        <img class="hero-slide" src="assets/img/img10.png" alt="Research excellence">
-        <img class="hero-slide" src="assets/img/ar-campus-master.png" alt="Augmented reality campus experience">
+        <img class="hero-slide active" src="assets/img/university.png" alt="Ain Al Khaleej University">
       </div>
       <div class="hero-split-orbit" aria-hidden="true"></div>
       <div class="hero-progress"><span></span></div>
@@ -3204,17 +3322,152 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   </section>
 
   <section id="programs" class="section reveal">
-    <div class="section-head"><div class="title-wrap"><h2>Programs <em>That Shape Tomorrow</em></h2><div class="title-line"></div><p>Explore future-ready programs designed to advance healthcare, inspire innovation, and transform lives.</p></div><a class="ghost-btn" href="#programs">View All Programs <span>→</span></a></div>
-    <div class="program-shell"><button class="slider-arrow left" id="prevProg">‹</button><div class="program-track" id="programTrack">
-      <article class="program-card"><div class="program-img"><img src="assets/img/img03.png"><div class="program-icon">♁</div></div><div class="program-body"><h3>MBBS</h3><p>Bachelor of Medicine & Surgery</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img04.png"><div class="program-icon">🦷</div></div><div class="program-body"><h3>BDS</h3><p>Bachelor of Dental Surgery</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img06.png"><div class="program-icon">♡</div></div><div class="program-body"><h3>BSc Nursing</h3><p>Bachelor of Science in Nursing</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img08.png"><div class="program-icon">⌁</div></div><div class="program-body"><h3>MSc Physiotherapy</h3><p>Master of Science in Physiotherapy</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img05.png"><div class="program-icon">♜</div></div><div class="program-body"><h3>BPharmacy</h3><p>Bachelor of Pharmacy</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img07.png"><div class="program-icon">◌</div></div><div class="program-body"><h3>BSc Radiology</h3><p>Bachelor of Science in Radiology</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img10.png"><div class="program-icon">🔬</div></div><div class="program-body"><h3>Medical Lab</h3><p>Bachelor of Medical Laboratory Sciences</p><a class="learn">Learn More <span>→</span></a></div></article>
-      <article class="program-card"><div class="program-img"><img src="assets/img/img09.png"><div class="program-icon">👂</div></div><div class="program-body"><h3>Audiology</h3><p>Audiology and Speech Therapy</p><a class="learn">Learn More <span>→</span></a></div></article>
-    </div><button class="slider-arrow right" id="nextProg">›</button><div class="dots"><button class="active"></button><button></button><button></button><button></button><button></button></div></div>
+    <div class="section-head">
+      <div class="title-wrap">
+        <h2>Programs <em>That Shape Tomorrow</em></h2>
+        <div class="title-line"></div>
+        <p>Explore future-ready programs designed to advance healthcare, inspire innovation, and transform lives.</p>
+      </div>
+      <a class="ghost-btn" href="#programs">View All Programs <span>→</span></a>
+    </div>
+
+    <div class="program-shell">
+      <button class="slider-arrow left" id="prevProg">‹</button>
+
+      <div class="program-track" id="programTrack">
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card1.png" alt="MBBS Medicine and Surgery">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon.png" alt="Medicine Icon">
+            <span>Medicine</span>
+          </div>
+          <div class="program-body">
+            <h3>MBBS</h3>
+            <p>Bachelor of Medicine &amp; Surgery</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card2.png" alt="BDS Dental Surgery">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon1.png" alt="Dentistry Icon">
+            <span>Dentistry</span>
+          </div>
+          <div class="program-body">
+            <h3>BDS</h3>
+            <p>Bachelor of Dental Surgery</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card3.png" alt="BSc Nursing">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon2.png" alt="Nursing Icon">
+            <span>Nursing</span>
+          </div>
+          <div class="program-body">
+            <h3>BSc Nursing</h3>
+            <p>Bachelor of Science in Nursing</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card4.png" alt="MSc Physiotherapy">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon3.png" alt="Physiotherapy Icon">
+            <span>Physiotherapy</span>
+          </div>
+          <div class="program-body">
+            <h3>MSc Physiotherapy</h3>
+            <p>Master of Science in Physiotherapy</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card.png" alt="Bachelor of Pharmacy">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon4.png" alt="Pharmacy Icon">
+            <span>Pharmacy</span>
+          </div>
+          <div class="program-body">
+            <h3>BPharmacy</h3>
+            <p>Bachelor of Pharmacy</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card6.png" alt="BSc Radiology">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon5.png" alt="Radiology Icon">
+            <span>Radiology</span>
+          </div>
+          <div class="program-body">
+            <h3>BSc Radiology</h3>
+            <p>Bachelor of Science in Radiology</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card7.png" alt="Medical Laboratory Sciences">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon6.png" alt="Medical Laboratory Icon">
+            <span>Medical Lab</span>
+          </div>
+          <div class="program-body">
+            <h3>Medical Lab</h3>
+            <p>Bachelor of Medical Laboratory Sciences</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="program-card">
+          <div class="program-img">
+            <img src="assets/img/card5.png" alt="Audiology and Speech Therapy">
+          </div>
+          <div class="program-mid-icon">
+            <img src="assets/img/icon7.png" alt="Audiology Icon">
+            <span>Audiology</span>
+          </div>
+          <div class="program-body">
+            <h3>Audiology</h3>
+            <p>Audiology and Speech Therapy</p>
+            <a class="learn">Learn More <span>→</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="slider-arrow right" id="nextProg">›</button>
+
+      <div class="dots">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+    </div>
   </section>
 
   <section id="ar-campus" class="section ar-master reveal">
@@ -3326,7 +3579,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     if(heroCurrent) heroCurrent.textContent=String(heroIndex+1).padStart(2,'0');
     if(progressBar){progressBar.style.transition='none';progressBar.style.width='0%';requestAnimationFrame(()=>{requestAnimationFrame(()=>{progressBar.style.transition='width 5.8s linear';progressBar.style.width='100%';});});}
   }
-  function startHero(){clearInterval(heroTimer);setHeroSlide(heroIndex);heroTimer=setInterval(()=>setHeroSlide(heroIndex+1),6000)}
+  function startHero(){ setHeroSlide(0); }
   heroDots.forEach(btn=>btn.addEventListener('click',()=>{setHeroSlide(Number(btn.dataset.hero));startHero()}));
   startHero();
 
