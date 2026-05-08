@@ -3481,33 +3481,6 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   border:1px solid rgba(255,255,255,.30) !important;
 }
 
-
-
-/* =========================================================
-   MONTY HOTFIX — correct dropdown class + forced navuni background
-========================================================= */
-.snav-drop,
-.nm-drop{
-  background-color:#071525 !important;
-  background-image:
-    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
-    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
-  background-size:cover,cover !important;
-  background-position:center center,center center !important;
-  background-repeat:no-repeat,no-repeat !important;
-}
-
-.snav-drop::before,
-.nm-drop::before{
-  z-index:0 !important;
-}
-
-.snav-drop > *,
-.nm-drop > *{
-  position:relative;
-  z-index:1;
-}
-
 </style>
 </head>
 <body class="preload-active">
@@ -4811,33 +4784,6 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   border:1px solid rgba(255,255,255,.30) !important;
 }
 
-
-
-/* =========================================================
-   MONTY HOTFIX — correct dropdown class + forced navuni background
-========================================================= */
-.snav-drop,
-.nm-drop{
-  background-color:#071525 !important;
-  background-image:
-    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
-    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
-  background-size:cover,cover !important;
-  background-position:center center,center center !important;
-  background-repeat:no-repeat,no-repeat !important;
-}
-
-.snav-drop::before,
-.nm-drop::before{
-  z-index:0 !important;
-}
-
-.snav-drop > *,
-.nm-drop > *{
-  position:relative;
-  z-index:1;
-}
-
 </style>
 
 
@@ -4999,33 +4945,6 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   border:1px solid rgba(255,255,255,.30) !important;
 }
 
-
-
-/* =========================================================
-   MONTY HOTFIX — correct dropdown class + forced navuni background
-========================================================= */
-.snav-drop,
-.nm-drop{
-  background-color:#071525 !important;
-  background-image:
-    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
-    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
-  background-size:cover,cover !important;
-  background-position:center center,center center !important;
-  background-repeat:no-repeat,no-repeat !important;
-}
-
-.snav-drop::before,
-.nm-drop::before{
-  z-index:0 !important;
-}
-
-.snav-drop > *,
-.nm-drop > *{
-  position:relative;
-  z-index:1;
-}
-
 </style>
 
 
@@ -5150,73 +5069,7 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
   border:1px solid rgba(255,255,255,.30) !important;
 }
 
-
-
-/* =========================================================
-   MONTY HOTFIX — correct dropdown class + forced navuni background
-========================================================= */
-.snav-drop,
-.nm-drop{
-  background-color:#071525 !important;
-  background-image:
-    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
-    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
-  background-size:cover,cover !important;
-  background-position:center center,center center !important;
-  background-repeat:no-repeat,no-repeat !important;
-}
-
-.snav-drop::before,
-.nm-drop::before{
-  z-index:0 !important;
-}
-
-.snav-drop > *,
-.nm-drop > *{
-  position:relative;
-  z-index:1;
-}
-
 </style>
-
-
-<script>
-(function(){
-  const dropdowns = Array.from(document.querySelectorAll('.snav-drop, .nm-drop'));
-  if(!dropdowns.length) return;
-
-  const overlay1 = "linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%)";
-  const overlay2 = "linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%)";
-  const candidatePaths = [
-    'assets/img/navuni.png',
-    './assets/img/navuni.png',
-    'navuni.png',
-    './navuni.png'
-  ];
-
-  function applyBackground(path){
-    dropdowns.forEach(function(el){
-      el.style.backgroundImage = overlay1 + ',' + overlay2 + ", url('" + path + "')";
-      el.style.backgroundSize = 'cover, cover, cover';
-      el.style.backgroundPosition = 'center center, center center, center center';
-      el.style.backgroundRepeat = 'no-repeat, no-repeat, no-repeat';
-      el.style.backgroundColor = '#071525';
-    });
-  }
-
-  function tryPath(index){
-    if(index >= candidatePaths.length){
-      return;
-    }
-    const img = new Image();
-    img.onload = function(){ applyBackground(candidatePaths[index]); };
-    img.onerror = function(){ tryPath(index + 1); };
-    img.src = candidatePaths[index] + '?v=' + Date.now();
-  }
-
-  tryPath(0);
-})();
-</script>
 
 </body>
 </html>
