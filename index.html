@@ -7,7 +7,7 @@
   <meta name="description" content="Founder, Ain Al Khaleej University of Health Sciences — premium academic healthcare education, research, and campus life." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
       --ink:#171036;
@@ -6020,7 +6020,407 @@ footer:after{background:linear-gradient(90deg,var(--brand-blue),var(--brand-gold
   .snav{height:84px !important;min-height:84px !important;}
 }
 
+/* =========================================================
+   MONTY DROPDOWN ULTRA 900% V4
+   A cinematic, executive, breath-holding mega-menu layer.
+   Adds: command-center geometry, premium row storytelling,
+   live spotlight, animated gold/blue energy, stronger hierarchy.
+========================================================= */
+:root{
+  --ultra-ink:#04162f;
+  --ultra-navy:#031a38;
+  --ultra-navy-2:#062a54;
+  --ultra-blue:#075ca8;
+  --ultra-blue-2:#0e7bd4;
+  --ultra-cyan:#75d4ff;
+  --ultra-gold:#c99a3f;
+  --ultra-gold-2:#f7d98a;
+  --ultra-white:#ffffff;
+  --ultra-milk:#f7fbff;
+  --ultra-muted:#64809d;
+}
+
+/* Premium active navbar state */
+.snav{
+  overflow:visible !important;
+}
+.snav::before{
+  content:"" !important;
+  position:absolute !important;
+  left:clamp(18px,3vw,54px) !important;
+  right:clamp(18px,3vw,54px) !important;
+  bottom:10px !important;
+  height:1px !important;
+  background:linear-gradient(90deg,transparent,rgba(10,93,170,.28),rgba(201,154,63,.50),rgba(10,93,170,.28),transparent) !important;
+  pointer-events:none !important;
+}
+body.menu-ultra-open .snav{
+  box-shadow:0 22px 70px rgba(3,22,49,.16), inset 0 -1px 0 rgba(201,154,63,.18) !important;
+}
+body.menu-ultra-open .snav__logo img{
+  filter:drop-shadow(0 14px 26px rgba(7,92,168,.17)) !important;
+}
+
+/* Massive atmospheric mega panel */
+.snav-drop{
+  --spot-x:50%;
+  --spot-y:0%;
+  min-height:clamp(470px,52vh,620px) !important;
+  padding:20px !important;
+  border-radius:38px !important;
+  background:
+    radial-gradient(circle at var(--spot-x) var(--spot-y),rgba(117,212,255,.25),transparent 16rem),
+    radial-gradient(circle at 14% 10%,rgba(247,217,138,.18),transparent 22rem),
+    linear-gradient(135deg,rgba(3,18,42,.98) 0%,rgba(5,34,72,.96) 38%,rgba(8,70,127,.93) 70%,rgba(9,110,190,.86) 100%),
+    url('assets/img/navuni.png') center/cover no-repeat !important;
+  box-shadow:
+    0 46px 150px rgba(1,14,32,.36),
+    0 16px 50px rgba(7,92,168,.16),
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 0 0 1px rgba(255,255,255,.08) !important;
+  transition:
+    opacity .26s ease,
+    visibility 0s .26s,
+    transform .44s cubic-bezier(.16,1,.3,1),
+    filter .32s ease !important;
+}
+
+/* cinematic edge glow */
+.snav-drop.is-open{
+  filter:saturate(1.08) contrast(1.02) !important;
+}
+.snav-drop > *{
+  transform:translateY(18px) scale(.985);
+  opacity:0;
+  transition:opacity .42s ease, transform .52s cubic-bezier(.16,1,.3,1);
+}
+.snav-drop.is-open > *{
+  transform:none;
+  opacity:1;
+}
+.snav-drop.is-open > *:nth-child(1){transition-delay:.04s}
+.snav-drop.is-open > *:nth-child(2){transition-delay:.08s}
+.snav-drop.is-open > *:nth-child(3){transition-delay:.12s}
+
+.snav-drop::before{
+  height:6px !important;
+  top:0 !important;
+  background:linear-gradient(90deg,transparent,#75d4ff,#ffffff,#f7d98a,#75d4ff,transparent) !important;
+  background-size:260% 100% !important;
+  animation:ultraRay 3.4s linear infinite !important;
+  opacity:.96 !important;
+}
+@keyframes ultraRay{
+  from{background-position:0% 0}
+  to{background-position:260% 0}
+}
+.snav-drop::after{
+  background:
+    radial-gradient(circle at var(--spot-x) var(--spot-y),rgba(255,255,255,.20),transparent 15rem),
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.045) 1px,transparent 1px),
+    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1.5px) !important;
+  background-size:auto,78px 78px,78px 78px,34px 34px !important;
+  opacity:.88 !important;
+}
+
+/* Decorative cinematic beams */
+.snav-drop .ultra-beam{
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+  opacity:.58;
+}
+.snav-drop .ultra-beam--one{
+  left:-8%;
+  top:18%;
+  width:58%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(117,212,255,.85),transparent);
+  transform:rotate(-8deg);
+  box-shadow:0 0 22px rgba(117,212,255,.45);
+}
+.snav-drop .ultra-beam--two{
+  right:-10%;
+  bottom:26%;
+  width:62%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(247,217,138,.82),transparent);
+  transform:rotate(-8deg);
+  box-shadow:0 0 22px rgba(247,217,138,.35);
+}
+
+/* Columns become editorial content panels */
+.snav-drop__col{
+  padding:32px 26px 24px !important;
+  border-radius:30px !important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.985),rgba(245,250,255,.92)) !important;
+  box-shadow:
+    0 24px 70px rgba(1,14,32,.18),
+    inset 0 1px 0 rgba(255,255,255,.88),
+    inset 0 0 0 1px rgba(255,255,255,.46) !important;
+}
+.snav-drop__col::before{
+  height:130px !important;
+  background:
+    radial-gradient(circle at 18% 0%,rgba(117,212,255,.18),transparent 14rem),
+    linear-gradient(180deg,rgba(10,93,170,.08),rgba(10,93,170,0)) !important;
+}
+.snav-drop__head{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  color:var(--ultra-blue) !important;
+  font-size:10.5px !important;
+}
+.snav-drop__head::before{
+  content:"";
+  width:34px;
+  height:34px;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg,var(--ultra-blue),var(--ultra-blue-2));
+  box-shadow:0 12px 28px rgba(7,92,168,.22), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.snav-drop__head::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,rgba(10,93,170,.18),transparent);
+}
+
+/* Ultra menu rows: stronger storytelling and more premium hover */
+.snav-drop__row{
+  min-height:96px !important;
+  grid-template-columns:66px 1fr 42px !important;
+  padding:16px 16px !important;
+  border-radius:24px !important;
+  margin-bottom:14px !important;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(117,212,255,.075),transparent 9rem),
+    linear-gradient(180deg,#fff,#f6fbff) !important;
+}
+.snav-drop__row::after{
+  content:"";
+  position:absolute;
+  right:58px;
+  top:20px;
+  bottom:20px;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(7,42,83,.10),transparent);
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.snav-drop__row:hover::after{opacity:1}
+.snav-drop__ico{
+  width:66px !important;
+  height:66px !important;
+  border-radius:22px !important;
+  font-size:27px !important;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.24),transparent 34%),
+    linear-gradient(145deg,#041f42 0%,#075ca8 54%,#0f7bd4 100%) !important;
+}
+.snav-drop__row:nth-of-type(2n) .snav-drop__ico{
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 34%),
+    linear-gradient(145deg,#092447 0%,#0b4f93 48%,#c99a3f 140%) !important;
+}
+.snav-drop__row b{
+  font-size:17px !important;
+  letter-spacing:-.02em !important;
+}
+.snav-drop__row em{
+  font-size:13px !important;
+  color:#5f7d9c !important;
+}
+.snav-drop__arrow{
+  width:38px !important;
+  height:38px !important;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 32%),
+    linear-gradient(135deg,var(--ultra-navy-2),var(--ultra-blue-2)) !important;
+}
+.snav-drop__row:hover{
+  transform:translateX(12px) translateY(-3px) scale(1.012) !important;
+  border-color:rgba(10,93,170,.22) !important;
+  box-shadow:
+    0 24px 54px rgba(6,27,58,.16),
+    0 0 0 1px rgba(117,212,255,.10) inset !important;
+}
+
+/* Right CTA panel: university poster-grade block */
+.snav-drop__cta{
+  padding:36px 32px !important;
+  border-radius:30px !important;
+  isolation:isolate !important;
+}
+.snav-drop__cta::before{
+  width:320px !important;
+  height:320px !important;
+  right:-120px !important;
+  top:-110px !important;
+  opacity:.9 !important;
+}
+.snav-drop__cta .ultra-cta-mark{
+  position:absolute;
+  right:24px;
+  top:26px;
+  width:92px;
+  height:92px;
+  border-radius:50%;
+  border:1px solid rgba(247,217,138,.36);
+  box-shadow:0 0 0 12px rgba(247,217,138,.06), inset 0 0 30px rgba(255,255,255,.05);
+  opacity:.74;
+  pointer-events:none;
+}
+.snav-drop__cta .ultra-cta-mark::before,
+.snav-drop__cta .ultra-cta-mark::after{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border-radius:50%;
+  border:1px solid rgba(117,212,255,.32);
+}
+.snav-drop__cta .ultra-cta-mark::after{
+  inset:38px;
+  background:var(--ultra-gold-2);
+  box-shadow:0 0 22px rgba(247,217,138,.55);
+}
+.snav-drop__cta-eyebrow{
+  display:inline-flex !important;
+  width:max-content !important;
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:rgba(117,212,255,.10) !important;
+  border:1px solid rgba(117,212,255,.22) !important;
+  color:#b7eaff !important;
+}
+.snav-drop__cta-title{
+  max-width:420px !important;
+  font-size:clamp(34px,2.7vw,52px) !important;
+  letter-spacing:-.045em !important;
+}
+.snav-drop__cta-body{
+  font-size:15px !important;
+  line-height:1.9 !important;
+  max-width:440px !important;
+}
+.snav-drop__btn{
+  position:relative !important;
+  overflow:hidden !important;
+}
+.snav-drop__btn::before{
+  content:"";
+  position:absolute;
+  top:-80%;
+  left:-30%;
+  width:42%;
+  height:260%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:rotate(18deg);
+  transition:left .65s ease;
+}
+.snav-drop__btn:hover::before{left:110%}
+
+/* Founder: make it even more executive */
+#sdrop-founder{
+  min-height:clamp(520px,58vh,680px) !important;
+}
+.founder-cinema__portrait img{
+  filter:drop-shadow(0 34px 42px rgba(0,0,0,.32)) saturate(1.02) !important;
+}
+.founder-cinema__rings span{
+  border-color:rgba(247,217,138,.42) !important;
+  box-shadow:0 0 42px rgba(117,212,255,.14), inset 0 0 18px rgba(255,255,255,.04) !important;
+}
+.founder-cinema__nameplate{
+  border-radius:24px !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  background:linear-gradient(180deg,rgba(3,18,42,.82),rgba(5,35,72,.72)) !important;
+}
+.founder-cinema__message{
+  background:
+    radial-gradient(circle at 0% 0%,rgba(117,212,255,.12),transparent 18rem),
+    linear-gradient(180deg,rgba(255,255,255,.98),rgba(246,251,255,.94)) !important;
+}
+.founder-cinema__quote h3{
+  font-size:clamp(42px,3.2vw,62px) !important;
+}
+.founder-cinema__quote h3 span{
+  background:linear-gradient(90deg,var(--ultra-blue),var(--ultra-gold)) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+.founder-cinema__explore a{
+  background:linear-gradient(180deg,#fff,#f6fbff) !important;
+  box-shadow:0 14px 32px rgba(6,27,58,.08) !important;
+}
+.founder-cinema__explore a:hover{
+  transform:translateX(10px) translateY(-2px) !important;
+  box-shadow:0 24px 54px rgba(6,27,58,.14) !important;
+}
+
+/* Make old hidden alternate menu impossible to interfere visually */
+#nm-panels,.nm-drop{display:none !important;}
+
+/* Responsive safety */
+@media(max-width:1260px){
+  .snav-drop{
+    min-height:auto !important;
+    max-height:82vh !important;
+  }
+  .snav-drop__row{min-height:88px !important;}
+}
+@media(max-width:760px){
+  body.menu-ultra-open{overflow:hidden !important;}
+}
+
 </style>
+
+<script>
+/* MONTY DROPDOWN ULTRA 900% V4 — live spotlight + premium open state */
+(function(){
+  var panels = Array.from(document.querySelectorAll('.snav-drop'));
+  if(!panels.length) return;
+
+  panels.forEach(function(panel){
+    if(!panel.querySelector('.ultra-beam--one')){
+      var b1=document.createElement('span');
+      b1.className='ultra-beam ultra-beam--one';
+      var b2=document.createElement('span');
+      b2.className='ultra-beam ultra-beam--two';
+      panel.appendChild(b1);
+      panel.appendChild(b2);
+    }
+    var cta=panel.querySelector('.snav-drop__cta');
+    if(cta && !cta.querySelector('.ultra-cta-mark')){
+      var mark=document.createElement('span');
+      mark.className='ultra-cta-mark';
+      cta.appendChild(mark);
+    }
+    panel.addEventListener('pointermove', function(e){
+      var r=panel.getBoundingClientRect();
+      var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';
+      var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';
+      panel.style.setProperty('--spot-x', x);
+      panel.style.setProperty('--spot-y', y);
+    }, {passive:true});
+  });
+
+  function syncBody(){
+    var open = !!document.querySelector('.snav-drop.is-open');
+    document.body.classList.toggle('menu-ultra-open', open);
+  }
+  var mo = new MutationObserver(syncBody);
+  panels.forEach(function(p){ mo.observe(p,{attributes:true,attributeFilter:['class']}); });
+  document.addEventListener('keydown', syncBody);
+  document.addEventListener('click', function(){ setTimeout(syncBody, 30); }, true);
+  syncBody();
+})();
+</script>
 
 </body>
 </html>
