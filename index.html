@@ -2990,6 +2990,524 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     right:-4px !important;
   }
 }
+
+
+/* =========================================================
+   MONTY MAGIC NAVIGATION MEGA MENU — Premium Cinematic Blue/Gold
+   Applied to all tabs, with a special Founder executive panel.
+========================================================= */
+:root{
+  --mm-navy:#041c3c;
+  --mm-blue:#075ca8;
+  --mm-sky:#4ec7ff;
+  --mm-ice:#f4fbff;
+  --mm-gold:#c99a3f;
+  --mm-gold2:#f4d487;
+  --mm-line:rgba(7,50,96,.12);
+}
+.snav-drop{
+  left:50% !important;
+  right:auto !important;
+  width:min(1220px, calc(100vw - 90px)) !important;
+  max-height:min(72vh, 570px) !important;
+  overflow:hidden !important;
+  grid-template-columns:1fr 1fr minmax(300px,.55fr) !important;
+  gap:0 !important;
+  border-radius:0 0 34px 34px !important;
+  transform:translateX(-50%) translateY(-18px) scale(.985) !important;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(78,199,255,.18), transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(201,154,63,.16), transparent 30%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(243,250,255,.92)) !important;
+  border:1px solid rgba(7,50,96,.12) !important;
+  border-top:0 !important;
+  box-shadow:0 34px 90px rgba(4,28,60,.20), inset 0 1px 0 rgba(255,255,255,.95) !important;
+  backdrop-filter:blur(26px) saturate(150%) !important;
+  -webkit-backdrop-filter:blur(26px) saturate(150%) !important;
+}
+.snav-drop.is-open{
+  transform:translateX(-50%) translateY(0) scale(1) !important;
+}
+.snav-drop::before{
+  height:3px !important;
+  background:linear-gradient(90deg, transparent, var(--mm-blue), var(--mm-sky), var(--mm-gold2), var(--mm-blue), transparent) !important;
+  background-size:260% 100% !important;
+  animation:montyMenuBeam 5s linear infinite !important;
+  box-shadow:0 0 28px rgba(78,199,255,.42),0 0 20px rgba(201,154,63,.24) !important;
+}
+.snav-drop::after{
+  background-image:
+    radial-gradient(circle, rgba(7,92,168,.10) 1px, transparent 1.5px),
+    linear-gradient(90deg, rgba(7,92,168,.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(7,92,168,.03) 1px, transparent 1px) !important;
+  background-size:26px 26px, 52px 52px, 52px 52px !important;
+  opacity:.85 !important;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.55), transparent 78%) !important;
+}
+@keyframes montyMenuBeam{to{background-position:260% 0}}
+.snav-drop__col{padding:30px 26px 28px !important;border-right:1px solid rgba(7,50,96,.08) !important}
+.snav-drop__head{color:var(--mm-blue) !important;background:none !important;-webkit-text-fill-color:currentColor !important;letter-spacing:.24em !important}
+.snav-drop__row{
+  border-radius:18px !important;
+  min-height:72px !important;
+  background:rgba(255,255,255,.56) !important;
+  border:1px solid rgba(7,50,96,.06) !important;
+  margin-bottom:9px !important;
+  box-shadow:0 8px 26px rgba(4,28,60,.045) !important;
+}
+.snav-drop__row:hover{
+  transform:translateX(8px) scale(1.018) !important;
+  background:linear-gradient(135deg,#fff,rgba(228,247,255,.96)) !important;
+  border-color:rgba(78,199,255,.35) !important;
+  box-shadow:0 18px 38px rgba(7,92,168,.12) !important;
+}
+.snav-drop__ico{
+  background:linear-gradient(145deg,#06284d,#0870bd) !important;
+  color:var(--mm-gold2) !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 10px 24px rgba(4,28,60,.12) !important;
+}
+.snav-drop__cta{
+  background:
+    radial-gradient(circle at 18% 16%, rgba(78,199,255,.24), transparent 36%),
+    radial-gradient(circle at 86% 72%, rgba(244,212,135,.20), transparent 35%),
+    linear-gradient(145deg,#031932,#063a72 55%,#075ca8) !important;
+}
+.snav-drop__cta-title{color:#fff !important}.snav-drop__cta-text{color:rgba(255,255,255,.74) !important}
+.snav-drop__cta-btn{background:linear-gradient(135deg,#fff8e4,#f4d487,#c99a3f) !important;color:#061b39 !important}
+.snav-overlay.is-on{background:rgba(4,28,60,.20) !important;backdrop-filter:blur(5px) !important}
+
+/* Founder cinematic panel */
+.snav-drop--founder-cinematic{
+  width:min(1360px, calc(100vw - 82px)) !important;
+  min-height:435px !important;
+  max-height:none !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:360px minmax(420px,1fr) 360px !important;
+  align-items:stretch !important;
+  gap:0 !important;
+  border-radius:0 0 38px 38px !important;
+  background:
+    linear-gradient(90deg, rgba(4,28,60,.92) 0 27%, rgba(255,255,255,.95) 27% 100%),
+    radial-gradient(circle at 12% 22%,rgba(78,199,255,.26),transparent 38%),
+    linear-gradient(135deg,#ffffff,#eff8ff) !important;
+}
+.snav-drop--founder-cinematic::after{
+  mask-image:radial-gradient(circle at 58% 48%, black, transparent 72%) !important;
+}
+.founder-cinema__aura{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(circle at 16% 42%,rgba(78,199,255,.28),transparent 24%),
+    radial-gradient(circle at 50% 100%,rgba(201,154,63,.14),transparent 36%),
+    linear-gradient(90deg,rgba(4,28,60,.0),rgba(78,199,255,.06),rgba(255,255,255,0));
+}
+.founder-cinema__stars{
+  position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.65;
+  background-image:radial-gradient(circle,rgba(255,255,255,.45) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(90deg,black 0 27%,transparent 55%);
+}
+.founder-cinema__portrait,
+.founder-cinema__message,
+.founder-cinema__explore{position:relative;z-index:3}
+.founder-cinema__portrait{
+  min-height:435px;
+  padding:34px 34px 24px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 34%,rgba(78,199,255,.23),transparent 34%),
+    linear-gradient(160deg,#031932,#062d59 58%,#041c3c);
+}
+.founder-cinema__portrait img{
+  position:relative;z-index:3;
+  width:245px;height:330px;object-fit:contain;object-position:bottom center;
+  filter:drop-shadow(0 28px 26px rgba(0,0,0,.32));
+}
+.founder-cinema__rings{position:absolute;left:50%;top:40px;transform:translateX(-50%);width:300px;height:300px;z-index:2}
+.founder-cinema__rings span{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(244,212,135,.35);box-shadow:0 0 32px rgba(78,199,255,.14);animation:founderOrbit 12s linear infinite}
+.founder-cinema__rings span:nth-child(2){inset:34px;border-color:rgba(78,199,255,.26);animation-duration:16s;animation-direction:reverse}
+.founder-cinema__rings span:nth-child(3){inset:68px;border-color:rgba(255,255,255,.18);animation-duration:10s}
+.founder-cinema__rings span::after{content:"";position:absolute;right:22px;top:48px;width:8px;height:8px;border-radius:50%;background:var(--mm-gold2);box-shadow:0 0 18px var(--mm-gold2)}
+@keyframes founderOrbit{to{transform:rotate(360deg)}}
+.founder-cinema__nameplate{
+  position:absolute;left:30px;right:30px;bottom:28px;z-index:4;text-align:center;
+  padding:14px 16px;border-radius:22px;
+  background:rgba(4,28,60,.72);border:1px solid rgba(244,212,135,.28);
+  box-shadow:0 18px 42px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter:blur(14px);
+}
+.founder-cinema__nameplate small{display:block;color:var(--mm-gold2);font-size:10px;font-weight:1000;text-transform:uppercase;letter-spacing:.34em;margin-bottom:8px}
+.founder-cinema__nameplate b{display:block;color:#fff;font-family:Cinzel,Georgia,serif;font-size:18px;line-height:1.15}
+.founder-cinema__nameplate em{display:block;color:rgba(255,255,255,.66);font-style:normal;font-size:11px;font-weight:800;margin-top:7px;letter-spacing:.16em;text-transform:uppercase}
+.founder-cinema__message{
+  padding:42px 48px 38px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid rgba(7,50,96,.08);
+}
+.founder-cinema__toggle{position:absolute;top:28px;left:48px;margin:0 !important;z-index:8}
+.founder-cinema__quote{display:none !important;animation:founderTextIn .42s cubic-bezier(.2,.85,.2,1) both}
+.founder-cinema__quote.active{display:block !important}
+@keyframes founderTextIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.founder-cinema__kicker{
+  display:inline-flex;margin:0 0 18px !important;padding:9px 15px;border-radius:999px;
+  background:rgba(201,154,63,.10);border:1px solid rgba(201,154,63,.22);color:#9d6b14 !important;
+  font-size:10.5px !important;font-weight:1000 !important;letter-spacing:.20em !important;text-transform:uppercase !important;
+}
+.founder-cinema__quote h3{
+  margin:0 0 18px !important;color:#061b39 !important;font-family:Cinzel,Georgia,serif !important;
+  font-size:clamp(36px,3.5vw,58px) !important;line-height:.94 !important;letter-spacing:-.05em !important;
+}
+.founder-cinema__quote h3 span{display:block;color:var(--mm-blue) !important;text-shadow:0 10px 32px rgba(7,92,168,.14)}
+.founder-cinema__quote p:not(.founder-cinema__kicker){color:#49617a !important;font-size:15px !important;line-height:1.8 !important;max-width:650px !important;margin:0 0 18px !important}
+.founder-cinema__quote-card{
+  display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center;margin:20px 0 22px;padding:16px 18px;border-radius:20px;
+  background:rgba(255,255,255,.75);border:1px solid rgba(7,50,96,.10);box-shadow:0 12px 28px rgba(4,28,60,.06)
+}
+.founder-cinema__quote-card span{font-family:Georgia,serif;font-size:54px;line-height:1;color:rgba(7,92,168,.24)}
+.founder-cinema__quote-card b{color:#26445f;font-size:14px;line-height:1.55;font-style:italic}
+.founder-cinema__primary{
+  display:inline-flex;align-items:center;gap:12px;width:max-content;padding:14px 25px;border-radius:999px;
+  color:#fff !important;font-weight:950;text-decoration:none;
+  background:linear-gradient(135deg,#05264c,#075ca8 68%,#1287d5);
+  box-shadow:0 18px 38px rgba(7,92,168,.25), inset 0 1px 0 rgba(255,255,255,.18);
+  transition:.28s cubic-bezier(.2,.85,.2,1);
+}
+.founder-cinema__primary:hover{transform:translateY(-3px);box-shadow:0 24px 52px rgba(7,92,168,.34)}
+.founder-cinema__explore{padding:42px 34px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.founder-cinema__explore p{margin:0 0 10px;color:var(--mm-blue);font-size:11px;font-weight:1000;text-transform:uppercase;letter-spacing:.24em}
+.founder-cinema__explore a{
+  position:relative;display:grid;grid-template-columns:54px 1fr 18px;grid-template-rows:auto auto;column-gap:14px;align-items:center;
+  padding:15px;border-radius:20px;text-decoration:none;color:#061b39;
+  background:rgba(255,255,255,.72);border:1px solid rgba(7,50,96,.08);box-shadow:0 12px 30px rgba(4,28,60,.06);
+  transition:.28s cubic-bezier(.2,.85,.2,1);overflow:hidden;
+}
+.founder-cinema__explore a::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(78,199,255,.16),transparent);opacity:0;transition:.25s}
+.founder-cinema__explore a:hover{transform:translateX(8px);border-color:rgba(78,199,255,.35);box-shadow:0 18px 42px rgba(7,92,168,.14)}
+.founder-cinema__explore a:hover::before{opacity:1}
+.founder-cinema__explore span{position:relative;grid-row:1/3;width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,#05264c,#075ca8);color:var(--mm-gold2);font-size:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+.founder-cinema__explore b{position:relative;font-size:14px;font-weight:1000}.founder-cinema__explore em{position:relative;font-size:11.5px;color:#617b94;font-style:normal;font-weight:750}.founder-cinema__explore i{position:relative;grid-column:3;grid-row:1/3;color:var(--mm-blue);font-size:24px;font-style:normal}
+#founderQuoteAr .founder-cinema__kicker{letter-spacing:0 !important;font-size:12px !important}
+#founderQuoteAr h3{letter-spacing:0 !important;line-height:1.05 !important}
+#founderQuoteAr .founder-cinema__primary{margin-right:0}
+@media(max-width:1120px){
+  .snav-drop{width:calc(100vw - 28px) !important;grid-template-columns:1fr 1fr !important;overflow:auto !important}
+  .snav-drop__cta{grid-column:1/-1 !important;min-height:220px !important}
+  .snav-drop--founder-cinematic{grid-template-columns:310px 1fr !important;overflow:auto !important}
+  .founder-cinema__explore{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);padding:26px}
+  .founder-cinema__explore p{grid-column:1/-1}
+}
+@media(max-width:760px){
+  .snav-drop{display:none !important}
+  .snav-overlay{display:none !important}
+}
+
+
+/* =========================================================
+   MONTY REQUEST PATCH — FULL SCREEN MEGA DROPS + ORIGINAL HERO PHOTO VIEW
+   Added: Full-width, longer dropdown panels for every nav tab.
+   Added: Hero image now preserves the full original panorama inside the same header design.
+========================================================= */
+
+/* 1) Desktop mega dropdowns: wider + longer + full-screen presence */
+@media (min-width:1181px){
+  .snav-drop{
+    left:0 !important;
+    right:0 !important;
+    width:100vw !important;
+    max-width:none !important;
+    margin:0 !important;
+    min-height:min(680px, calc(100svh - var(--sn-h,82px) - 10px)) !important;
+    max-height:calc(100svh - var(--sn-h,82px) - 10px) !important;
+    grid-template-columns:minmax(310px,1fr) minmax(310px,1fr) minmax(390px,.78fr) !important;
+    gap:0 !important;
+    padding:0 clamp(34px,4.6vw,90px) !important;
+    border-radius:0 0 42px 42px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    scrollbar-width:thin !important;
+    background:
+      radial-gradient(ellipse at 12% 0%, rgba(103,212,252,.16), transparent 38%),
+      radial-gradient(ellipse at 88% 0%, rgba(200,149,32,.10), transparent 34%),
+      linear-gradient(180deg,rgba(255,255,255,.985) 0%,rgba(238,249,255,.985) 100%) !important;
+    box-shadow:
+      0 46px 120px rgba(1,13,30,.24),
+      0 12px 28px rgba(1,13,30,.10),
+      inset 0 1px 0 rgba(255,255,255,.95) !important;
+  }
+
+  .snav-drop::-webkit-scrollbar{width:9px;}
+  .snav-drop::-webkit-scrollbar-thumb{
+    background:linear-gradient(180deg,var(--sn-crystal),var(--sn-royal));
+    border-radius:99px;
+    border:2px solid rgba(255,255,255,.8);
+  }
+
+  .snav-drop__col{
+    padding:clamp(34px,4vh,54px) clamp(22px,2.2vw,42px) clamp(30px,4vh,50px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  .snav-drop__row{
+    min-height:74px !important;
+    padding:14px 16px !important;
+    margin-bottom:9px !important;
+    border-radius:20px !important;
+  }
+
+  .snav-drop__ico{
+    width:56px !important;
+    height:56px !important;
+    border-radius:18px !important;
+    font-size:24px !important;
+  }
+
+  .snav-drop__row b{font-size:15.5px !important;}
+  .snav-drop__row em{font-size:12.5px !important;line-height:1.35 !important;}
+
+  .snav-drop__cta{
+    min-height:100% !important;
+    padding:clamp(38px,5vh,70px) clamp(30px,3vw,54px) !important;
+    justify-content:center !important;
+  }
+
+  .snav-drop__cta-title{
+    font-size:clamp(28px,2vw,40px) !important;
+    line-height:1.05 !important;
+  }
+
+  .snav-drop__cta-body{
+    font-size:15px !important;
+    line-height:1.85 !important;
+  }
+
+  /* Founder drop gets a true executive full-screen composition */
+  .snav-drop--founder-cinematic,
+  #sdrop-founder{
+    grid-template-columns:minmax(330px,420px) minmax(500px,1fr) minmax(330px,430px) !important;
+    min-height:min(700px, calc(100svh - var(--sn-h,82px) - 10px)) !important;
+    max-height:calc(100svh - var(--sn-h,82px) - 10px) !important;
+    padding:0 clamp(30px,4.2vw,82px) !important;
+    align-items:stretch !important;
+  }
+
+  .founder-cinema__portrait{
+    min-height:100% !important;
+    padding:42px 28px 34px !important;
+  }
+
+  .founder-cinema__portrait img{
+    width:min(285px,80%) !important;
+  }
+
+  .founder-cinema__rings{
+    width:350px !important;
+    height:350px !important;
+    top:42px !important;
+  }
+
+  .founder-cinema__message{
+    min-height:100% !important;
+    padding:clamp(76px,9vh,108px) clamp(38px,4vw,70px) clamp(44px,5vh,72px) !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+
+  .founder-cinema__quote h3{
+    font-size:clamp(44px,4.2vw,72px) !important;
+    line-height:.98 !important;
+  }
+
+  .founder-cinema__quote p:not(.founder-cinema__kicker){
+    font-size:16px !important;
+    line-height:1.9 !important;
+    max-width:760px !important;
+  }
+
+  .founder-cinema__explore{
+    min-height:100% !important;
+    padding:clamp(42px,5vh,72px) clamp(24px,2.5vw,46px) !important;
+    justify-content:center !important;
+  }
+
+  .founder-cinema__explore a{
+    min-height:88px !important;
+    padding:18px !important;
+    border-radius:22px !important;
+  }
+}
+
+/* 2) Hero photo: keep the same header design, but show the original panoramic image instead of only the middle */
+.hero-image-frame{
+  background:#eef8ff !important;
+}
+
+.hero-image-frame::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:-18px !important;
+  z-index:0 !important;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.26),rgba(255,255,255,0)),
+    url('assets/img/university.png') center center / cover no-repeat !important;
+  filter:blur(18px) saturate(1.08) contrast(1.04) !important;
+  transform:scale(1.04) !important;
+  opacity:.78 !important;
+  pointer-events:none !important;
+}
+
+.hero-image-frame img.hero-slide,
+.hero-image-frame img{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  transform:none !important;
+  animation:none !important;
+  filter:saturate(1.08) contrast(1.03) drop-shadow(0 22px 38px rgba(7,27,58,.18)) !important;
+}
+
+.hero-image-frame img.hero-slide.active{
+  opacity:1 !important;
+}
+
+.hero-image-frame:after,
+.hero-photo-glass{
+  z-index:2 !important;
+}
+
+@media (max-width:1180px){
+  .snav-mobile{
+    width:min(96vw,520px) !important;
+  }
+
+  .hero-image-frame img.hero-slide,
+  .hero-image-frame img{
+    object-fit:cover !important;
+    object-position:center center !important;
+  }
+}
+
+
+
+/* =========================================================
+   MONTY FINAL — navuni.png as mega dropdown background
+   Put navuni.png next to this HTML file, or change the path if needed.
+========================================================= */
+.nm-drop{
+  background:
+    linear-gradient(135deg, rgba(4,18,42,.78), rgba(6,28,58,.58) 42%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 26%, rgba(255,255,255,0) 54%),
+    url('navuni.png') center center / cover no-repeat !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 34px 100px rgba(3,22,47,.28), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop:after{
+  left:18px !important;
+  right:18px !important;
+  top:0 !important;
+  height:3px !important;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(103,207,255,.95), rgba(201,154,63,.88), transparent) !important;
+  box-shadow:0 0 20px rgba(103,207,255,.22) !important;
+}
+
+.nm-dc{
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(245,250,255,.74)) !important;
+  backdrop-filter:blur(10px) saturate(150%) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  box-shadow:0 16px 34px rgba(3,22,47,.12), inset 0 1px 0 rgba(255,255,255,.70) !important;
+}
+
+.nm-dh,.nm-r b,.nm-r small,.nm-copy h3,.nm-copy p,.nm-k,.nm-badge{
+  text-shadow:0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+#nm-dim{
+  background:linear-gradient(180deg, rgba(2,18,42,.08), rgba(2,18,42,.16)) !important;
+  backdrop-filter:blur(3px) !important;
+}
+
+
+
+/* =========================================================
+   MONTY FIX — FORCE navuni.png TO SHOW IN ALL NAV DROPDOWNS
+   Main expected location: assets/img/navuni.png
+   Also works if navuni.png is beside this HTML file.
+========================================================= */
+.nm-drop,
+.snav__drop,
+.founder-cinema,
+.nav-mega,
+.founder-mega{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.82), rgba(5,35,72,.58) 44%, rgba(255,255,255,.08) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,0) 58%),
+    url('assets/img/navuni.png'),
+    url('./navuni.png'),
+    url('navuni.png') !important;
+  background-size:cover, cover, cover, cover, cover !important;
+  background-position:center center, center center, center center, center center, center center !important;
+  background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  box-shadow:0 38px 110px rgba(3,22,47,.34), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop::after,
+.snav__drop::after,
+.founder-cinema::after,
+.nav-mega::after,
+.founder-mega::after{
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), rgba(103,207,255,.96), rgba(201,154,63,.92), transparent) !important;
+}
+
+.nm-dc,
+.snav-card,
+.founder-cinema__panel,
+.mega-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(241,249,255,.72)) !important;
+  backdrop-filter:blur(12px) saturate(155%) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(155%) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+}
+
+
+
+/* =========================================================
+   MONTY HOTFIX — correct dropdown class + forced navuni background
+========================================================= */
+.snav-drop,
+.nm-drop{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
+  background-size:cover,cover !important;
+  background-position:center center,center center !important;
+  background-repeat:no-repeat,no-repeat !important;
+}
+
+.snav-drop::before,
+.nm-drop::before{
+  z-index:0 !important;
+}
+
+.snav-drop > *,
+.nm-drop > *{
+  position:relative;
+  z-index:1;
+}
+
 </style>
 </head>
 <body class="preload-active">
@@ -3179,47 +3697,58 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     </div>
   </div>
 
-  <!-- ─── FOUNDER (special wide panel) ─── -->
-  <div class="snav-drop" id="sdrop-founder" aria-hidden="true">
-    <!-- Portrait column -->
-    <div class="snav-drop__founder-portrait">
-      <img class="snav-drop__founder-img" src="assets/img/memari.png" alt="H.E. Mohammed Shemel Al Memari" onerror="this.src='assets/img/img13.png'">
-      <div class="snav-drop__founder-badge">
+  <!-- ─── FOUNDER (Monty Cinematic Executive Mega Panel) ─── -->
+  <div class="snav-drop snav-drop--founder-cinematic" id="sdrop-founder" aria-hidden="true">
+    <div class="founder-cinema__aura" aria-hidden="true"></div>
+    <div class="founder-cinema__stars" aria-hidden="true"></div>
+
+    <div class="founder-cinema__portrait">
+      <div class="founder-cinema__rings" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <img src="assets/img/memari.png" alt="H.E. Mohammed Shemel Al Memari" onerror="this.src='assets/img/img13.png'">
+      <div class="founder-cinema__nameplate">
+        <small>Founder</small>
         <b>H.E. Mohammed Shemel Al Memari</b>
-        <span>Founder — Ain Al Khaleej University</span>
+        <em>Ain Al Khaleej University</em>
       </div>
     </div>
-    <!-- Quote column -->
-    <div class="snav-drop__founder-quote">
-      <!-- Language toggle -->
-      <div class="snav-drop__lang-toggle" id="founderLangToggle">
+
+    <div class="founder-cinema__message">
+      <div class="snav-drop__lang-toggle founder-cinema__toggle" id="founderLangToggle">
         <button class="snav-drop__lang-btn active" data-flang="en">EN — English</button>
         <button class="snav-drop__lang-btn" data-flang="ar">AR — عربي</button>
       </div>
 
-      <!-- English quote -->
-      <div class="snav-drop__quote active" id="founderQuoteEn">
-        <p class="snav-drop__quote-kicker">English — Founder's Vision</p>
-        <h3 class="snav-drop__quote-title">A Message from the Founder</h3>
-        <p class="snav-drop__quote-body">It is my great pleasure to introduce Ain Al Khaleej University of Health Sciences to the people of Al Ain and the wider UAE community. Our university is committed to academic excellence, innovation, and preparing future healthcare leaders through world-class education, advanced research, and a dynamic learning environment.</p>
-        <div class="snav-drop__quote-sig">
-          <b>H.E. Mohammed Shemel Al Memari</b>
-          <span>Founder</span>
+      <div class="snav-drop__quote founder-cinema__quote active" id="founderQuoteEn">
+        <p class="founder-cinema__kicker">Guided by Vision • Driven by Excellence</p>
+        <h3>A Message From <span>The Founder</span></h3>
+        <p>It is my great pleasure to introduce Ain Al Khaleej University of Health Sciences to the people of Al Ain and the wider UAE community. Our university is committed to academic excellence, innovation, and preparing future healthcare leaders through world-class education, advanced research, and a dynamic learning environment.</p>
+        <div class="founder-cinema__quote-card">
+          <span>“</span>
+          <b>Our vision is a healthier future powered by knowledge, compassion, and innovation.</b>
         </div>
-        <a class="snav-drop__founder-cta" href="#research">Read Full Message →</a>
+        <a class="founder-cinema__primary" href="#research">Read Full Message <i>→</i></a>
       </div>
 
-      <!-- Arabic quote -->
-      <div class="snav-drop__quote" id="founderQuoteAr">
-        <p class="snav-drop__quote-kicker" style="direction:rtl;text-align:right;">العربية — كلمة المؤسس</p>
-        <h3 class="snav-drop__quote-title" lang="ar">رسالة المؤسس</h3>
-        <p class="snav-drop__quote-body" lang="ar">يسعدني أن أقدّم جامعة عين الخليج لعلوم الصحة إلى أبناء مدينة العين والمجتمع الإماراتي الكريم. تلتزم الجامعة بالتميز الأكاديمي والابتكار وإعداد قادة الرعاية الصحية في المستقبل من خلال التعليم العالمي المستوى والبحث العلمي المتقدم وبيئة تعليمية ديناميكية.</p>
-        <div class="snav-drop__quote-sig" lang="ar">
-          <b>معالي محمد شميل المهيري</b>
-          <span>المؤسس</span>
+      <div class="snav-drop__quote founder-cinema__quote" id="founderQuoteAr" dir="rtl" lang="ar">
+        <p class="founder-cinema__kicker">رؤية تقودها الريادة • وتميّز يصنع المستقبل</p>
+        <h3>كلمة <span>المؤسس</span></h3>
+        <p>يسعدني أن أقدّم جامعة عين الخليج لعلوم الصحة إلى أبناء مدينة العين والمجتمع الإماراتي الكريم. تلتزم الجامعة بالتميز الأكاديمي والابتكار وإعداد قادة الرعاية الصحية في المستقبل من خلال التعليم العالمي المستوى والبحث العلمي المتقدم وبيئة تعليمية ديناميكية.</p>
+        <div class="founder-cinema__quote-card">
+          <span>”</span>
+          <b>رؤيتنا مستقبل صحي أفضل تقوده المعرفة والرحمة والابتكار.</b>
         </div>
-        <a class="snav-drop__founder-cta" href="#research" style="direction:rtl;">← قراءة الرسالة كاملة</a>
+        <a class="founder-cinema__primary" href="#research"><i>←</i> قراءة الرسالة كاملة</a>
       </div>
+    </div>
+
+    <div class="founder-cinema__explore">
+      <p>Explore More</p>
+      <a href="#research"><span>✒</span><b>Founder’s Word</b><em>Arabic & English message</em><i>›</i></a>
+      <a href="#research"><span>◉</span><b>University Vision</b><em>Purpose and future direction</em><i>›</i></a>
+      <a href="#research"><span>♛</span><b>Leadership</b><em>Governance and excellence</em><i>›</i></a>
+      <a href="#news"><span>◇</span><b>Our Legacy</b><em>From vision to impact</em><i>›</i></a>
     </div>
   </div>
 
@@ -4117,6 +4646,575 @@ html { scroll-padding-top: calc(var(--sn-h) + 8px); }
     el.addEventListener('pointerleave', function() { el.style.transform = ''; }, { passive: true });
   });
 
+})();
+</script>
+
+
+
+<!-- =========================================================
+   MONTY V3 FIX — MEGA MENU VIEWPORT ALIGNMENT
+   Fixes dropdown shifting outside the screen by removing old translateX(-50%)
+   when panels are full-viewport fixed elements.
+========================================================= -->
+<style>
+@media (min-width:1181px){
+  .snav-drop,
+  .snav-drop--founder-cinematic,
+  #sdrop-founder{
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    width:100vw !important;
+    max-width:100vw !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    transform:translateY(-14px) scaleY(.96) !important;
+    transform-origin:top center !important;
+    box-sizing:border-box !important;
+  }
+
+  .snav-drop.is-open,
+  .snav-drop--founder-cinematic.is-open,
+  #sdrop-founder.is-open{
+    transform:translateY(0) scaleY(1) !important;
+  }
+
+  .snav-drop{
+    padding-left:clamp(42px,5vw,92px) !important;
+    padding-right:clamp(42px,5vw,92px) !important;
+  }
+
+  .snav-drop--founder-cinematic,
+  #sdrop-founder{
+    padding-left:clamp(34px,4vw,84px) !important;
+    padding-right:clamp(34px,4vw,84px) !important;
+  }
+
+  /* keep the panel content inside the visible viewport on smaller laptops */
+  @media (max-width:1360px){
+    .snav-drop{
+      grid-template-columns:minmax(280px,1fr) minmax(280px,1fr) minmax(340px,.8fr) !important;
+      padding-left:28px !important;
+      padding-right:28px !important;
+    }
+    .snav-drop--founder-cinematic,
+    #sdrop-founder{
+      grid-template-columns:minmax(300px,360px) minmax(420px,1fr) minmax(300px,360px) !important;
+      padding-left:24px !important;
+      padding-right:24px !important;
+    }
+  }
+
+  @media (max-width:1220px){
+    .snav-drop{
+      grid-template-columns:1fr 1fr !important;
+    }
+    .snav-drop__cta{
+      grid-column:1/-1 !important;
+    }
+    .snav-drop--founder-cinematic,
+    #sdrop-founder{
+      grid-template-columns:300px 1fr !important;
+      overflow-y:auto !important;
+    }
+    .founder-cinema__explore{
+      grid-column:1/-1 !important;
+      display:grid !important;
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+    .founder-cinema__explore p{
+      grid-column:1/-1 !important;
+    }
+  }
+}
+
+
+/* =========================================================
+   MONTY FINAL — navuni.png as mega dropdown background
+   Put navuni.png next to this HTML file, or change the path if needed.
+========================================================= */
+.nm-drop{
+  background:
+    linear-gradient(135deg, rgba(4,18,42,.78), rgba(6,28,58,.58) 42%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 26%, rgba(255,255,255,0) 54%),
+    url('navuni.png') center center / cover no-repeat !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 34px 100px rgba(3,22,47,.28), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop:after{
+  left:18px !important;
+  right:18px !important;
+  top:0 !important;
+  height:3px !important;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(103,207,255,.95), rgba(201,154,63,.88), transparent) !important;
+  box-shadow:0 0 20px rgba(103,207,255,.22) !important;
+}
+
+.nm-dc{
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(245,250,255,.74)) !important;
+  backdrop-filter:blur(10px) saturate(150%) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  box-shadow:0 16px 34px rgba(3,22,47,.12), inset 0 1px 0 rgba(255,255,255,.70) !important;
+}
+
+.nm-dh,.nm-r b,.nm-r small,.nm-copy h3,.nm-copy p,.nm-k,.nm-badge{
+  text-shadow:0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+#nm-dim{
+  background:linear-gradient(180deg, rgba(2,18,42,.08), rgba(2,18,42,.16)) !important;
+  backdrop-filter:blur(3px) !important;
+}
+
+
+
+/* =========================================================
+   MONTY FIX — FORCE navuni.png TO SHOW IN ALL NAV DROPDOWNS
+   Main expected location: assets/img/navuni.png
+   Also works if navuni.png is beside this HTML file.
+========================================================= */
+.nm-drop,
+.snav__drop,
+.founder-cinema,
+.nav-mega,
+.founder-mega{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.82), rgba(5,35,72,.58) 44%, rgba(255,255,255,.08) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,0) 58%),
+    url('assets/img/navuni.png'),
+    url('./navuni.png'),
+    url('navuni.png') !important;
+  background-size:cover, cover, cover, cover, cover !important;
+  background-position:center center, center center, center center, center center, center center !important;
+  background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  box-shadow:0 38px 110px rgba(3,22,47,.34), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop::after,
+.snav__drop::after,
+.founder-cinema::after,
+.nav-mega::after,
+.founder-mega::after{
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), rgba(103,207,255,.96), rgba(201,154,63,.92), transparent) !important;
+}
+
+.nm-dc,
+.snav-card,
+.founder-cinema__panel,
+.mega-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(241,249,255,.72)) !important;
+  backdrop-filter:blur(12px) saturate(155%) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(155%) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+}
+
+
+
+/* =========================================================
+   MONTY HOTFIX — correct dropdown class + forced navuni background
+========================================================= */
+.snav-drop,
+.nm-drop{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
+  background-size:cover,cover !important;
+  background-position:center center,center center !important;
+  background-repeat:no-repeat,no-repeat !important;
+}
+
+.snav-drop::before,
+.nm-drop::before{
+  z-index:0 !important;
+}
+
+.snav-drop > *,
+.nm-drop > *{
+  position:relative;
+  z-index:1;
+}
+
+</style>
+
+
+
+<!-- =========================================================
+   MONTY V4 FIX — RESTORE HEADER PHOTO DISPLAY LIKE BEFORE
+   Reverts the previous object-fit:contain panoramic fit.
+   Keeps the same header design, split shape, overlay, and cinematic crop.
+========================================================= -->
+<style>
+/* Desktop / laptop: restore the old premium hero image crop */
+.hero-image-frame{
+  background:#f7fbff !important;
+}
+
+.hero-image-frame::before{
+  content:none !important;
+  display:none !important;
+}
+
+.hero-image-frame img.hero-slide,
+.hero-image-frame img{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:scale(1.045) !important;
+  animation:none !important;
+  filter:saturate(1.08) contrast(1.04) !important;
+}
+
+.hero-image-frame img.hero-slide.active{
+  opacity:1 !important;
+}
+
+/* Keep the same elegant header shape and left fade */
+.hero-image-frame{
+  clip-path:ellipse(82% 78% at 74% 48%) !important;
+}
+
+.hero-image-frame:after{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:2 !important;
+  pointer-events:none !important;
+  background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.55) 17%,rgba(255,255,255,.10) 44%,rgba(255,255,255,0) 72%) !important;
+}
+
+.hero-photo-glass{
+  clip-path:ellipse(82% 78% at 74% 48%) !important;
+}
+
+/* Slightly better composition for very wide screens */
+@media (min-width:1400px){
+  .hero-image-frame img.hero-slide,
+  .hero-image-frame img{
+    object-position:center center !important;
+    transform:scale(1.035) !important;
+  }
+}
+
+/* Tablet/mobile: full-width crop like the old responsive behavior */
+@media (max-width:1180px){
+  .hero-image-frame,
+  .hero-photo-glass{
+    clip-path:none !important;
+  }
+  .hero-image-frame img.hero-slide,
+  .hero-image-frame img{
+    object-fit:cover !important;
+    object-position:center center !important;
+    transform:scale(1.02) !important;
+  }
+}
+
+
+/* =========================================================
+   MONTY FINAL — navuni.png as mega dropdown background
+   Put navuni.png next to this HTML file, or change the path if needed.
+========================================================= */
+.nm-drop{
+  background:
+    linear-gradient(135deg, rgba(4,18,42,.78), rgba(6,28,58,.58) 42%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 26%, rgba(255,255,255,0) 54%),
+    url('navuni.png') center center / cover no-repeat !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 34px 100px rgba(3,22,47,.28), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop:after{
+  left:18px !important;
+  right:18px !important;
+  top:0 !important;
+  height:3px !important;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(103,207,255,.95), rgba(201,154,63,.88), transparent) !important;
+  box-shadow:0 0 20px rgba(103,207,255,.22) !important;
+}
+
+.nm-dc{
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(245,250,255,.74)) !important;
+  backdrop-filter:blur(10px) saturate(150%) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  box-shadow:0 16px 34px rgba(3,22,47,.12), inset 0 1px 0 rgba(255,255,255,.70) !important;
+}
+
+.nm-dh,.nm-r b,.nm-r small,.nm-copy h3,.nm-copy p,.nm-k,.nm-badge{
+  text-shadow:0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+#nm-dim{
+  background:linear-gradient(180deg, rgba(2,18,42,.08), rgba(2,18,42,.16)) !important;
+  backdrop-filter:blur(3px) !important;
+}
+
+
+
+/* =========================================================
+   MONTY FIX — FORCE navuni.png TO SHOW IN ALL NAV DROPDOWNS
+   Main expected location: assets/img/navuni.png
+   Also works if navuni.png is beside this HTML file.
+========================================================= */
+.nm-drop,
+.snav__drop,
+.founder-cinema,
+.nav-mega,
+.founder-mega{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.82), rgba(5,35,72,.58) 44%, rgba(255,255,255,.08) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,0) 58%),
+    url('assets/img/navuni.png'),
+    url('./navuni.png'),
+    url('navuni.png') !important;
+  background-size:cover, cover, cover, cover, cover !important;
+  background-position:center center, center center, center center, center center, center center !important;
+  background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  box-shadow:0 38px 110px rgba(3,22,47,.34), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop::after,
+.snav__drop::after,
+.founder-cinema::after,
+.nav-mega::after,
+.founder-mega::after{
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), rgba(103,207,255,.96), rgba(201,154,63,.92), transparent) !important;
+}
+
+.nm-dc,
+.snav-card,
+.founder-cinema__panel,
+.mega-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(241,249,255,.72)) !important;
+  backdrop-filter:blur(12px) saturate(155%) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(155%) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+}
+
+
+
+/* =========================================================
+   MONTY HOTFIX — correct dropdown class + forced navuni background
+========================================================= */
+.snav-drop,
+.nm-drop{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
+  background-size:cover,cover !important;
+  background-position:center center,center center !important;
+  background-repeat:no-repeat,no-repeat !important;
+}
+
+.snav-drop::before,
+.nm-drop::before{
+  z-index:0 !important;
+}
+
+.snav-drop > *,
+.nm-drop > *{
+  position:relative;
+  z-index:1;
+}
+
+</style>
+
+
+<!-- =========================================================
+   MONTY V9 — OLD HERO LOOK + RIGHT EDGE START
+   Keep the old cover/cinematic header display, but lock the original
+   image to the RIGHT edge so crop happens from the LEFT side only.
+========================================================= -->
+<style>
+.hero-image-frame img.hero-slide,
+.hero-image-frame img{
+  object-fit:cover !important;
+  object-position:100% center !important;
+  transform-origin:right center !important;
+  transform:scale(1.045) !important;
+}
+
+.hero-image-frame img.hero-slide.active{
+  opacity:1 !important;
+  transform-origin:right center !important;
+  transform:scale(1.035) !important;
+}
+
+@media (min-width:1400px){
+  .hero-image-frame img.hero-slide,
+  .hero-image-frame img{
+    object-position:100% center !important;
+    transform-origin:right center !important;
+    transform:scale(1.035) !important;
+  }
+}
+
+@media (max-width:1180px){
+  .hero-image-frame img.hero-slide,
+  .hero-image-frame img{
+    object-position:100% center !important;
+    transform-origin:right center !important;
+    transform:scale(1.02) !important;
+  }
+}
+
+
+/* =========================================================
+   MONTY FINAL — navuni.png as mega dropdown background
+   Put navuni.png next to this HTML file, or change the path if needed.
+========================================================= */
+.nm-drop{
+  background:
+    linear-gradient(135deg, rgba(4,18,42,.78), rgba(6,28,58,.58) 42%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.04) 26%, rgba(255,255,255,0) 54%),
+    url('navuni.png') center center / cover no-repeat !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+  box-shadow:0 34px 100px rgba(3,22,47,.28), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop:after{
+  left:18px !important;
+  right:18px !important;
+  top:0 !important;
+  height:3px !important;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), rgba(103,207,255,.95), rgba(201,154,63,.88), transparent) !important;
+  box-shadow:0 0 20px rgba(103,207,255,.22) !important;
+}
+
+.nm-dc{
+  background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(245,250,255,.74)) !important;
+  backdrop-filter:blur(10px) saturate(150%) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  box-shadow:0 16px 34px rgba(3,22,47,.12), inset 0 1px 0 rgba(255,255,255,.70) !important;
+}
+
+.nm-dh,.nm-r b,.nm-r small,.nm-copy h3,.nm-copy p,.nm-k,.nm-badge{
+  text-shadow:0 1px 0 rgba(255,255,255,.20) !important;
+}
+
+#nm-dim{
+  background:linear-gradient(180deg, rgba(2,18,42,.08), rgba(2,18,42,.16)) !important;
+  backdrop-filter:blur(3px) !important;
+}
+
+
+
+/* =========================================================
+   MONTY FIX — FORCE navuni.png TO SHOW IN ALL NAV DROPDOWNS
+   Main expected location: assets/img/navuni.png
+   Also works if navuni.png is beside this HTML file.
+========================================================= */
+.nm-drop,
+.snav__drop,
+.founder-cinema,
+.nav-mega,
+.founder-mega{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.82), rgba(5,35,72,.58) 44%, rgba(255,255,255,.08) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,0) 58%),
+    url('assets/img/navuni.png'),
+    url('./navuni.png'),
+    url('navuni.png') !important;
+  background-size:cover, cover, cover, cover, cover !important;
+  background-position:center center, center center, center center, center center, center center !important;
+  background-repeat:no-repeat, no-repeat, no-repeat, no-repeat, no-repeat !important;
+  border:1px solid rgba(255,255,255,.20) !important;
+  box-shadow:0 38px 110px rgba(3,22,47,.34), inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+.nm-drop::after,
+.snav__drop::after,
+.founder-cinema::after,
+.nav-mega::after,
+.founder-mega::after{
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), rgba(103,207,255,.96), rgba(201,154,63,.92), transparent) !important;
+}
+
+.nm-dc,
+.snav-card,
+.founder-cinema__panel,
+.mega-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(241,249,255,.72)) !important;
+  backdrop-filter:blur(12px) saturate(155%) !important;
+  -webkit-backdrop-filter:blur(12px) saturate(155%) !important;
+  border:1px solid rgba(255,255,255,.30) !important;
+}
+
+
+
+/* =========================================================
+   MONTY HOTFIX — correct dropdown class + forced navuni background
+========================================================= */
+.snav-drop,
+.nm-drop{
+  background-color:#071525 !important;
+  background-image:
+    linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%),
+    linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%) !important;
+  background-size:cover,cover !important;
+  background-position:center center,center center !important;
+  background-repeat:no-repeat,no-repeat !important;
+}
+
+.snav-drop::before,
+.nm-drop::before{
+  z-index:0 !important;
+}
+
+.snav-drop > *,
+.nm-drop > *{
+  position:relative;
+  z-index:1;
+}
+
+</style>
+
+
+<script>
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.snav-drop, .nm-drop'));
+  if(!dropdowns.length) return;
+
+  const overlay1 = "linear-gradient(135deg, rgba(3,18,43,.78), rgba(5,35,72,.54) 44%, rgba(255,255,255,.10) 100%)";
+  const overlay2 = "linear-gradient(90deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,.05) 26%, rgba(255,255,255,0) 58%)";
+  const candidatePaths = [
+    'assets/img/navuni.png',
+    './assets/img/navuni.png',
+    'navuni.png',
+    './navuni.png'
+  ];
+
+  function applyBackground(path){
+    dropdowns.forEach(function(el){
+      el.style.backgroundImage = overlay1 + ',' + overlay2 + ", url('" + path + "')";
+      el.style.backgroundSize = 'cover, cover, cover';
+      el.style.backgroundPosition = 'center center, center center, center center';
+      el.style.backgroundRepeat = 'no-repeat, no-repeat, no-repeat';
+      el.style.backgroundColor = '#071525';
+    });
+  }
+
+  function tryPath(index){
+    if(index >= candidatePaths.length){
+      return;
+    }
+    const img = new Image();
+    img.onload = function(){ applyBackground(candidatePaths[index]); };
+    img.onerror = function(){ tryPath(index + 1); };
+    img.src = candidatePaths[index] + '?v=' + Date.now();
+  }
+
+  tryPath(0);
 })();
 </script>
 
